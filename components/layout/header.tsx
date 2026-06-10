@@ -159,6 +159,7 @@ export default function Header({ menuColor }: menuProps) {
     { label: "BRANCH LOCATOR", href: "/branchNetwork" },
     { label: "AWARDS", href: "/awards" },
     { label: "LEADERSHIP", href: "/leadership" },
+    { label: "E-VERIFY", href: "/e-verify" },
     // { label: "CAREERS", href: "#" },
     // { label: "E-VERIFY", href: "#" },
     // { label: "MANAGE MY POLICY", href: "#" },

@@ -1,0 +1,22 @@
+.e-verify-hero {
+  background-image: url("../../public/img/E-Verify//e-verify_banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.e-verify-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.6);
+}
+
+/* Text upar lane ke liye */
+.e-verify-hero > * {
+  position: relative;
+  z-index: 2;
+}
