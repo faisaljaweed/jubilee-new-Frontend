@@ -615,7 +615,7 @@ export const packagePlans = {
       Card_description: "Lorem Ipsum Sample Text",
       Card_price: "2000",
       Card_features: [
-        "Starting from Rs. 20,000/-",
+        // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: 500,000",
         "OPD Coverage Up to: 40,000",
         "Age: Up to 75 Years",
@@ -630,7 +630,7 @@ export const packagePlans = {
       Card_description: "Lorem Ipsum Sample Text",
       Card_price: "3000",
       Card_features: [
-        "Starting from Rs. 20,000/-",
+        // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: Rs 1,000,000",
         "No Medical Tests Required",
         "Age: Up to 59 Years",
@@ -645,7 +645,7 @@ export const packagePlans = {
       Card_description: "Lorem Ipsum Sample Text",
       Card_price: "2000",
       Card_features: [
-        "Starting from Rs. 20,000/-",
+        // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: Rs 1,000,000",
         "No Medical Tests Required",
         "Cover Up to: Self, Spouse and 4 kids",
