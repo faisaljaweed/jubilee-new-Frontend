@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import ProductHero from "./ProductHero";
 import ProductTrustCards from "./ProductTrustCards";
@@ -139,7 +139,9 @@ export default function ProductPageTemplate({
 
       {product.showQuote && (
         <div id="quote-section">
-          <QuoteSection />
+          <Suspense fallback={<div />}>
+            <QuoteSection />
+          </Suspense>
         </div>
       )}
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState, useEffect, useRef } from "react";
+import React, { useMemo, useState, useEffect, useRef, Suspense } from "react";
 // @ts-ignore: allow side-effect CSS import without type declarations
 import "./healthcare.css";
 import Image from "next/image";
@@ -280,9 +280,9 @@ const HealthCare = () => {
         `}</style>
       </section>
       {/* Form */}
-      <div id="quote-section">
+      <Suspense fallback={<div />}>
         <QuoteSection />
-      </div>
+      </Suspense>
 
       {/* Table Section */}
       {/* <section className="py-16 bg-gray-50">

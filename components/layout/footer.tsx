@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Facebook, Linkedin, Instagram, Youtube, Music } from "lucide-react";
+// import { Facebook, Linkedin, Instagram, Youtube, Music } from "lucide-react";
 import Image from "next/image";
 import JubieeLogo from "../../public/img/Logo.png";
 import Footer_img1 from "../../public/img/Footer1.png";

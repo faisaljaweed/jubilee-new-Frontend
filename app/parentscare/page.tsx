@@ -832,7 +832,7 @@
 
 "use client";
 
-import { useMemo, useEffect, useState, useRef } from "react";
+import { useMemo, useEffect, useState, useRef, Suspense } from "react";
 import Image from "next/image";
 import "./parentcare.css";
 import Container from "@/components/home/container";
@@ -1612,7 +1612,9 @@ const ParentCare = () => {
       </section>
       {/* QuoteSection */}
       <div id="quote-section" ref={quoteRef} style={fadeUp(quoteOn, 80)}>
-        <QuoteSection />
+        <Suspense fallback={<div />}>
+          <QuoteSection />
+        </Suspense>
       </div>
 
       {/* CTA */}

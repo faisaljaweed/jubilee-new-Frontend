@@ -690,7 +690,14 @@
 "use client";
 // @ts-ignore
 import "./home.css";
-import { useMemo, useState, useEffect, useRef, useCallback } from "react";
+import {
+  useMemo,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  Suspense,
+} from "react";
 // import Container from "../../components/home/container";
 // import Image from "next/image";
 import QuoteSection from "../../components/home/QouteSection";
@@ -1378,7 +1385,9 @@ const HomePage = () => {
           </h1>
 
           <div ref={quoteSectionRef}>
-            <QuoteSection prefillData={quotePrefill} redirectAfterStepOne />
+            <Suspense fallback={<div />}>
+              <QuoteSection prefillData={quotePrefill} redirectAfterStepOne />
+            </Suspense>
           </div>
           {/* <QuoteSection /> */}
 
