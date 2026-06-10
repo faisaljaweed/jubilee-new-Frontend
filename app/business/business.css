@@ -1,0 +1,22 @@
+.business-hero {
+  background-image: url("../../public/img/Business/image\ 5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.section5_bg {
+  position: relative;
+  /* background-image: url("../../public//img/image\ 3.png"); */
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../public//img/Business/image\ 3.png");
+}
+
+.dummy_Hero {
+  background-image: url("../../public//img//Business/01.png");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}

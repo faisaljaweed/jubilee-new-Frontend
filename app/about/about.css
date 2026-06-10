@@ -1,0 +1,48 @@
+.about_hero {
+  background-image: url("/img/About/4cef0a4a131b56d22ab2cbd42534f0e9f051b789.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+.Banner {
+  background-image: url("../../public//img/About//main-Banner-1920x820.jpg.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+/* .about_hero {
+  position: relative;
+  background: url("/img/About/4cef0a4a131b56d22ab2cbd42534f0e9f051b789.jpg")
+    center/cover no-repeat;
+  height: 50vh;
+} */
+
+/* Overlay */
+.about_hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.6); /* 60% opacity */
+}
+
+/* Text upar lane ke liye */
+.about_hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.texture_background {
+  background-image: url("../../public//img/About//Group 1000005315.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.about_banner {
+  background-image: url("../../public//img//About/About-Us.jpg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

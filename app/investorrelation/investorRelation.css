@@ -1,0 +1,46 @@
+/* .hero-contact */
+
+.hero-contact {
+  background-image: url("../../public/img/InvestorRelation/c65b59db09e50ee809c46a7340c5c2214da7718c.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.hero-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.8); /* 60% opacity */
+}
+
+/* Text upar lane ke liye */
+.hero-contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+.building {
+  background-image: url("../../public/img/InvestorRelation/50ed33cc81c9c4df7682309e0a3ebfa4ffdc8678.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Banner {
+  background-image: url("../../public/img/InvestorRelation/Banner_Image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.invest {
+  background-image: url("../../public//img//InvestorRelation//Investor-Banner.jpg.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* height: 100vh; */
+}

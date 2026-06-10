@@ -1,0 +1,22 @@
+.leader_ship {
+  background-image: url("../..//public//img//claims//about-us-banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.leader_ship::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.6);
+}
+
+/* Text upar lane ke liye */
+.leader_ship > * {
+  position: relative;
+  z-index: 2;
+}

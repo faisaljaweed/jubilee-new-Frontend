@@ -1,0 +1,22 @@
+.award-hero {
+  background-image: url("../../public/img/Awards/hero.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.award-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.8); /* 60% opacity */
+}
+
+/* Text upar lane ke liye */
+.award-hero > * {
+  position: relative;
+  z-index: 2;
+}

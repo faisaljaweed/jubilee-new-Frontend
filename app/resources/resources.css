@@ -1,0 +1,22 @@
+.resources-hero {
+  background-image: url("../../public/img/Resources//Hero\ Section.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.resources-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.6); /* 60% opacity */
+}
+
+/* Text upar lane ke liye */
+.resources-hero > * {
+  position: relative;
+  z-index: 2;
+}

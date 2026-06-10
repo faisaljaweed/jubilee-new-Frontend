@@ -1,0 +1,32 @@
+/* .hero-contact */
+
+.hero-contact {
+  background-image: url("../../public/img/Contact//Contact\ Hero.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.hero-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.8); /* 60% opacity */
+}
+
+/* Text upar lane ke liye */
+.hero-contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+.back {
+  background-image: url("../../public/img/Contact/01.jpeg");
+  /* height: 100vh; */
+  background-size: cover;
+  background-position: center;
+  /* margin-top: 50px; */
+}
