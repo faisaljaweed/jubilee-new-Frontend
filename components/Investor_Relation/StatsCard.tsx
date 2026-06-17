@@ -25,21 +25,22 @@ function StatCard({ value, label, className = "", children }: StatCardProps) {
     <div
       className={`relative overflow-hidden rounded-[9px] border border-white/30 bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-[2px] ${className}`}
     >
-      <div className="relative z-20 box-border h-full p-[17px_19px]">
-        <h3 className="m-0 text-[52px] font-medium text-white md:text-[56px] font-futura">
+      {/* image/graph/background children pehle render honge */}
+      {children}
+
+      {/* text hamesha top par rahega, lekin alignment normal rahegi */}
+      <div className="relative z-30 box-border h-full p-[17px_19px]">
+        <h3 className="m-0 font-futura text-[52px] font-medium !text-white md:text-[56px]">
           {value}
         </h3>
 
-        <p className="m-0 mt-1 text-[16px] font-medium uppercase text-white font-futura">
+        <p className="m-0 mt-1 font-futura text-[16px] font-medium uppercase !text-white">
           {label}
         </p>
-
-        {children}
       </div>
     </div>
   );
 }
-
 export default function Overview2025Section() {
   return (
     <section className="building relative min-h-[675px] overflow-hidden font-sans text-white max-[900px]:min-h-0">

@@ -1097,7 +1097,9 @@ export default function ContactSection() {
             </h1>
 
             <p className="mt-5 font-futura text-[15px] font-normal leading-[1.5] md:text-[22px]">
-              Connect with our support team instantly
+              {/* Connect with our support team instantly */}
+              Explore our insurance solutions or connect with our support team
+              instantly.
             </p>
           </div>
         </div>

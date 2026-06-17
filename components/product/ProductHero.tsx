@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/common/button";
-
+import Image from "next/image";
+type AppDownload = {
+  show: boolean;
+  title?: string;
+  playStoreImage?: string;
+  appStoreImage?: string;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
+};
 function AnimatedCounter({
   value,
   run,
@@ -93,6 +101,7 @@ type ProductHeroProps = {
     startValue?: number;
   }[];
   theme?: Theme;
+  appDownload?: AppDownload;
 };
 
 export default function ProductHero({
@@ -101,6 +110,7 @@ export default function ProductHero({
   fallback,
   counters = [],
   theme,
+  appDownload,
 }: ProductHeroProps) {
   const [heroOn, setHeroOn] = useState(false);
 
@@ -202,6 +212,54 @@ export default function ProductHero({
               </div>
             )}
           </div>
+          {/* {appDownload && <AppDownload appDownload={appDownload} />} */}
+          {appDownload?.show && (
+            <div
+              className="mt-2 flex flex-wrap items-center gap-3"
+              style={fromLeft(heroOn, 120)}
+            >
+              <p
+                className="font-futura text-[15px] font-semibold uppercase leading-none"
+                style={{ color: textColor }}
+              >
+                {appDownload.title ?? "Download the App"}
+              </p>
+
+              {appDownload.playStoreImage && (
+                <a
+                  href={appDownload.playStoreUrl ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block h-[42px] w-[135px] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <Image
+                    src={appDownload.playStoreImage}
+                    alt="Download on Play Store"
+                    fill
+                    sizes="135px"
+                    className="object-contain"
+                  />
+                </a>
+              )}
+
+              {appDownload.appStoreImage && (
+                <a
+                  href={appDownload.appStoreUrl ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block h-[42px] w-[135px] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <Image
+                    src={appDownload.appStoreImage}
+                    alt="Download on App Store"
+                    fill
+                    sizes="135px"
+                    className="object-contain"
+                  />
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {counters.length > 0 && (

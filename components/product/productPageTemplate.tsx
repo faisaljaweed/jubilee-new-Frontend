@@ -317,6 +317,7 @@ export default function ProductPageTemplate({
         fallback={product.heroFallback}
         counters={product.counters}
         theme={product.theme}
+        appDownload={product.appDownload}
       />
 
       <ProductTrustCards

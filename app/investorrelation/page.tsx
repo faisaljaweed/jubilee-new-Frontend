@@ -217,13 +217,13 @@ const InvestorRelation = () => {
               Dive into all of Jubilee General’s important financial
               information, compiled for our shareholders.
             </p>
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <Button
                 onClick={handleDiscoverClick}
                 text="Discover More"
                 className="md:px-12 md:py-3 px-8 py-2  font-futura bg-[#BA0C2F] text-white hover:bg-[white] hover:border hover:border-[#BA0C2F] hover:text-[#BA0C2F] rounded-full  font-semibold cursor-pointer"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -760,7 +760,18 @@ export const productPages = [
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Hercare.jpg.jpeg",
     },
-
+    appDownload: {
+      show: true,
+      title: "Download the App",
+      playStoreImage: "/img/Play_Store.png",
+      appStoreImage: "/img/App_Store.png",
+      playStoreUrl: "#",
+      appStoreUrl: "#",
+    },
+    // agr kahin ye show ho tw ye line likhe hide hojaye ga
+    // appDownload: {
+    //   show: false,
+    // },
     counters: [
       {
         label: "Claims Paid",

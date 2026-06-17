@@ -9,7 +9,10 @@ export const parentCarePackage = [
     card_title: (
       <>
         Pakistan’s ONLY
-        <br /> PLAN OFFERING OPD
+        <br /> PLAN OFFERING{" "}
+        <span className="font-semibold text-[#BA0C2F] group-hover:text-white">
+          OPD
+        </span>
       </>
     ),
   },
