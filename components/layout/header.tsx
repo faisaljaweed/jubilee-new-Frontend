@@ -167,7 +167,7 @@ export default function Header({ menuColor }: menuProps) {
   const topNavLinks = [
     { label: "SUSTAINABILITY", href: "/sustainability" },
     // { label: "SUSTAINABILITY", href: "#" },
-    { label: "BRANCH LOCATOR", href: "/branchNetwork" },
+    { label: "BRANCH LOCATOR", href: "/branch-network" },
     { label: "AWARDS", href: "/awards" },
     { label: "LEADERSHIP", href: "/leadership" },
     { label: "CLAIMS", href: "/claims" },
