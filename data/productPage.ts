@@ -14,6 +14,25 @@ import {
   ZiaratTravelPackage,
   DomesticTravelPackage,
   SelfInsurance,
+  internationalTravelTrustCards,
+  homeTripTrustCards,
+  studentTravelTrustCards,
+  hajjUmrahTravelTrustCards,
+  lifestyleCareTrustCards,
+  ziaratTravelTrustCards,
+  domesticTravelTrustCards,
+  familyHealthCareTrustCards,
+  personalHealthCareTrustCards,
+  parentsCareTrustCards,
+  herCareTrustCards,
+  personalAccidentTrustCards,
+  homeCareTrustCards,
+  privateCarActOnlyTrustCards,
+  privateCarTrustCards,
+  oldCarTrustCards,
+  threeTOldCarTrustCards,
+  motorCycleTrustCards,
+  homeCarePackage,
 } from "@/data/healthCareData";
 
 import {
@@ -51,6 +70,20 @@ import {
   privateCarComprehensiveDetails,
   threeTOldCarInsuranceDetails,
 } from "./prudctData/motorData";
+
+const motorPlanDetailsMap = {
+  "private-car-comprehensive": privateCarComprehensiveDetails,
+  "old-car-comprehensive": oldCarComprehensiveDetails,
+  "3t-old-car-insurance": threeTOldCarInsuranceDetails,
+  "motorcycle-comprehensive": motorCycleComprehensiveDetails,
+
+  // third party cards ke liye same available third-party table use kar raha hun
+  "private-car-third-party-insurance": motorThirdPartyLiabilityDetails,
+  "motorcycle-third-party-insurance": motorThirdPartyLiabilityDetails,
+
+  // optional fallback, agar future me ye card add ho
+  "motor-third-party-insurance": motorThirdPartyLiabilityDetails,
+};
 
 export const productPages = [
   {
@@ -92,6 +125,7 @@ export const productPages = [
 
     plansHeading: "Choose the plan that’s right for your parents’ health",
     plans: parentsPackageData.OPD,
+    showPlans: true,
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
@@ -107,7 +141,7 @@ export const productPages = [
 
   {
     category: "health",
-    slug: "health-care",
+    slug: "family-health-care",
     bannerSubCategory: "healthcar",
     theme: {
       headingColor: "#BA0C2F",
@@ -118,21 +152,33 @@ export const productPages = [
     heroFallback: {
       title: "Family Health Care",
       subtitle:
-        "Jubilee General’s Family HealthCare Insurance  covers more than one family member  for a fixed amount of cover in case of hospitalization.",
-      tagline: "",
+        "Family HealthCare is the medical safety net designed to protect your spouse, your kids, and your savings from out-of-control medical expenses",
+      tagline:
+        "Because Sharing is Caring, Especially When It’s a Medical Bill.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Familycare.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Claims paid",
+        value: "PKR 50B+",
+        startValue: 80000,
+      },
+      {
+        label: "families covered",
+        value: "100,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Family Health Care",
-    trustCards: healthCarePackage,
+    trustHeading: "WHY CUSTOMERS TRUST FAMILY HEALTHCARE",
+    trustCards: familyHealthCareTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Family Health",
+    plansHeading: "CHOOSE THE TIER THAT KEEPS YOUR FAMILY SAFE",
     plans: healthPackage,
+    showPlans: true,
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
@@ -142,7 +188,7 @@ export const productPages = [
     },
 
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
 
@@ -170,10 +216,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Personal Health Care",
-    trustCards: healthCarePackage,
+    trustCards: personalHealthCareTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Personal Health",
     plans: personalHealthCarePackage,
+    showPlans: true,
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
@@ -200,21 +247,32 @@ export const productPages = [
     heroFallback: {
       title: "Lifestyle Care",
       subtitle:
-        "Jubilee General Insurance  will pay the lump sum amount if covered limit without asking for any medical tests or bills following are the product features",
-      tagline: "",
+        "LifestyleCare is a critical illness plan that dumps a massive lump sum of pure cash straight into your bank account the moment you are diagnosed with any of the 7 covered major illnesses.",
+      tagline: "Because a Critical Illness Diagnosis Shouldn't Stop Your Life",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Lifestyle-Care.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Claims paid",
+        value: "PKR 50B+",
+        startValue: 80000,
+      },
+      {
+        label: "families covered",
+        value: "100,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Lifestyle Care",
-    trustCards: healthCarePackage,
+    trustHeading: "WHY CUSTOMERS TRUST lifestyle care",
+    trustCards: lifestyleCareTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+    plansHeading: "CHOOSE THE TIER THAT KEEPS YOUR Lifestyle SAFE",
     plans: lifestyleCarePackage,
+    showPlans: true,
     detailsType: "health",
 
     showBenefitsTable: true,
@@ -225,7 +283,7 @@ export const productPages = [
     },
 
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
   {
@@ -241,7 +299,7 @@ export const productPages = [
     heroFallback: {
       title: "Parents Care",
       subtitle:
-        "ParentsCare is a health insurance plan for parents aged 45 to 65, offering cashless treatment and comprehensive healthcare protection.",
+        "ParentsCare is a first-of-its-kind health plan built for the anchors of your life because we know your current plan for a family medical emergency is just a mix of pure panic and intense prayer.",
       tagline: "",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
@@ -249,13 +307,24 @@ export const productPages = [
       imageUrl: "/img/Product/parentcare.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Starting from",
+        value: "PKR 20,000",
+        startValue: 80000,
+      },
+      {
+        label: "parental covered",
+        value: "100,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustHeading: "WHY CUSTOMERS TRUST Parents care",
+    trustCards: parentsCareTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+    plansHeading: "CHOOSE THE PLAN THAT'S RIGHT FOR YOUR PARENTS' HEALTH",
     plans: parentsCarePackage,
+    showPlans: true,
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
@@ -265,7 +334,7 @@ export const productPages = [
     },
 
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
   {
@@ -291,10 +360,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustCards: herCareTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Lifestyle Care",
     plans: herCarePackage,
+    showPlans: true,
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
@@ -333,10 +403,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust International Travel Insurance",
-    trustCards: healthCarePackage,
+    trustCards: internationalTravelTrustCards,
 
     plansHeading: "Choose the plan that’s right for your International Travel",
     plans: travelInsurancePackage,
+    showPlans: true,
 
     detailsType: "travel",
     showBenefitsTable: true,
@@ -376,10 +447,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Home Trip Travel ",
-    trustCards: healthCarePackage,
+    trustCards: homeTripTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Home Trip Travel",
     plans: homeTripPackage,
+    showPlans: true,
 
     detailsType: "travel",
     showBenefitsTable: true,
@@ -418,10 +490,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustCards: studentTravelTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Lifestyle Care",
     plans: studentTravelPackage,
+    showPlans: true,
 
     detailsType: "travel",
     showBenefitsTable: true,
@@ -460,10 +533,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustCards: hajjUmrahTravelTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Lifestyle Care",
     plans: HajjandUmrahPackage,
+    showPlans: true,
 
     detailsType: "travel",
     showBenefitsTable: true,
@@ -502,10 +576,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustCards: ziaratTravelTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Lifestyle Care",
     plans: ZiaratTravelPackage,
+    showPlans: true,
     detailsType: "travel",
     showBenefitsTable: true,
     // benefits: {
@@ -542,10 +617,11 @@ export const productPages = [
     counters: [],
 
     trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustCards: domesticTravelTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Lifestyle Care",
     plans: DomesticTravelPackage,
+    showPlans: true,
     detailsType: "travel",
     showBenefitsTable: true,
     // benefits: {
@@ -571,21 +647,33 @@ export const productPages = [
     },
     heroFallback: {
       title: "Home Insurance",
+      tagline: "Aap Kay Ghar Ki Mukammal Hifazat.",
       subtitle:
-        "Home Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
+        "A flexible Home Insurance plan where you control the coverage, protecting your structure, your valuables, and your peace of mind.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Hercare.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Claims Paid",
+        value: "PKR 50b+",
+        startValue: 80000,
+      },
+      {
+        label: "Lives covered",
+        value: "600,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustHeading: "WHY CUSTOMERS TRUST HomeCare",
+    trustCards: homeCareTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
+    plansHeading: "DESIGN YOUR PERFECT HOME PROTECTION PLAN",
+    plans: homeCarePackage,
+    showPlans: true,
     detailsType: "home",
     showBenefitsTable: true,
     // benefits: {
@@ -595,7 +683,7 @@ export const productPages = [
     // },
     details: homeInsuranceDetails,
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
   // Self Insurance
@@ -611,21 +699,33 @@ export const productPages = [
     },
     heroFallback: {
       title: "Self Travel",
+      tagline: "Because Life Doesn’t Have an Undo Button",
       subtitle:
-        "Self Travel Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
+        "Personal Accident Insurance that keeps you and your family safe from the financial plot twists of life.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Hercare.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Claims Paid",
+        value: "PKR 50b+",
+        startValue: 80000,
+      },
+      {
+        label: "Lives covered",
+        value: "600,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustHeading: "WHY CUSTOMERS TRUST SELFCARE",
+    trustCards: personalAccidentTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+    plansHeading: "CHOOSE THE PLAN THAT’S RIGHT FOR YOUR SAFETY",
     plans: SelfInsurance,
+    showPlans: true,
     detailsType: "self-care",
     showBenefitsTable: true,
     // benefits: {
@@ -635,7 +735,7 @@ export const productPages = [
     // },
     details: selfCareDetails,
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
 
@@ -651,22 +751,34 @@ export const productPages = [
       btntextColor: "#ffffff",
     },
     heroFallback: {
-      title: "Motor Third Party Insurance",
+      title: "Motor Insurance",
+      tagline: "Drive like everything’s fine. We’ll handle when it isn’t.",
       subtitle:
-        "Motor Third Party Liability Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
+        "We can’t stop potholes or sudden brake testing.But we can make sure they don’t touch your finances.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Hercare.jpg.jpeg",
     },
 
-    counters: [],
+    counters: [
+      {
+        label: "Claims Paid",
+        value: "PKR 50b+",
+        startValue: 80000,
+      },
+      {
+        label: "Cars covered",
+        value: "600,000+",
+      },
+    ],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+    trustHeading: "Why Roads Feel Safer With This Cover",
+    trustCards: privateCarActOnlyTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+    plansHeading: "Choose the plan that’s right for your Vehicle",
     plans: herCarePackage,
+    showPlans: true,
     detailsType: "motor",
     showBenefitsTable: true,
     // benefits: {
@@ -674,249 +786,257 @@ export const productPages = [
     //   sections: herCareSections,
     //   note: herCareNote,
     // },
+
     details: motorThirdPartyLiabilityDetails,
+    motorPlanDetails: motorPlanDetailsMap,
     showQuote: true,
-    showCTA: false,
+    showCTA: true,
     showTestimonials: true,
   },
   // Private Car Comprehensive
-  {
-    category: "motor",
-    slug: "private-car-comprehensive",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "Private Car Comprehensive",
-      subtitle:
-        "Private Car Comprehensive Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  // {
+  //   category: "motor",
+  //   slug: "private-car-comprehensive",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "Private Car Comprehensive",
+  //     subtitle:
+  //       "Our Private Car Comprehensive Insurance  provides a comprehensive cover for your car that you can count on. We offer the minimum rate of 1.75% net of Insured estimated value for all your car Insurance  needs!",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust Private Car Comprehensive Insurance",
+  //   trustCards: privateCarTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: true,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: privateCarComprehensiveDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
-  // Old Car Comprehensive
-  {
-    category: "motor",
-    slug: "old-car-comprehensive",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "Old Car Comprehensive",
-      subtitle:
-        "Old Car Comprehensive Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: true,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: privateCarComprehensiveDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
+  // // Old Car Comprehensive
+  // {
+  //   category: "motor",
+  //   slug: "old-car-comprehensive",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "Old Car Comprehensive",
+  //     subtitle:
+  //       "Old Car Comprehensive Insurance  addresses the need of those old vehicle owners who wish to obtain complete set of coverage for their vehicle with the minimum rate of 1.50% net of covered estimated value.",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust Old Car Comprehensive Insurance",
+  //   trustCards: oldCarTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: true,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: oldCarComprehensiveDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
-  // 3T Old Car Insurance
-  {
-    category: "motor",
-    slug: "3t-old-car-insurance",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "3T Old Car Insurance",
-      subtitle:
-        "3T Old Car Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: true,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: oldCarComprehensiveDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
+  // // 3T Old Car Insurance
+  // {
+  //   category: "motor",
+  //   slug: "3t-old-car-insurance",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "3T Old Car Insurance",
+  //     subtitle:
+  //       "Older cars have history, and they come with little quirks that only you know about. So it's no surprise that old cars can have unique Insurance needs. ",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust 3T Old Car Insurance",
+  //   trustCards: threeTOldCarTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: true,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: threeTOldCarInsuranceDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
-  // Motor Cycle Comprehensive Insurance
-  {
-    category: "motor",
-    slug: "motorcycle-comprehensive",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "Motor Cycle Comprehensive Insurance",
-      subtitle:
-        "Motor Cycle Comprehensive Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: true,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: threeTOldCarInsuranceDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
+  // // Motor Cycle Comprehensive Insurance
+  // {
+  //   category: "motor",
+  //   slug: "motorcycle-comprehensive",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "Motor Cycle Comprehensive ",
+  //     subtitle:
+  //       "Our Motor Cycle Comprehensive Insurance  provides a comprehensive cover for your ride that you can count on. The Premium rates offered promises to provide all the Insurance needs that your Motor Cycle requires.",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust Parents Care",
+  //   trustCards: motorCycleTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: true,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: motorCycleComprehensiveDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
-  // Private Cars Third Party Liability Insurance
-  {
-    category: "motor",
-    slug: "private-car-third-party-insurance",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "Private Car Third Party Liability Insurance",
-      subtitle:
-        "Private Car Third Party Liability Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: true,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: motorCycleComprehensiveDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
+  // // Private Cars Third Party Liability Insurance
+  // {
+  //   category: "motor",
+  //   slug: "private-car-third-party-insurance",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "Private Car Third Party Liability Insurance",
+  //     subtitle:
+  //       "Private Car Third Party Liability Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust Parents Care",
+  //   trustCards: healthCarePackage,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: false,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: selfCareDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
-  // Motor Cycles Third Party Liability Insurance
-  {
-    category: "motor",
-    slug: "motorcycle-third-party-insurance",
-    bannerSubCategory: "selftravel",
-    theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
-      btnbgColor: "#BA0C2F",
-      btntextColor: "#ffffff",
-    },
-    heroFallback: {
-      title: "Motor Cycle Third Party Liability Insurance",
-      subtitle:
-        "Motor Cycle Third Party Liability Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
-      buttonText: "Buy Now",
-      brochureText: "Product brochure",
-      brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
-    },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: false,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: selfCareDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
+  // // Motor Cycles Third Party Liability Insurance
+  // {
+  //   category: "motor",
+  //   slug: "motorcycle-third-party-insurance",
+  //   bannerSubCategory: "selftravel",
+  //   theme: {
+  //     headingColor: "#BA0C2F",
+  //     textColor: "#4A4A4A",
+  //     btnbgColor: "#BA0C2F",
+  //     btntextColor: "#ffffff",
+  //   },
+  //   heroFallback: {
+  //     title: "Motor Cycle Third Party Liability Insurance",
+  //     subtitle:
+  //       "Motor Cycle Third Party Liability Insurance provides coverage for medical emergencies, trip cancellations, and lost luggage during your journey.",
+  //     buttonText: "Buy Now",
+  //     brochureText: "Product brochure",
+  //     brochureUrl: "/pdf/health-care.pdf",
+  //     imageUrl: "/img/Product/Hercare.jpg.jpeg",
+  //   },
 
-    counters: [],
+  //   counters: [],
 
-    trustHeading: "Why Customer Trust Parents Care",
-    trustCards: healthCarePackage,
+  //   trustHeading: "Why Customer Trust Parents Care",
+  //   trustCards: healthCarePackage,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
-    plans: herCarePackage,
-    detailsType: "motor",
-    showBenefitsTable: false,
-    // benefits: {
-    //   plans: parentsCarePlusPlans,
-    //   sections: herCareSections,
-    //   note: herCareNote,
-    // },
-    details: selfCareDetails,
-    showQuote: true,
-    showCTA: false,
-    showTestimonials: true,
-  },
+  //   plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+  //   plans: herCarePackage,
+  //   showPlans: false,
+  //   detailsType: "motor",
+  //   showBenefitsTable: false,
+  //   // benefits: {
+  //   //   plans: parentsCarePlusPlans,
+  //   //   sections: herCareSections,
+  //   //   note: herCareNote,
+  //   // },
+  //   details: selfCareDetails,
+  //   showQuote: true,
+  //   showCTA: false,
+  //   showTestimonials: true,
+  // },
 ];

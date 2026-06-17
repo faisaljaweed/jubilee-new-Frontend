@@ -51,13 +51,23 @@ const megaMenuData: MegaMenuCategory[] = [
       },
       {
         label: "Private Car Compresensive",
-        href: "/motor/private-car-comprehensive",
+        href: "#",
+        // href: "/motor/private-car-comprehensive",
       },
-      { label: "Old Car Comprehensive", href: "/motor/old-car-comprehensive" },
-      { label: "3T Old Car Insurance", href: "/motor/3t-old-car-insurance" },
+      {
+        label: "Old Car Comprehensive",
+        href: "#",
+        // href: "/motor/old-car-comprehensive",
+      },
+      {
+        label: "3T Old Car Insurance",
+        href: "#",
+        // href: "/motor/3t-old-car-insurance",
+      },
       {
         label: "Motor Cycle Comprehensive Insurance",
-        href: "/motor/motorcycle-comprehensive",
+        // href: "/motor/motorcycle-comprehensive",
+        href: "#",
       },
       {
         label: "Private Cars Third Party Liability Insurance",
@@ -65,7 +75,8 @@ const megaMenuData: MegaMenuCategory[] = [
       },
       {
         label: "Motor Cycle Third Party Liability Insurance",
-        href: "/motor/motorcycle-third-party-insurance",
+        // href: "/motor/motorcycle-third-party-insurance",
+        href: "#",
       },
       // { label: "Motor Takaful", href: "/motor/takaful" },
       // { label: "Bike Insurance", href: "/motor/bike-insurance" },
@@ -93,7 +104,7 @@ const megaMenuData: MegaMenuCategory[] = [
     icon: Heart,
     items: [
       { label: "Parents Care Plus", href: "/health/parents-care-plus" },
-      { label: "Family HealthCare", href: "/health/health-care" },
+      { label: "Family HealthCare", href: "/health/family-health-care" },
       { label: "Personal HealthCare", href: "/health/personal-health-care" },
       { label: "Lifestyle Care", href: "/health/lifestyle-care" },
       { label: "Parents Care", href: "/health/parents-care" },
@@ -159,14 +170,14 @@ export default function Header({ menuColor }: menuProps) {
     { label: "BRANCH LOCATOR", href: "/branchNetwork" },
     { label: "AWARDS", href: "/awards" },
     { label: "LEADERSHIP", href: "/leadership" },
-    { label: "E-VERIFY", href: "/e-verify" },
     { label: "CLAIMS", href: "/claims" },
-    { label: "COMPLAINTS & QUERY", href: "/complaints-queries" },
+    { label: "COMPLAINT & QUERY", href: "/complaints-queries" },
+    { label: "DISCLAIMER", href: "/disclaimer" },
     { label: "PRIVACY POLICY", href: "/privacy-policy" },
     // { label: "CAREERS", href: "#" },
     // { label: "E-VERIFY", href: "#" },
     // { label: "MANAGE MY POLICY", href: "#" },
-    // { label: "RESOURCES", href: "#" },
+    { label: "RESOURCES", href: "/resources" },
     // { label: "CLAIMS", href: "#" },
   ];
 

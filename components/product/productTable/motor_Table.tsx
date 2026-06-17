@@ -1,13 +1,24 @@
 import Container from "@/components/home/container";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 type Props = {
   details: any;
+  // defaultOpen?: boolean;
+  // openOnDetailsChange?: boolean;
 };
 
-const Motor_Table = ({ details }: Props) => {
+const Motor_Table = ({
+  details,
+  // defaultOpen = true,
+  // openOnDetailsChange = true,
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
+  // useEffect(() => {
+  //   if (openOnDetailsChange) {
+  //     setIsOpen(true);
+  //   }
+  // }, [details, openOnDetailsChange]);
   const handleToggleBenefits = () => {
     if (isOpen) {
       setIsOpen(false);

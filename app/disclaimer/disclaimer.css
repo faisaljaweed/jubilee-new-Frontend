@@ -1,0 +1,22 @@
+.privacy-policy-hero {
+  background-image: url("../../public/img/Privacy Policy/comprehensive-machinery-takaful\ \(1\).jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+}
+
+/* Overlay */
+.privacy-policy-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(186, 12, 47, 0.6);
+}
+
+/* Text upar lane ke liye */
+.privacy-policy-hero > * {
+  position: relative;
+  z-index: 2;
+}

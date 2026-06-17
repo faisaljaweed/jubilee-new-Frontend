@@ -39,12 +39,27 @@ const fadeUp = (on: boolean, delay = 0): React.CSSProperties => ({
   willChange: "opacity, transform",
 });
 
+// type ProductPlansProps = {
+//   heading: string;
+//   plans: any[];
+//   showDescription?: boolean;
+//   enableHover?: boolean;
+//   showPrice?: boolean;
+// };
+
 type ProductPlansProps = {
   heading: string;
   plans: any[];
   showDescription?: boolean;
   enableHover?: boolean;
   showPrice?: boolean;
+  selectedCategory?: string;
+  onGetPlanClick?: (data: {
+    coverageType: string;
+    selectedProduct: string;
+    planKey?: string;
+    plan?: any;
+  }) => void;
 };
 
 export default function ProductPlans({
@@ -53,13 +68,15 @@ export default function ProductPlans({
   showDescription = false,
   enableHover = true,
   showPrice = true,
+  selectedCategory = "",
+  onGetPlanClick,
 }: ProductPlansProps) {
   const { ref, visible } = useInView(0.08);
 
   return (
     <div ref={ref}>
       <div
-        className="flex flex-col items-center justify-center pb-10"
+        className="flex flex-col items-center justify-center "
         style={fadeUp(visible)}
       >
         <h2 className="text-center font-futura text-3xl font-medium uppercase text-[#4A4A4A] sm:text-4xl md:text-4xl">
@@ -73,6 +90,8 @@ export default function ProductPlans({
           showDescription={showDescription}
           enableHover={enableHover}
           showPrice={showPrice}
+          selectedCategory={selectedCategory}
+          onGetPlanClick={onGetPlanClick}
         />
       </div>
     </div>
