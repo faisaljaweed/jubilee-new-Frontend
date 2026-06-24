@@ -182,7 +182,7 @@ export default function Header({ menuColor }: menuProps) {
   ];
 
   const mainNavLinks = [
-    { label: "ABOUT", href: "/about" },
+    { label: "ABOUT US", href: "/about" },
     // { label: "ABOUT", href: "#" },
     { label: "INVESTOR RELATIONS", href: "/investorrelation" },
     // { label: "INVESTOR RELATIONS", href: "#" },
@@ -291,7 +291,7 @@ export default function Header({ menuColor }: menuProps) {
                           {link.label}
                         </Link>
 
-                        {link.label === "ABOUT" && (
+                        {link.label === "ABOUT US" && (
                           <div
                             className="relative"
                             onMouseEnter={handleProductsMouseEnter}

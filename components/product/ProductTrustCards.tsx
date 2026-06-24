@@ -85,7 +85,7 @@ export default function ProductTrustCards({
               <div
                 key={index}
                 onClick={() => setActiveTrustCard(index)}
-                className={`group flex h-[96px] flex-1 basis-0 cursor-pointer items-center gap-3 rounded-lg border-2 bg-white px-6 py-6 text-[#4A4A4A] shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-colors transition-shadow transition-transform duration-300 ease-out hover:-translate-y-1 hover:bg-[#BA0C2F] hover:text-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.10)] ${
+                className={`group flex h-[96px] flex-1 basis-0 cursor-pointer items-center gap-3 rounded-lg border-2 bg-white pl-6 pr-4 py-6 text-[#4A4A4A] shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-colors transition-shadow transition-transform duration-300 ease-out hover:-translate-y-1 hover:bg-[#BA0C2F] hover:text-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.10)] ${
                   isActive ? "border-[#BA0C2F]" : "border-transparent"
                 }`}
                 style={cardPop(cardsOn, index * 120)}
