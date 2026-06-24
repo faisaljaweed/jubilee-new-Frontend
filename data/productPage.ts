@@ -33,6 +33,7 @@ import {
   threeTOldCarTrustCards,
   motorCycleTrustCards,
   homeCarePackage,
+  motor,
 } from "@/data/healthCareData";
 
 import {
@@ -145,7 +146,7 @@ export const productPages = [
     bannerSubCategory: "healthcar",
     theme: {
       headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -158,7 +159,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Familycare.jpg.jpeg",
+      imageUrl: "/img/Vechile/Family.png",
     },
 
     counters: [
@@ -240,7 +241,7 @@ export const productPages = [
     bannerSubCategory: "lifestylecare",
     theme: {
       headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -252,7 +253,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Lifestyle-Care.jpg.jpeg",
+      imageUrl: "/img/Vechile/LifeStyle.png",
     },
 
     counters: [
@@ -304,7 +305,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/parentcare.jpg.jpeg",
+      imageUrl: "/img/Product/Lifestyle-Care.jpg.jpeg",
     },
 
     counters: [
@@ -641,7 +642,7 @@ export const productPages = [
     bannerSubCategory: "homeinsurance",
     theme: {
       headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -653,7 +654,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
+      imageUrl: "/img/Vechile/Home.png",
     },
 
     counters: [
@@ -693,7 +694,7 @@ export const productPages = [
     bannerSubCategory: "selftravel",
     theme: {
       headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -705,7 +706,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
+      imageUrl: "/img/Vechile/Self.png",
     },
 
     counters: [
@@ -745,8 +746,8 @@ export const productPages = [
     slug: "motor-third-party-insurance",
     bannerSubCategory: "selftravel",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#ffffff",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -758,8 +759,12 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
+      imageUrl: "/img/Vechile/Motor.png",
     },
+    // agr kahin ye show ho tw ye line likhe hide hojaye ga
+    // appDownload: {
+    //   show: false,
+    // },
     appDownload: {
       show: true,
       title: "Download the App",
@@ -768,10 +773,6 @@ export const productPages = [
       playStoreUrl: "#",
       appStoreUrl: "#",
     },
-    // agr kahin ye show ho tw ye line likhe hide hojaye ga
-    // appDownload: {
-    //   show: false,
-    // },
     counters: [
       {
         label: "Claims Paid",
@@ -788,7 +789,7 @@ export const productPages = [
     trustCards: privateCarActOnlyTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Vehicle",
-    plans: herCarePackage,
+    plans: motor,
     showPlans: true,
     detailsType: "motor",
     showBenefitsTable: true,

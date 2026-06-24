@@ -5,32 +5,32 @@ import Container from "../home/container";
 
 const Square_Card = [
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/Fastest-Claims.png",
     heading: "Fastest Claims",
     description: "when it matters most",
   },
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/Top-Rated.png",
     heading: "Top-Rated",
     description: "insurer in Pakistan",
   },
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/PKR-50B+.png",
     heading: "PKR 50B+",
     description: "claims settled",
   },
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/3M-customer.png",
     heading: "3M+ Customers",
     description: "protected nationwide",
   },
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/73+-Years.png",
     heading: "73+ Years",
     description: "of trusted experience",
   },
   {
-    icons: "/img/About/bullseye-arrow.png",
+    icons: "/Icons/About Us/Global-Presence.png",
     heading: "Global Presence",
     description: "with local expertise",
   },
@@ -99,7 +99,11 @@ const Section1 = () => {
                 transitionDelay: `${index * 120}ms`,
               }}
             >
-              <img src={item.icons} alt="" className="mb-5 h-8 w-8 shrink-0" />
+              <img
+                src={item.icons}
+                alt=""
+                className="mb-2 h-14 w-14 shrink-0"
+              />
 
               <div className="flex flex-col items-center justify-center">
                 <h1 className="font-futura text-[17px] font-bold leading-tight text-black sm:text-[18px] md:text-[19px]">

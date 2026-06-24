@@ -174,6 +174,7 @@ import Travel_Table from "./productTable/travel_Table";
 import Home_Table from "./productTable/home_Table";
 import Motor_Table from "./productTable/motor_Table";
 import Self_Table from "./productTable/self_Table";
+import ProductGetConnected from "../home/ProductGetConnected";
 
 type ProductPageTemplateProps = {
   product: any;
@@ -311,6 +312,7 @@ export default function ProductPageTemplate({
 
   return (
     <>
+      <ProductGetConnected />
       <ProductHero
         banner={banner}
         showApiBanner={showApiBanner}

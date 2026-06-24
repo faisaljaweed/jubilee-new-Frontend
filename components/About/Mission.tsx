@@ -223,8 +223,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "@/components/home/container";
 import "../../app/about/about.css";
 
-const ICON_PATH = "/img/About/a3543a94365022d620765a68c3483a16ae9b24ce.png";
-
+// const ICON_PATH = "/img/About/a3543a94365022d620765a68c3483a16ae9b24ce.png";
+const VISION = "/Icons/About Us/Vision.png";
+const MISSION = "/Icons/About Us/mission.png";
+const CORE_VALUES = "/Icons/About Us/core-values.png";
 const clamp = (value: number, min = 0, max = 1) => {
   return Math.min(Math.max(value, min), max);
 };
@@ -459,9 +461,9 @@ export default function MissionVisionScrollSection() {
               >
                 <div className="flex flex-col items-start">
                   <img
-                    src={ICON_PATH}
+                    src={VISION}
                     alt=""
-                    className="mb-8 h-24 w-24 object-cover md:h-32 md:w-32"
+                    className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
                   <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">
@@ -493,9 +495,9 @@ export default function MissionVisionScrollSection() {
               >
                 <div className="flex flex-col items-start">
                   <img
-                    src={ICON_PATH}
+                    src={MISSION}
                     alt=""
-                    className="mb-8 h-24 w-24 object-cover md:h-32 md:w-32"
+                    className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
                   <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">
@@ -527,9 +529,9 @@ export default function MissionVisionScrollSection() {
               >
                 <div className="flex flex-col items-start">
                   <img
-                    src={ICON_PATH}
+                    src={CORE_VALUES}
                     alt=""
-                    className="mb-8 h-24 w-24 object-cover md:h-32 md:w-32"
+                    className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
                   <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">

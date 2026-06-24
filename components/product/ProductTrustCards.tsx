@@ -90,7 +90,7 @@ export default function ProductTrustCards({
                 }`}
                 style={cardPop(cardsOn, index * 120)}
               >
-                <div className="relative h-10 w-10 shrink-0 overflow-hidden">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden">
                   <Image
                     src={defaultImage}
                     alt=""

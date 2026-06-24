@@ -173,7 +173,10 @@ export default function ProductHero({
           </h1>
 
           {fallback.tagline && (
-            <p className="w-full pb-5 font-futura text-sm font-bold leading-relaxed text-[#4A4A4A] md:text-base lg:text-lg">
+            <p
+              className="w-full pb-5 font-futura text-sm font-bold leading-relaxed text-[#4A4A4A] md:text-base lg:text-lg "
+              style={{ color: textColor }}
+            >
               {fallback.tagline}
             </p>
           )}

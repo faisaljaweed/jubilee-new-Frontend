@@ -801,8 +801,8 @@ const Card_package: React.FC<cardPackages> = ({
                 <Image
                   src={plan.whiteIcon}
                   alt="Package Icon"
-                  width={42}
-                  height={42}
+                  width={50}
+                  height={50}
                   className={`absolute inset-0 m-auto object-contain transition-opacity duration-300 ${
                     isActive
                       ? "opacity-0"
@@ -814,8 +814,8 @@ const Card_package: React.FC<cardPackages> = ({
                 <Image
                   src={plan.redIcon}
                   alt="Package Icon"
-                  width={42}
-                  height={42}
+                  width={50}
+                  height={50}
                   className={`absolute inset-0 m-auto object-contain transition-opacity duration-300 ${
                     isActive
                       ? "opacity-100"
@@ -960,7 +960,7 @@ const Card_package: React.FC<cardPackages> = ({
             </li>
           ))}
         </ul>
-
+        {/* 
         <Button
           onClick={() => {
             setActiveIndex(index);
@@ -982,6 +982,34 @@ const Card_package: React.FC<cardPackages> = ({
               : `border-2 border-[#BA0C2F] bg-white text-[#BA0C2F] ${
                   enableHover
                     ? "group-hover:border-white group-hover:bg-white group-hover:text-[#BA0C2F] hover:bg-white hover:text-[#BA0C2F]"
+                    : ""
+                }`
+          }`}
+        >
+          {plan.Card_btn_text}
+        </Button> */}
+
+        <Button
+          onClick={() => {
+            setActiveIndex(index);
+            const planKey = getPlanKey(plan);
+            const planLabel = getPlanLabel(plan);
+            onGetPlanClick?.({
+              coverageType: selectedCategory
+                ? `${selectedCategory} Insurance`
+                : "",
+              selectedProduct: planLabel,
+              planKey,
+              plan,
+            });
+          }}
+          size="lg"
+          className={`w-full py-6 sm:py-4 rounded-full font-semibold font-futura transition-all duration-300 ${
+            isActive
+              ? "!bg-white !text-[#BA0C2F] hover:!bg-white hover:!text-[#BA0C2F]"
+              : `border-2 border-[#BA0C2F] !bg-white !text-[#BA0C2F] ${
+                  enableHover
+                    ? "group-hover:!border-white group-hover:!bg-white group-hover:!text-[#BA0C2F] hover:!bg-white hover:!text-[#BA0C2F]"
                     : ""
                 }`
           }`}
