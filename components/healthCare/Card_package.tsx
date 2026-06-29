@@ -646,7 +646,7 @@ const PRODUCT_URL_MAP: Record<string, string> = {
   "Home Premium": "#",
 };
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Check } from "lucide-react";
 import Image from "next/image";
@@ -658,7 +658,7 @@ import type { Settings } from "react-slick";
 type Plan = {
   planKey?: string;
   planLabel?: string;
-  Card_Name: string;
+  Card_Name: ReactNode;
   Card_description: string;
   Card_price: string;
   Card_price_prefix?: string;

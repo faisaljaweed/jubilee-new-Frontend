@@ -222,7 +222,7 @@ export default function CtrlStyleScrollableSection({
                           color: "rgba(255,255,255,0.86)",
                         }}
                       >
-                        {service.tag || `0${index + 1}`}
+                        {service.tag}
                       </div>
 
                       <img

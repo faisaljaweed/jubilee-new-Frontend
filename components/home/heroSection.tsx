@@ -291,7 +291,7 @@ export function HeroSection({ onStartLivingClick }: HeroSectionProps) {
         </header> */}
       {showDummyHero ? (
         <div className="home-main-banner min-h-screen bg-cover bg-center bg-no-repeat">
-          <div className="mx-auto flex min-h-screen max-w-7xl items-center pt-10">
+          <div className="mx-auto flex min-h-screen max-w-7xl items-end pt-10">
             <div className=" text-white space-y-5 max-w-145 ">
               {/* <p className="mb-4 font-futura text-[18px] font-semibold">
               About Us
@@ -330,7 +330,7 @@ export function HeroSection({ onStartLivingClick }: HeroSectionProps) {
 
                 <div className="absolute inset-0 bg-black/10" />
 
-                <div className="relative mx-auto flex min-h-screen max-w-7xl items-center pt-10">
+                <div className="relative mx-auto flex min-h-screen max-w-7xl items-end pb-10">
                   <div className="max-w-145 space-y-5 text-white">
                     {/* <div className="lg:w-[60%] flex flex-col gap-8"> */}
                     <h1

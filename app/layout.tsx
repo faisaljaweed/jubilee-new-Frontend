@@ -55,9 +55,8 @@
 //   );
 // }
 
-import localFont from "next/font/local";
+import { Lato } from "next/font/google";
 import "./globals.css";
-import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
 import ReduxProvider from "@/lib/redux/ReduxProvider";
 import { Toaster } from "react-hot-toast";
@@ -65,30 +64,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderWrapper from "@/components/layout/HeaderWrapper";
 // import GetConnected from "@/components/home/GetConnected";
-const futura = localFont({
-  src: [
-    {
-      path: "../public/font/Futura_Book_font.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/font/Futura_Heavy_font.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/font/futura_medium_bt.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/font/Futura_Light_font.ttf",
-      weight: "300",
-      style: "normal",
-    },
-  ],
-  variable: "--font-futura",
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-futura", // same variable rakhi hai taake existing font-futura classes work karen
   display: "swap",
 });
 
@@ -99,7 +79,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${futura.variable} antialiased`}>
+      <body className={`${lato.variable} antialiased`}>
         <ReduxProvider>
           <HeaderWrapper />
           <ToastContainer position="top-right" autoClose={3000} />

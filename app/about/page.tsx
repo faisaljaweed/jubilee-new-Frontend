@@ -509,7 +509,7 @@ const About = () => {
       /> */}
 
       <div className="about_banner min-h-screen bg-cover bg-center bg-no-repeat">
-        <div className="mx-auto flex min-h-screen max-w-7xl items-center pt-10 ">
+        <div className="mx-auto flex min-h-screen max-w-7xl items-end pb-10 ">
           <div className="max-w-7xl text-black">
             <p className="mb-4 font-futura text-[18px] font-semibold">
               About Us
@@ -609,13 +609,14 @@ const About = () => {
       </div> */}
 
       {/* Board of Directors */}
-      <div ref={teamRef} className="py-20">
+      {/* <div ref={teamRef} className="py-20"> */}
+      <div id="leadership" ref={teamRef} className="scroll py-20">
         <h1
           className={`font-futura font-bold md:text-4xl mb-10 text-center text-[#4A4A4A] uppercase about-fade-up ${
             visibleSections.team ? "show" : ""
           }`}
         >
-          Our Team
+          LEADERSHIP
         </h1>
 
         <div className="w-full">

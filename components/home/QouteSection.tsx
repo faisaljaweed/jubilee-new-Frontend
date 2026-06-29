@@ -2,7 +2,11 @@
 
 import React, { useState, useCallback, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-
+import {
+  getHealthPlanSummary,
+  getHealthPlanTierOptions,
+} from "@/data/HomeProductTierData";
+import Link from "next/link";
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface FormData {
   coverageType: string;
@@ -143,6 +147,29 @@ const normalizeCoverageType = (value: string) => {
 
 const PROGRESS = ["33%", "66%", "100%"];
 
+const STEP_BOTTOM_CONTENT = [
+  {
+    disclaimerTitle: "Disclaimer:",
+    description:
+      "Never share your OTP, card details, or payment information with anyone. Jubilee General Insurance will never request this information via phone, email, or any other channel.",
+    downloadLabel: "View More",
+    callLabel: "Call Now",
+  },
+  {
+    disclaimerTitle: "Health Declaration:",
+    description:
+      "Never share your OTP, card details, or payment information with anyone. Jubilee General Insurance will never request this information via phone, email, or any other channel.",
+    downloadLabel: "View More",
+    callLabel: "Call Now",
+  },
+  {
+    disclaimerTitle: "Payment Disclaimer:",
+    description:
+      "I have clearly read, understood, and agree with the terms and conditions of Jubilee General Insurance Parents Care Plus Plan, and I am aware of the waiting period of 30 days according to which this policy shall not cover any expenses during the first 30 days from the inception of the policy, except for accidental injuries. This waiting period shall not be applicable on the subsequent consecutive renewals.",
+    downloadLabel: "View More",
+    callLabel: "Call Now",
+  },
+];
 const INITIAL: FormData = {
   coverageType: "",
   selectedProduct: "",
@@ -171,7 +198,36 @@ const INITIAL: FormData = {
   expiry: "",
   cvv: "",
 };
+//Start Date of Birth and CNIC Issue Date helper function
+const toDateInputValue = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
 
+  return `${year}-${month}-${day}`;
+};
+
+const getDateYearsAgo = (years: number) => {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() - years);
+  return toDateInputValue(date);
+};
+
+const getDateAfterYears = (dateValue: string, years: number) => {
+  const date = new Date(`${dateValue}T00:00:00`);
+  date.setFullYear(date.getFullYear() + years);
+
+  return toDateInputValue(date);
+};
+
+const formatCnicNicop = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 13);
+
+  if (digits.length <= 5) return digits;
+  if (digits.length <= 12) return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+
+  return `${digits.slice(0, 5)}-${digits.slice(5, 12)}-${digits.slice(12)}`;
+}; //end Date of Birth and CNIC Issue Date helper function
 // ─── Reusable Atoms ────────────────────────────────────────────────────────────
 const FieldLabel = ({ children }: { children: React.ReactNode }) => (
   <label className="mb-2 flex  items-end text-[14px] font-medium font-futura leading-[1.25] text-gray-500 capitalize tracking-[0.8px]">
@@ -240,6 +296,169 @@ const Textarea = (p: React.TextareaHTMLAttributes<HTMLTextAreaElement>) => (
   />
 );
 
+const getDaysInMonth = (year: string, month: string) => {
+  if (!year || !month) return 31;
+  return new Date(Number(year), Number(month), 0).getDate();
+};
+
+const isDateInRange = (date: string, min: string, max: string) => {
+  return date >= min && date <= max;
+};
+
+const DateSelect = ({
+  value,
+  onChange,
+  min,
+  max,
+  disabled,
+  required,
+}: {
+  value: string;
+  onChange: (value: string) => void;
+  min: string;
+  max: string;
+  disabled?: boolean;
+  required?: boolean;
+}) => {
+  const [parts, setParts] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
+
+  useEffect(() => {
+    if (!value) {
+      setParts({ day: "", month: "", year: "" });
+      return;
+    }
+
+    const [year, month, day] = value.split("-");
+    setParts({ day, month, year });
+  }, [value]);
+
+  const minYear = Number(min.slice(0, 4));
+  const maxYear = Number(max.slice(0, 4));
+  const minMonth = Number(min.slice(5, 7));
+  const maxMonth = Number(max.slice(5, 7));
+  const minDay = Number(min.slice(8, 10));
+  const maxDay = Number(max.slice(8, 10));
+
+  const years = Array.from({ length: maxYear - minYear + 1 }, (_, i) =>
+    String(maxYear - i),
+  );
+
+  const months = Array.from({ length: 12 }, (_, i) =>
+    String(i + 1).padStart(2, "0"),
+  );
+
+  const days = Array.from(
+    { length: getDaysInMonth(parts.year, parts.month) },
+    (_, i) => String(i + 1).padStart(2, "0"),
+  );
+
+  const handlePartChange = (
+    key: "day" | "month" | "year",
+    nextValue: string,
+  ) => {
+    let nextParts = {
+      ...parts,
+      [key]: nextValue,
+    };
+
+    if (
+      nextParts.year &&
+      nextParts.month &&
+      Number(nextParts.day) > getDaysInMonth(nextParts.year, nextParts.month)
+    ) {
+      nextParts.day = "";
+    }
+
+    const finalDate =
+      nextParts.year && nextParts.month && nextParts.day
+        ? `${nextParts.year}-${nextParts.month}-${nextParts.day}`
+        : "";
+
+    setParts(nextParts);
+
+    if (!finalDate) {
+      onChange("");
+      return;
+    }
+
+    if (!isDateInRange(finalDate, min, max)) {
+      onChange("");
+      return;
+    }
+
+    onChange(finalDate);
+  };
+
+  return (
+    <div className="grid grid-cols-3 gap-2">
+      <Select
+        required={required}
+        disabled={disabled}
+        value={parts.day}
+        onChange={(e) => handlePartChange("day", e.target.value)}
+      >
+        <option value="">Day</option>
+        {days.map((day) => {
+          const checkDate =
+            parts.year && parts.month
+              ? `${parts.year}-${parts.month}-${day}`
+              : "";
+
+          const isDisabled = !!checkDate && !isDateInRange(checkDate, min, max);
+
+          return (
+            <option key={day} value={day} disabled={isDisabled}>
+              {day}
+            </option>
+          );
+        })}
+      </Select>
+
+      <Select
+        required={required}
+        disabled={disabled}
+        value={parts.month}
+        onChange={(e) => handlePartChange("month", e.target.value)}
+      >
+        <option value="">Month</option>
+        {months.map((month) => {
+          const year = Number(parts.year);
+          const monthNumber = Number(month);
+
+          const isDisabled =
+            !!parts.year &&
+            ((year === minYear && monthNumber < minMonth) ||
+              (year === maxYear && monthNumber > maxMonth));
+
+          return (
+            <option key={month} value={month} disabled={isDisabled}>
+              {month}
+            </option>
+          );
+        })}
+      </Select>
+
+      <Select
+        required={required}
+        disabled={disabled}
+        value={parts.year}
+        onChange={(e) => handlePartChange("year", e.target.value)}
+      >
+        <option value="">Year</option>
+        {years.map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </Select>
+    </div>
+  );
+};
+
 // ─── Left Active Column ───────────────────────────────────────────────────────
 const LeftActiveCol = ({
   stepIndex,
@@ -300,24 +519,64 @@ const RightInactiveCol = ({
 );
 
 // ─── Coverage Summary Pills ───────────────────────────────────────────────────
-const CoverageSummaryPills = () => {
+// const CoverageSummaryPills = () => {
+//   const items = [
+//     {
+//       label: "Total Health Coverage",
+//       value: "PKR 100,000",
+//     },
+//     {
+//       label: "Annual OPD Limit",
+//       value: "PKR 10,000",
+//     },
+//     {
+//       label: "Premium",
+//       value: "PKR 20,000",
+//     },
+//   ];
+
+//   return (
+//     <div className="mt-7  flex flex-col gap-4 lg:flex-row lg:items-center">
+//       {items.map((item) => (
+//         <div
+//           key={item.label}
+//           className="flex min-h-[54px] flex-1 items-center justify-center rounded-full bg-[#F2F2F3] px-6 text-center"
+//         >
+//           <span className="text-[14px] font-medium text-[#26324B]">
+//             {item.label}
+//           </span>
+
+//           <span className="mx-2 text-[14px] font-medium text-[#26324B]">-</span>
+
+//           <span className="text-[15px] font-extrabold text-[#26324B]">
+//             {item.value}
+//           </span>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+const CoverageSummaryPills = ({ data }: { data: FormData }) => {
+  const summary = getHealthPlanSummary(data.selectedProduct, data.planTier);
+
   const items = [
     {
       label: "Total Health Coverage",
-      value: "PKR 100,000",
+      value: summary.totalHealthCoverage,
     },
     {
       label: "Annual OPD Limit",
-      value: "PKR 10,000",
+      value: summary.annualOpdLimit,
     },
     {
       label: "Premium",
-      value: "PKR 20,000",
+      value: summary.premium,
     },
   ];
 
   return (
-    <div className="mt-7  flex flex-col gap-4 lg:flex-row lg:items-center">
+    <div className="mt-7 flex flex-col gap-4 lg:flex-row lg:items-center">
       {items.map((item) => (
         <div
           key={item.label}
@@ -337,7 +596,6 @@ const CoverageSummaryPills = () => {
     </div>
   );
 };
-
 // ─── Health Question ───────────────────────────────────────────────────────────
 const HealthQuestion = ({
   index,
@@ -387,6 +645,7 @@ const Step1 = ({
   const normalizedCoverageType = normalizeCoverageType(data.coverageType);
   const productOptions =
     PRODUCT_OPTIONS_BY_COVERAGE[normalizedCoverageType] || [];
+  const planTierOptions = getHealthPlanTierOptions(data.selectedProduct);
 
   useEffect(() => {
     if (!data.selectedProduct) return;
@@ -406,12 +665,15 @@ const Step1 = ({
       >,
     ) => onChange(key, e.target.value),
   });
-
+  const dobMinDate = getDateYearsAgo(75);
+  const dobMaxDate = getDateYearsAgo(18);
+  const todayDate = toDateInputValue(new Date());
+  const cnicIssueMinDate = data.dob ? getDateAfterYears(data.dob, 18) : "";
   return (
     <div>
-      <div className="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-4">
         <div>
-          <FieldLabel>Type of coverage are you looking for?</FieldLabel>
+          <FieldLabel>Category</FieldLabel>
           <Select
             value={normalizedCoverageType}
             onChange={(e) => {
@@ -427,12 +689,22 @@ const Step1 = ({
             <option value="Motor Insurance">Motor Insurance</option>
           </Select>
         </div>
-
         <div>
-          <FieldLabel>Choose the product that fits your needs</FieldLabel>
+          <FieldLabel>Coverage Type</FieldLabel>
+          <Select required {...f("planStructure")}>
+            <option value="">Select</option>
+            <option value="Takaful">Takaful</option>
+            <option value="Conventional">Conventional</option>
+          </Select>
+        </div>
+        <div>
+          <FieldLabel>Choose the product </FieldLabel>
           <Select
             value={data.selectedProduct || ""}
-            onChange={(e) => onChange("selectedProduct", e.target.value)}
+            onChange={(e) => {
+              onChange("selectedProduct", e.target.value);
+              onChange("planTier", "");
+            }}
             disabled={!normalizedCoverageType}
           >
             <option value="">
@@ -446,16 +718,38 @@ const Step1 = ({
             ))}
           </Select>
         </div>
-
         <div>
+          <FieldLabel>Plan Tier</FieldLabel>
+          <Select
+            value={data.planTier}
+            onChange={(e) => onChange("planTier", e.target.value)}
+            disabled={!data.selectedProduct || !planTierOptions.length}
+          >
+            <option value="">
+              {!data.selectedProduct
+                ? "Select product first"
+                : planTierOptions.length
+                  ? "Select"
+                  : "No plan tiers available"}
+            </option>
+
+            {planTierOptions.map((tier) => (
+              <option key={tier} value={tier}>
+                {tier}
+              </option>
+            ))}
+          </Select>
+        </div>
+
+        {/* <div>
           <FieldLabel>Plan Tier</FieldLabel>
           <Select {...f("planTier")}>
             <option value="">Select</option>
             <option value="Silver">Silver</option>
             <option value="Gold">Gold</option>
-            <option value="Premium">Premium</option>
+            <option value="Platinum">Platinum</option>
           </Select>
-        </div>
+        </div> */}
       </div>
 
       <div className="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-3">
@@ -502,36 +796,91 @@ const Step1 = ({
 
         <div>
           <FieldLabel>Date of Birth</FieldLabel>
-          <Input required type="date" {...f("dob")} />
+          {/* <Input required type="date" {...f("dob")} /> */}
+          <Input
+            required
+            type="date"
+            min={dobMinDate}
+            max={dobMaxDate}
+            value={data.dob}
+            onChange={(e) => {
+              onChange("dob", e.target.value);
+              onChange("cnicIssueDate", "");
+            }}
+          />
         </div>
 
         <div>
           <FieldLabel>CNIC / NICOP</FieldLabel>
-          <Input required {...f("cnic")} placeholder="_____-_______-_" />
+          {/* <Input required {...f("cnic")} placeholder="_____-_______-_" /> */}
+          <Input
+            required
+            value={data.cnic}
+            maxLength={15}
+            placeholder="_____-_______-_"
+            onChange={(e) => onChange("cnic", formatCnicNicop(e.target.value))}
+          />
         </div>
 
         <div>
           <FieldLabel>CNIC/NICOP Issue Date</FieldLabel>
-          <Input required type="date" {...f("cnicIssueDate")} />
+          {/* <Input required type="date" {...f("cnicIssueDate")} /> */}
+          <Input
+            required
+            type="date"
+            min={cnicIssueMinDate || undefined}
+            max={todayDate}
+            value={data.cnicIssueDate}
+            disabled={!data.dob}
+            onChange={(e) => {
+              const value = e.target.value;
+
+              if (value > todayDate) return;
+              if (cnicIssueMinDate && value < cnicIssueMinDate) return;
+
+              onChange("cnicIssueDate", value);
+            }}
+          />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 mb-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 mb-5 md:grid-cols-2 xl:grid-cols-1">
         <div>
           <FieldLabel>Address</FieldLabel>
           <Input required {...f("address")} placeholder="Address" />
         </div>
+        {/* <div>
+          <FieldLabel>Plan Tier</FieldLabel>
+          <Select
+            value={data.planTier}
+            onChange={(e) => onChange("planTier", e.target.value)}
+            disabled={!data.selectedProduct || !planTierOptions.length}
+          >
+            <option value="">
+              {!data.selectedProduct
+                ? "Select product first"
+                : planTierOptions.length
+                  ? "Select"
+                  : "No plan tiers available"}
+            </option>
 
-        <div>
+            {planTierOptions.map((tier) => (
+              <option key={tier} value={tier}>
+                {tier}
+              </option>
+            ))}
+          </Select>
+        </div> */}
+        {/* <div>
           <FieldLabel>Coverage Type</FieldLabel>
           <Select required {...f("planStructure")}>
             <option value="">Select</option>
             <option value="Takaful">Takaful</option>
             <option value="Conventional">Conventional</option>
           </Select>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <FieldLabel>I would like to cover</FieldLabel>
           <Select required {...f("i_would_like_to")}>
             <option value="">Select</option>
@@ -541,10 +890,10 @@ const Step1 = ({
             <option value="Aunty">Aunty</option>
             <option value="My Self">My Self</option>
           </Select>
-        </div>
+        </div> */}
       </div>
 
-      <CoverageSummaryPills />
+      <CoverageSummaryPills data={data} />
     </div>
   );
 };
@@ -760,7 +1109,7 @@ export default function QuoteSection({
   const [visited, setVisited] = useState([true, false, false]);
   const [data, setData] = useState<FormData>(INITIAL);
   const formRef = React.useRef<HTMLFormElement | null>(null);
-
+  const bottomContent = STEP_BOTTOM_CONTENT[step];
   const router = useRouter();
   const searchParams = useSearchParams();
   const resumeQuote = searchParams.get("resumeQuote");
@@ -933,14 +1282,12 @@ export default function QuoteSection({
         <div className="px-8 pb-5">
           <div className="flex items-start justify-between gap-8">
             <div className="flex-1 pt-1">
-              <p className="mb-2 text-[10px] font-semibold text-[#BA0C2F] underline">
-                Disclaimer:
+              <p className="mb-2 text-[12px] font-bold text-[#BA0C2F] underline">
+                {bottomContent.disclaimerTitle}
               </p>
 
-              <p className="max-w-[820px] text-[10px] leading-relaxed text-[#4A4A4A] underline">
-                Never share your OTP, card details, or payment information with
-                anyone. Jubilee General Insurance will never request this
-                information via phone, email, or any other channel.
+              <p className="max-w-[820px] text-[10px] leading-relaxed text-[#BA0C2F] underline">
+                {bottomContent.description}
               </p>
             </div>
 
@@ -965,13 +1312,15 @@ export default function QuoteSection({
             </div>
           </div>
           <div className="mb-2 flex items-center gap-2 text-[11px] text-[#4A4A4A] underline">
-            <button type="button" className="cursor-pointer">
-              Download Now
-            </button>
+            <Link href="/health/parents-care-plus">
+              <button type="button" className="cursor-pointer">
+                {bottomContent.downloadLabel}
+              </button>
+            </Link>
             <span>|</span>
-            <button type="button" className="cursor-pointer">
-              Call Now
-            </button>
+            <a href="tel:021111654111" className="cursor-pointer">
+              {bottomContent.callLabel}
+            </a>
           </div>
         </div>
       )}

@@ -1,10 +1,13 @@
+"use client";
+
 import HeroSection from "@/components/About/heroSection";
-import React from "react";
+import React, { useState } from "react";
 import "./complaintqueries.css";
+import { Phone, Mail, MessageCircle, FileText, X } from "lucide-react";
+
 const ComplaintsQueries = () => {
   return (
     <div>
-      {" "}
       <HeroSection
         clasName="leader_ship"
         text="Complaints & Queries"
@@ -17,36 +20,31 @@ const ComplaintsQueries = () => {
 };
 
 export default ComplaintsQueries;
-import {
-  Phone,
-  Mail,
-  MessageCircle,
-  ExternalLink,
-  FileText,
-} from "lucide-react";
 
 const complaintDocs = [
   {
     title: "Federal Insurance Ombudsman",
-
     image: "/img/Complaints&Queries/FIO-Message.jpg",
     link: "#",
   },
   {
-    title: "Complaints in Respect of Insurance Policy",
-
+    title: "Complaints in Respect of Insurance Policy English",
     image: "/img/Complaints&Queries/jgi1.jpg",
     link: "#",
   },
   {
-    title: "Complaint Information",
-
+    title: "Complaints in Respect of Insurance Policy Urdu",
     image: "/img/Complaints&Queries/jgi.jpg",
     link: "#",
   },
 ];
 
 export function ComplaintsQueriesSection() {
+  const [selectedImage, setSelectedImage] = useState<{
+    title: string;
+    image: string;
+  } | null>(null);
+
   return (
     <main className="bg-white">
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -76,13 +74,22 @@ export function ComplaintsQueriesSection() {
                 className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative bg-gray-50 p-5">
-                  <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSelectedImage({
+                        title: item.title,
+                        image: item.image,
+                      })
+                    }
+                    className="block w-full overflow-hidden rounded-2xl border border-gray-100 bg-white"
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
                       className="h-[360px] w-full object-contain p-2 transition duration-300 group-hover:scale-[1.03]"
                     />
-                  </div>
+                  </button>
 
                   <div className="absolute right-8 top-8 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#BA0C2F] shadow-md">
                     <FileText size={22} />
@@ -93,24 +100,40 @@ export function ComplaintsQueriesSection() {
                   <h3 className="text-lg font-bold text-gray-900">
                     {item.title}
                   </h3>
-
-                  {/* <p className="mt-3 text-sm leading-6 text-gray-600">
-                    {item.description}
-                  </p> */}
-
-                  {/* <a
-                    href={item.link}
-                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#BA0C2F] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#990A28]"
-                  >
-                    View Details
-                    <ExternalLink size={16} />
-                  </a> */}
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 px-4 py-6">
+          <div className="relative max-h-[92vh] w-full max-w-5xl rounded-2xl bg-white p-4">
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#BA0C2F] text-white shadow-lg transition hover:bg-[#990A28]"
+              aria-label="Close image"
+            >
+              <X size={22} />
+            </button>
+
+            {/* <h3 className="mb-4 pr-12 text-lg font-bold text-gray-900">
+              {selectedImage.title}
+            </h3> */}
+
+            <div className="flex max-h-[80vh] items-center justify-center overflow-auto rounded-xl bg-gray-50">
+              <img
+                src={selectedImage.image}
+                alt={selectedImage.title}
+                className="max-h-[78vh] w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Contact Help Strip */}
       <section className="px-4 pb-20 sm:px-6 lg:px-8">
@@ -178,11 +201,6 @@ export function ComplaintsQueriesSection() {
               </div>
             </div>
           </div>
-
-          {/* <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-6 text-gray-500">
-            For faster support, please include your policy number, contact
-            details, and a short description of your complaint or query.
-          </p> */}
         </div>
       </section>
     </main>

@@ -1122,7 +1122,7 @@ export default function ContactSection() {
                 icon: talkToUs,
               },
               {
-                title: "Email Our Team",
+                title: "Email Us",
                 text: "info@jubileegeneral.com.pk \ntakaful1@jubileegeneral.com.pk",
                 icon: emailOurTeam,
               },

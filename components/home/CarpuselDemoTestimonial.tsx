@@ -308,49 +308,49 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 const staticTestimonials = [
   {
     name: "Arshia",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Huma",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Hania Amir",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=face",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Sarah",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&crop=face",
     text: "Amazing service and professional work. Highly recommended. Everything was delivered with quality and care.",
   },
   {
     name: "Ayesha",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop&crop=face",
     text: "The design and functionality were exactly what we needed. Communication was smooth and the final result looked great.",
   },
   {
     name: "Danish",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=face",
     text: "Very smooth experience and great communication throughout. Highly satisfied with the final work and support.",
   },
   {
     name: "Ali Khan",
-    role: "Description",
+    role: "",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&crop=face",
     text: "Excellent quality work delivered on time with great attention to detail. Very professional and easy to work with.",

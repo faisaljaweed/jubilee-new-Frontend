@@ -14,8 +14,7 @@ const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 const easeInOutCubic = (t: number) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-const INTRO_TEXT =
-  "Still Thinking? Experience Yourself With Jubilee General Insurance.";
+const INTRO_TEXT = "Still Thinking? Experience Yourself.";
 
 const STEPS = [
   {
@@ -201,7 +200,7 @@ function DaylightText({
   const containerOpacity = lerp(1, 0, fadeT);
   const containerBlur = lerp(0, 2.5, fadeT);
 
-  const redText = "Jubilee General";
+  const redText = "Experience Yourself";
   const redTextStart = text.indexOf(redText);
   const redTextEnd = redTextStart >= 0 ? redTextStart + redText.length : -1;
 

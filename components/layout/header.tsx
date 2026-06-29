@@ -46,38 +46,38 @@ const megaMenuData: MegaMenuCategory[] = [
     icon: Car,
     items: [
       {
-        label: "Motot Third Party Liability Insurance",
-        href: "/motor/motor-third-party-insurance",
+        label: "Motot Insurance",
+        href: "/motor/motor-insurance",
       },
-      {
-        label: "Private Car Compresensive",
-        href: "#",
-        // href: "/motor/private-car-comprehensive",
-      },
-      {
-        label: "Old Car Comprehensive",
-        href: "#",
-        // href: "/motor/old-car-comprehensive",
-      },
-      {
-        label: "3T Old Car Insurance",
-        href: "#",
-        // href: "/motor/3t-old-car-insurance",
-      },
-      {
-        label: "Motor Cycle Comprehensive Insurance",
-        // href: "/motor/motorcycle-comprehensive",
-        href: "#",
-      },
-      {
-        label: "Private Cars Third Party Liability Insurance",
-        href: "/motor/private-car-third-party-insurance",
-      },
-      {
-        label: "Motor Cycle Third Party Liability Insurance",
-        // href: "/motor/motorcycle-third-party-insurance",
-        href: "#",
-      },
+      // {
+      //   label: "Private Car Compresensive",
+      //   href: "#",
+      //   // href: "/motor/private-car-comprehensive",
+      // },
+      // {
+      //   label: "Old Car Comprehensive",
+      //   href: "#",
+      //   // href: "/motor/old-car-comprehensive",
+      // },
+      // {
+      //   label: "3T Old Car Insurance",
+      //   href: "#",
+      //   // href: "/motor/3t-old-car-insurance",
+      // },
+      // {
+      //   label: "Motor Cycle Comprehensive Insurance",
+      //   // href: "/motor/motorcycle-comprehensive",
+      //   href: "#",
+      // },
+      // {
+      //   label: "Private Cars Third Party Liability Insurance",
+      //   href: "/motor/private-car-third-party-insurance",
+      // },
+      // {
+      //   label: "Motor Cycle Third Party Liability Insurance",
+      //   // href: "/motor/motorcycle-third-party-insurance",
+      //   href: "#",
+      // },
       // { label: "Motor Takaful", href: "/motor/takaful" },
       // { label: "Bike Insurance", href: "/motor/bike-insurance" },
       // { label: "Commercial Vehicle", href: "/motor/commercial-vehicle" },
@@ -88,13 +88,13 @@ const megaMenuData: MegaMenuCategory[] = [
     label: "Travel",
     icon: Plane,
     items: [
-      { label: "International Travel", href: "/travel/international-travel" },
-      { label: "HomeTrip Travel", href: "/travel/home-trip-travel" },
-      { label: "Student Travel", href: "/travel/student-travel" },
-      { label: "Hajj and Umrah Travel ", href: "/travel/hajj-umrah-travel" },
+      { label: "Travel Insurance", href: "/travel/travel-insurance" },
+      // { label: "HomeTrip Travel", href: "/travel/home-trip-travel" },
+      // { label: "Student Travel", href: "/travel/student-travel" },
+      // { label: "Hajj and Umrah Travel ", href: "/travel/hajj-umrah-travel" },
       // { label: "Schengen Travel", href: "/travel/schengen" },
-      { label: "Ziarat Travel", href: "/travel/ziarat-travel" },
-      { label: "Domestic Travel", href: "/travel/domestic-travel" },
+      // { label: "Ziarat Travel", href: "/travel/ziarat-travel" },
+      // { label: "Domestic Travel", href: "/travel/domestic-travel" },
       // { label: "Medical Emergency Cover", href: "/travel/medical-cover" },
     ],
   },
@@ -155,6 +155,7 @@ export default function Header({ menuColor }: menuProps) {
   const [isMobileTopOpen, setIsMobileTopOpen] = useState(false);
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
+  const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<MegaMenuKey>("motor");
 
   const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -202,6 +203,10 @@ export default function Header({ menuColor }: menuProps) {
   //     setIsProductsHovered(false);
   //   }, 350);
   // };
+  const aboutDropdownLinks = [
+    { label: "Awards", href: "/awards" },
+    { label: "LeaderShip", href: "/about#leadership" },
+  ];
   const handleProductsMouseEnter = () => {
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
@@ -280,7 +285,7 @@ export default function Header({ menuColor }: menuProps) {
                   <nav className="flex items-center gap-4 xl:gap-7">
                     {mainNavLinks.map((link, i) => (
                       <React.Fragment key={`${link.label}-${i}`}>
-                        <Link
+                        {/* <Link
                           href={link.href}
                           className={`font-futura text-xs xl:text-sm font-medium uppercase tracking-wide transition whitespace-nowrap ${
                             pathname === link.href
@@ -289,7 +294,63 @@ export default function Header({ menuColor }: menuProps) {
                           }`}
                         >
                           {link.label}
-                        </Link>
+                        </Link> */}
+                        {link.label === "ABOUT US" ? (
+                          <div
+                            className="relative"
+                            onMouseEnter={() => setIsAboutHovered(true)}
+                            onMouseLeave={() => setIsAboutHovered(false)}
+                          >
+                            <Link
+                              href={link.href}
+                              className={`flex items-center gap-1 font-futura text-xs xl:text-sm font-medium uppercase tracking-wide transition whitespace-nowrap ${
+                                pathname === link.href ||
+                                pathname === "/awards" ||
+                                pathname === "/leadership"
+                                  ? "text-[#BA0C2F] font-semibold"
+                                  : `${menuColor} hover:text-[#BA0C2F]`
+                              }`}
+                            >
+                              {link.label}
+                              <ChevronDown
+                                size={13}
+                                className={`transition-transform duration-300 ${
+                                  isAboutHovered
+                                    ? "rotate-180 text-[#BA0C2F]"
+                                    : ""
+                                }`}
+                              />
+                            </Link>
+
+                            {isAboutHovered && (
+                              <div className="dropdown-enter absolute left-0 top-full z-50 w-[220px] pt-3">
+                                <div className="overflow-hidden rounded-b-[18px] border border-gray-100 bg-white shadow-2xl">
+                                  {aboutDropdownLinks.map((item) => (
+                                    <Link
+                                      key={item.label}
+                                      href={item.href}
+                                      className="block border-b border-gray-100 px-5 py-3 font-futura text-[15px] font-semibold  text-[#202B4A] transition last:border-b-0  hover:text-[#BA0C2F]"
+                                      onClick={() => setIsAboutHovered(false)}
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className={`font-futura text-xs xl:text-sm font-medium  tracking-wide transition whitespace-nowrap ${
+                              pathname === link.href
+                                ? "text-[#BA0C2F] font-semibold"
+                                : `${menuColor} hover:text-[#BA0C2F]`
+                            }`}
+                          >
+                            {link.label}
+                          </Link>
+                        )}
 
                         {link.label === "ABOUT US" && (
                           <div
@@ -324,11 +385,13 @@ export default function Header({ menuColor }: menuProps) {
 
                             {isProductsHovered && (
                               <div
-                                className={`dropdown-enter absolute top-[calc(100%-2px)] left-[-120px] pt-3 ${
-                                  activeMegaMenu === "motor"
-                                    ? "w-[820px]"
-                                    : "w-[520px]"
-                                }`}
+                                className="dropdown-enter absolute top-[calc(100%-2px)] left-[-120px] w-[500px] pt-3"
+                                // <div
+                                //   className={`dropdown-enter absolute top-[calc(100%-2px)] left-[-120px] pt-3 ${
+                                //     activeMegaMenu === "motor"
+                                //       ? "w-[820px]"
+                                //       : "w-[520px]"
+                                //   }`}
                                 onMouseEnter={handleProductsMouseEnter}
                                 onMouseLeave={handleProductsMouseLeave}
                               >
@@ -365,62 +428,23 @@ export default function Header({ menuColor }: menuProps) {
                                     </div>
 
                                     {/* RIGHT LINKS */}
-                                    {activeMegaMenu === "motor" ? (
-                                      <div className="grid grid-cols-2 gap-x-16 pr-2">
-                                        {/* Motor Column 1 */}
-                                        <div className="flex flex-col">
-                                          {activeCategory.items
-                                            .slice(0, 4)
-                                            .map((item, index) => (
-                                              <Link
-                                                key={`${activeCategory.key}-${item.label}-${index}`}
-                                                href={item.href}
-                                                className="border-b border-gray-200 py-3 font-futura text-[17px] font-medium leading-[1.35] text-[#202B4A] transition hover:text-[#BA0C2F]"
-                                                onClick={() =>
-                                                  setIsProductsHovered(false)
-                                                }
-                                              >
-                                                {item.label}
-                                              </Link>
-                                            ))}
-                                        </div>
-
-                                        {/* Motor Column 2 */}
-                                        <div className="flex flex-col">
-                                          {activeCategory.items
-                                            .slice(4)
-                                            .map((item, index) => (
-                                              <Link
-                                                key={`${activeCategory.key}-${item.label}-${index}`}
-                                                href={item.href}
-                                                className="border-b border-gray-200 py-3 font-futura text-[17px] font-medium leading-[1.35] text-[#202B4A] transition hover:text-[#BA0C2F]"
-                                                onClick={() =>
-                                                  setIsProductsHovered(false)
-                                                }
-                                              >
-                                                {item.label}
-                                              </Link>
-                                            ))}
-                                        </div>
-                                      </div>
-                                    ) : (
-                                      <div className="flex flex-col pr-2">
-                                        {activeCategory.items.map(
-                                          (item, index) => (
-                                            <Link
-                                              key={`${activeCategory.key}-${item.label}-${index}`}
-                                              href={item.href}
-                                              className="border-b border-gray-200 py-[6px] font-futura text-[17px] font-medium  text-[#202B4A] transition hover:text-[#BA0C2F]"
-                                              onClick={() =>
-                                                setIsProductsHovered(false)
-                                              }
-                                            >
-                                              {item.label}
-                                            </Link>
-                                          ),
-                                        )}
-                                      </div>
-                                    )}
+                                    {/* RIGHT LINKS */}
+                                    <div className="flex flex-col pr-2">
+                                      {activeCategory.items.map(
+                                        (item, index) => (
+                                          <Link
+                                            key={`${activeCategory.key}-${item.label}-${index}`}
+                                            href={item.href}
+                                            className="border-b border-gray-200 py-3 font-futura text-[17px] font-medium leading-[1.35] text-[#202B4A] transition hover:text-[#BA0C2F]"
+                                            onClick={() =>
+                                              setIsProductsHovered(false)
+                                            }
+                                          >
+                                            {item.label}
+                                          </Link>
+                                        ),
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
                               </div>

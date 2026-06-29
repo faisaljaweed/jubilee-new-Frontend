@@ -1257,8 +1257,6 @@ export const Investor_Relations = () => {
               <p className="text-sm font-normal">
                 KPMG Taseer Hadi & Co. Chartered Accountants.
                 <br /> Request for Hard Copy of the Annual Report <br />
-                Pages: 1 <br />
-                Size: 29KB
               </p>
             </div>
           </div>
@@ -1274,7 +1272,7 @@ export const Investor_Relations = () => {
               "noopener,noreferrer",
             )
           }
-          text="REQUEST ANNUAL REPORT"
+          text="Request for Hard Copy"
           className="cursor-pointer hover:border-1 hover:border-[#BA0C2F]  rounded-full bg-[#BA0C2F] px-8 py-2 font-futura font-normal text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#BA0C2F] md:px-6 md:py-2"
         />
         <Button

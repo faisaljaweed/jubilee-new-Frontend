@@ -26,11 +26,17 @@ export const Investor_Relation_Data = [
     card_title: "Financial Reports",
   },
   {
-    key: "notice-of-agm",
-    card_image: { Notice_AGM },
-    hover_image: { Notice_AGM },
-    card_title: "Notice Of AGM",
+    key: "six-years-financial-highlights",
+    card_image: { Highlight },
+    hover_image: { Highlight },
+    card_title: (
+      <>
+        6 years Financial <br />
+        Highlights
+      </>
+    ),
   },
+
   {
     key: "growth-at-a-glance",
     card_image: { Growth },
@@ -66,15 +72,10 @@ export const Investor_Relation_Data = [
     ),
   },
   {
-    key: "six-years-financial-highlights",
-    card_image: { Highlight },
-    hover_image: { Highlight },
-    card_title: (
-      <>
-        6 years Financial <br />
-        Highlights
-      </>
-    ),
+    key: "notice-of-agm",
+    card_image: { Notice_AGM },
+    hover_image: { Notice_AGM },
+    card_title: "Notice Of AGM",
   },
   {
     key: "notice-of-eogm",

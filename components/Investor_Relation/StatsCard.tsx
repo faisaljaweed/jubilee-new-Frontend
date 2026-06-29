@@ -25,16 +25,14 @@ function StatCard({ value, label, className = "", children }: StatCardProps) {
     <div
       className={`relative overflow-hidden rounded-[9px] border border-white/30 bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-[2px] ${className}`}
     >
-      {/* image/graph/background children pehle render honge */}
       {children}
 
-      {/* text hamesha top par rahega, lekin alignment normal rahegi */}
       <div className="relative z-30 box-border h-full p-[17px_19px]">
-        <h3 className="m-0 font-futura text-[52px] font-medium !text-white md:text-[56px]">
+        <h3 className="m-0 whitespace-nowrap font-futura text-[44px] font-medium leading-none tracking-[-1px] !text-white md:text-[46px]">
           {value}
         </h3>
 
-        <p className="m-0 mt-1 font-futura text-[16px] font-medium uppercase !text-white">
+        <p className="m-0 mt-2 font-futura text-[16px] font-medium uppercase !text-white">
           {label}
         </p>
       </div>
@@ -73,14 +71,19 @@ export default function Overview2025Section() {
 
         <div className="mt-[31px] grid grid-cols-3 grid-rows-[repeat(2,145px)] gap-x-[14px] gap-y-3 max-[900px]:grid-cols-2 max-[900px]:grid-rows-none max-[900px]:auto-rows-[145px] max-[620px]:grid-cols-1 max-[620px]:auto-rows-[145px]">
           <StatCard
-            value="26.5B"
+            value="PKR 26.5B"
             label="TOP LINE"
             className="row-span-2 max-[620px]:min-h-[303px]"
           >
-            <div className="absolute right-[46px] top-[101px] font-futura rounded-full bg-gradient-to-r from-white/35 to-white/5 px-3 py-1 text-[16px] font-medium text-white">
-              115 %
+            {/* <div className="absolute right-[46px] top-[101px] font-futura rounded-full bg-gradient-to-r from-white/35 to-white/5 px-3 py-1 text-[16px] font-medium text-white">
+              ↑15 %
+            </div> */}
+            <div className="absolute right-[46px] top-[101px] font-futura rounded-full bg-gradient-to-r from-white/35 to-white/5 px-3 py-1 text-[16px] font-medium text-white inline-flex items-center gap-1 leading-none">
+              <span className="text-[13px] leading-none -translate-y-[1px] font-black">
+                ↑
+              </span>
+              <span className="leading-none">15%</span>
             </div>
-
             <div className="absolute bottom-5 left-[18px] right-[18px] flex h-[126px] items-end justify-center gap-3">
               <div className="relative h-[102px] w-[118px] overflow-visible">
                 <span className="absolute -top-[22px] left-1/2 z-20 -translate-x-1/2 whitespace-nowrap text-[16px] font-medium font-futura text-white">
@@ -116,9 +119,13 @@ export default function Overview2025Section() {
             </div>
           </StatCard>
 
-          <StatCard value="11.5B" label="CLAIMS PAID" />
+          <StatCard value="PKR 11.5B" label="CLAIMS PAID" />
 
-          <StatCard value="4B+" label="COMBINED VALUE" className="bg-black/30">
+          <StatCard
+            value="PKR 4B+"
+            label="COMBINED VALUE"
+            className="bg-black/30"
+          >
             <img
               src={images.puzzle}
               alt="Combined value puzzle"
@@ -142,7 +149,7 @@ export default function Overview2025Section() {
             <div className="absolute inset-0 z-10 bg-black/10" />
           </StatCard>
 
-          <StatCard value="6.7B" label="PROFIT BEFORE TAX" />
+          <StatCard value="PKR 6.7B" label="PROFIT BEFORE TAX" />
         </div>
       </div>
     </section>

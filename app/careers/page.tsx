@@ -9,7 +9,7 @@ const page = () => {
     <>
       <div className="carrers-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
-          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0">
+          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-end pb-10 px-6 md:px-0">
             <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[44px] lg:text-[50px]">
               Inside Jubilee General
             </h1>
@@ -198,8 +198,8 @@ const page = () => {
               key={index}
               className="group relative overflow-hidden rounded-[28px] border border-[#eeeeee] bg-white px-6 py-9 text-center shadow-[0_18px_50px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#BA0C2F]/30 hover:shadow-[0_24px_70px_rgba(186,12,47,0.14)]"
             >
-              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#BA0C2F]/10 transition-all duration-300 group-hover:scale-125 group-hover:bg-[#BA0C2F]/15" />
-              <div className="absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#4A4A4A]/5 transition-all duration-300 group-hover:scale-125" />
+              {/* <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#BA0C2F]/10 transition-all duration-300 group-hover:scale-125 group-hover:bg-[#BA0C2F]/15" />
+              <div className="absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#4A4A4A]/5 transition-all duration-300 group-hover:scale-125" /> */}
 
               <div className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-[#F8F8F8] text-[#4A4A4A] shadow-inner transition-all duration-300 group-hover:bg-[#BA0C2F] group-hover:text-white">
                 {item.icon}
@@ -214,7 +214,7 @@ const page = () => {
           ))}
         </div>
       </div>
-      <Section3 />
+      {/* <Section3 /> */}
       <Section4 />
       <Section5 />
     </>

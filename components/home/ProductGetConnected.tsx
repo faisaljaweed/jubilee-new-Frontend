@@ -1,20 +1,13 @@
 "use client";
 
 import { FaWhatsapp, FaRobot } from "react-icons/fa";
-import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 export default function ProductGetConnected() {
   const socialLinks = [
     {
-      name: "Complain Care",
-      icon: <FaArrowRightArrowLeft size={22} />,
-      href: "#",
-      color: "#BA0C2F",
-    },
-    {
       name: "WhatsApp",
       icon: <FaWhatsapp size={22} />,
-      href: "https://wa.me/yourNumber",
+      href: "tel:021111654111",
       color: "#25D366",
     },
     {
@@ -27,37 +20,41 @@ export default function ProductGetConnected() {
 
   return (
     <>
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
-        <div className="relative flex flex-col items-center bg-white text-[#BA0C2F] rounded-l-2xl overflow-visible shadow-[0_-30px_40px_-10px_rgba(0,0,0,0.25),0_20px_25px_-5px_rgba(0,0,0,0.1)] w-8">
-          <div className="flex flex-col py-5 gap-6">
+      <div className="fixed right-0 top-1/2 z-40 hidden -translate-y-1/2 md:block">
+        <div className="relative flex w-8 flex-col items-center overflow-visible rounded-l-2xl bg-white text-[#BA0C2F] shadow-[0_-30px_40px_-10px_rgba(0,0,0,0.25),0_20px_25px_-5px_rgba(0,0,0,0.1)]">
+          <div className="flex flex-col gap-6 py-5">
             {socialLinks.map((link, idx) => (
-              <a
+              <div
                 key={idx}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  link.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="group relative flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                style={{ color: link.color }}
+                className="group relative flex w-8 items-center justify-center"
               >
-                {link.icon}
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="relative z-[70] flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
+                  style={{ color: link.color }}
+                >
+                  {link.icon}
+                </a>
 
-                <div className="absolute opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 z-60">
-                  <div
-                    className="fixed bg-white text-[#BA0C2F] text-sm px-4 py-4 rounded-l-full whitespace-nowrap uppercase"
-                    style={{
-                      right: "90%",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    {link.name}
-                  </div>
-                </div>
-              </a>
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="absolute right-0 top-1/2 z-[30] -translate-y-1/2 whitespace-nowrap rounded-l-full bg-white py-4 pl-4 pr-12 text-sm uppercase text-[#BA0C2F] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  {link.name}
+                </a>
+              </div>
             ))}
           </div>
         </div>

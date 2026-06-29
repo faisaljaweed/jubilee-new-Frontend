@@ -189,9 +189,17 @@ export default function ProductPageTemplate({
 
   const quoteRef = useRef<HTMLDivElement | null>(null);
   const [selectedMotorPlanKey, setSelectedMotorPlanKey] = useState("");
+  const [selectedTravelPlanKey, setSelectedTravelPlanKey] = useState("");
+  // Motor UseEffect
+  useEffect(() => {
+    setSelectedMotorPlanKey("");
+  }, [product?.slug]);
+
+  // Travel UseEffect
 
   useEffect(() => {
     setSelectedMotorPlanKey("");
+    setSelectedTravelPlanKey("");
   }, [product?.slug]);
 
   useEffect(() => {
@@ -263,12 +271,21 @@ export default function ProductPageTemplate({
       setSelectedMotorPlanKey(data.planKey || data.selectedProduct);
     }
 
+    if (product.detailsType === "travel") {
+      setSelectedTravelPlanKey(data.planKey || data.selectedProduct);
+    }
+
     scrollToQuoteSection();
   };
-
+  // Motor Selected Details
   const selectedMotorDetails =
     product.detailsType === "motor" && selectedMotorPlanKey
       ? (product.motorPlanDetails?.[selectedMotorPlanKey] ?? product.details)
+      : product.details;
+  // Travel Selected Details
+  const selectedTravelDetails =
+    product.detailsType === "travel" && selectedTravelPlanKey
+      ? (product.travelPlanDetails?.[selectedTravelPlanKey] ?? product.details)
       : product.details;
 
   const renderProductDetails = () => {
@@ -281,8 +298,11 @@ export default function ProductPageTemplate({
         ) : null;
 
       case "travel":
-        return product.details ? (
-          <Travel_Table details={product.details} />
+        return selectedTravelDetails ? (
+          <Travel_Table
+            key={selectedTravelPlanKey || "default-travel-table"}
+            details={selectedTravelDetails}
+          />
         ) : null;
 
       case "motor":

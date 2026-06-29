@@ -108,12 +108,12 @@ export const ManagementCommittee = [
     Direactor_Designation: "Head of Internal Audit",
     Direactor_Description: "",
   },
-  {
-    Direactor_Image: default_user,
-    Direactot_Name: "Muhammad Zeeshan Khan",
-    Direactor_Designation: "Head of Information Technology",
-    Direactor_Description: "",
-  },
+  // {
+  //   Direactor_Image: default_user,
+  //   Direactot_Name: "Muhammad Zeeshan Khan",
+  //   Direactor_Designation: "Head of Information Technology",
+  //   Direactor_Description: "",
+  // },
   {
     Direactor_Image: default_user,
     Direactot_Name: "Naresh Kumar",
@@ -145,12 +145,12 @@ export const ManagementCommittee = [
     Direactor_Designation: "Head of Marketing",
     Direactor_Description: "",
   },
-  {
-    Direactor_Image: default_user,
-    Direactot_Name: "Hashim M Shamim",
-    Direactor_Designation: "Senior Advisor",
-    Direactor_Description: "",
-  },
+  // {
+  //   Direactor_Image: default_user,
+  //   Direactot_Name: "Hashim M Shamim",
+  //   Direactor_Designation: "Senior Advisor",
+  //   Direactor_Description: "",
+  // },
 ];
 export const ExecutiveCommittee = [
   {
@@ -167,13 +167,13 @@ export const ExecutiveCommittee = [
   },
   {
     Direactor_Image: default_user,
-    Direactot_Name: "Nadeem Irshad",
+    Direactot_Name: "M.Nadeem Irshad",
     Direactor_Designation: "Chief Sales Officer",
     Direactor_Description: "",
   },
   {
     Direactor_Image: default_user,
-    Direactot_Name: "MAadil Saleh",
+    Direactot_Name: "M.Adil Saleh",
     Direactor_Designation: "Chief Human Resources Officer",
     Direactor_Description: "",
   },

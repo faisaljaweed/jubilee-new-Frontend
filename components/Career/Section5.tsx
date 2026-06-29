@@ -1,127 +1,6 @@
-// "use client";
-
-// import React, { useState } from "react";
-// import Container from "../home/container";
-// import { Heart, MapPin, ArrowRight } from "lucide-react";
-
-// const jobs = [
-//   {
-//     title: "Social Media Marketing Manager",
-//     location: "Karachi, Pakistan",
-//   },
-//   {
-//     title: "Social Media Marketing Manager",
-//     location: "Karachi, Pakistan",
-//   },
-//   {
-//     title: "Social Media Marketing Manager",
-//     location: "Karachi, Pakistan",
-//   },
-//   {
-//     title: "Social Media Marketing Manager",
-//     location: "Karachi, Pakistan",
-//   },
-// ];
-
-// const tabs = ["Suggested Jobs", "Recently Viewed Jobs", "Saved Jobs"];
-
-// const Section5 = () => {
-//   const [activeTab, setActiveTab] = useState("Suggested Jobs");
-
-//   return (
-//     <section className="border-y border-[#BA0C2F] bg-white py-16 font-futura">
-//       <Container>
-//         <div className="mx-auto max-w-6xl">
-//           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[28%_72%]">
-//             {/* LEFT HEADING */}
-//             <div>
-//               <h2 className="text-3xl font-bold uppercase leading-tight text-[#BA0C2F] md:text-4xl pb-10">
-//                 Jobs For You
-//               </h2>
-//             </div>
-//             {/* TABS */}
-//             <div className="mb-8 flex flex-wrap items-center gap-8 md:gap-14">
-//               {tabs.map((tab) => (
-//                 <button
-//                   key={tab}
-//                   type="button"
-//                   onClick={() => setActiveTab(tab)}
-//                   className={`font-futura text-sm font-semibold transition ${
-//                     activeTab === tab
-//                       ? "text-[#BA0C2F] underline underline-offset-4"
-//                       : "text-[#3F3F3F] hover:text-[#BA0C2F]"
-//                   }`}
-//                 >
-//                   {/* {tab} */}
-//                 </button>
-//               ))}
-//             </div>
-//           </div>
-//           {/* RIGHT CONTENT */}
-//           <div>
-//             {/* JOB CARDS */}
-//             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-//               {jobs.map((job, index) => (
-//                 <div
-//                   key={index}
-//                   className="group flex min-h-[92px] items-center justify-between rounded-2xl bg-[#F4F4F5] px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:bg-[#BA0C2F] hover:shadow-lg"
-//                 >
-//                   <div>
-//                     <h3 className="mb-3 font-futura text-[16px] font-semibold text-[#4A4A4A] transition group-hover:text-white">
-//                       {job.title}
-//                     </h3>
-
-//                     <div className="flex items-center gap-2">
-//                       <MapPin className="h-4 w-4 text-[#BA0C2F] transition group-hover:text-white" />
-//                       <span className="font-futura text-xs font-medium text-[#BA0C2F] transition group-hover:text-white">
-//                         {job.location}
-//                       </span>
-//                     </div>
-//                   </div>
-
-//                   <div className="flex flex-col items-center gap-4">
-//                     <button
-//                       type="button"
-//                       aria-label="Save job"
-//                       className="text-[#BA0C2F] transition group-hover:text-white"
-//                     >
-//                       {/* <Heart className="h-5 w-5" /> */}
-//                     </button>
-
-//                     <button
-//                       type="button"
-//                       aria-label="View job"
-//                       className="text-[#BA0C2F] transition group-hover:translate-x-1 group-hover:text-white"
-//                     >
-//                       <ArrowRight className="h-5 w-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-
-//             {/* VIEW ALL */}
-//             {/* <div className="mt-8 flex justify-end">
-//               <button
-//                 type="button"
-//                 className="font-futura text-sm font-semibold uppercase text-[#BA0C2F] underline underline-offset-4 transition hover:text-[#970A27]"
-//               >
-//                 View All&gt;
-//               </button>
-//             </div> */}
-//           </div>
-//         </div>
-//         {/* </div> */}
-//       </Container>
-//     </section>
-//   );
-// };
-
-// export default Section5;
-
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Container from "../home/container";
 import { ArrowRight, Briefcase, Heart, Loader2, MapPin, X } from "lucide-react";
 
@@ -170,6 +49,25 @@ type Section5Props = {
   locationQuery?: string;
 };
 
+type ApplicationFormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  experience: string;
+  linkedIn: string;
+  coverLetter: string;
+};
+
+const initialApplicationFormState: ApplicationFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneNumber: "",
+  experience: "",
+  linkedIn: "",
+  coverLetter: "",
+};
 const tabs = ["Suggested Jobs", "Recently Viewed Jobs", "Saved Jobs"] as const;
 type Tab = (typeof tabs)[number];
 
@@ -178,6 +76,10 @@ const API_BASE_URL =
 
 const JOBS_ENDPOINT =
   process.env.NEXT_PUBLIC_JOBS_ENDPOINT || `${API_BASE_URL}/jobs`;
+
+const JOB_APPLICATIONS_ENDPOINT =
+  process.env.NEXT_PUBLIC_JOB_APPLICATIONS_ENDPOINT ||
+  `${API_BASE_URL}/career-applications`;
 
 const SAVED_JOBS_KEY = "jubilee_saved_jobs";
 const RECENT_JOBS_KEY = "jubilee_recent_jobs";
@@ -214,6 +116,7 @@ const formatSalary = (salary?: Salary) => {
   if (!salary?.isVisible) return "Not disclosed";
 
   const currency = salary.currency || "PKR";
+
   if (salary.min && salary.max) {
     return `${currency} ${salary.min.toLocaleString()} - ${salary.max.toLocaleString()}`;
   }
@@ -269,6 +172,16 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const [applicationForm, setApplicationForm] = useState<ApplicationFormState>(
+    initialApplicationFormState,
+  );
+  const [applicationResume, setApplicationResume] = useState<File | null>(null);
+  const [isApplying, setIsApplying] = useState(false);
+  const [applicationError, setApplicationError] = useState("");
+  const [showThankYouPopup, setShowThankYouPopup] = useState(false);
+
+  const applicationResumeInputRef = useRef<HTMLInputElement | null>(null);
+
   useEffect(() => {
     setSavedJobs(getStorageJobs(SAVED_JOBS_KEY));
     setRecentJobs(getStorageJobs(RECENT_JOBS_KEY));
@@ -284,7 +197,9 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
 
         const url = new URL(
           JOBS_ENDPOINT,
-          typeof window !== "undefined" ? window.location.origin : undefined,
+          typeof window !== "undefined"
+            ? window.location.origin
+            : "http://localhost:3000",
         );
 
         if (searchQuery.trim()) {
@@ -333,8 +248,19 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
     [savedJobs],
   );
 
+  const resetApplicationForm = () => {
+    setApplicationForm(initialApplicationFormState);
+    setApplicationResume(null);
+    setApplicationError("");
+
+    if (applicationResumeInputRef.current) {
+      applicationResumeInputRef.current.value = "";
+    }
+  };
+
   const toggleSavedJob = (job: Job) => {
     const exists = savedJobIds.has(job._id);
+
     const updatedJobs = exists
       ? savedJobs.filter((item) => item._id !== job._id)
       : [job, ...savedJobs];
@@ -345,6 +271,8 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
 
   const openJobDetail = (job: Job) => {
     setSelectedJob(job);
+    setShowThankYouPopup(false);
+    resetApplicationForm();
 
     const updatedRecentJobs = [
       job,
@@ -353,6 +281,135 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
 
     setRecentJobs(updatedRecentJobs);
     setStorageJobs(RECENT_JOBS_KEY, updatedRecentJobs);
+  };
+
+  const closeJobDetail = () => {
+    setSelectedJob(null);
+    setShowThankYouPopup(false);
+    resetApplicationForm();
+  };
+  useEffect(() => {
+    if (!showThankYouPopup) return;
+
+    const timer = window.setTimeout(() => {
+      setShowThankYouPopup(false);
+      setSelectedJob(null);
+      setApplicationForm(initialApplicationFormState);
+      setApplicationResume(null);
+      setApplicationError("");
+
+      if (applicationResumeInputRef.current) {
+        applicationResumeInputRef.current.value = "";
+      }
+    }, 2000);
+
+    return () => window.clearTimeout(timer);
+  }, [showThankYouPopup]);
+
+  const handleApplicationChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setApplicationForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleApplicationResumeChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = event.target.files?.[0] || null;
+
+    if (!file) {
+      setApplicationResume(null);
+      return;
+    }
+
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    const maxSizeInMb = 5;
+    const maxSizeInBytes = maxSizeInMb * 1024 * 1024;
+
+    if (!allowedTypes.includes(file.type)) {
+      setApplicationResume(null);
+      setApplicationError("Please upload only PDF, DOC, or DOCX file.");
+      event.target.value = "";
+      return;
+    }
+
+    if (file.size > maxSizeInBytes) {
+      setApplicationResume(null);
+      setApplicationError(
+        `Resume file size must be less than ${maxSizeInMb}MB.`,
+      );
+      event.target.value = "";
+      return;
+    }
+
+    setApplicationError("");
+    setApplicationResume(file);
+  };
+
+  const handleApplicationSubmit = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+
+    if (!selectedJob || isApplying) return;
+
+    try {
+      setIsApplying(true);
+      setApplicationError("");
+      setShowThankYouPopup(false);
+
+      const payload = new FormData();
+
+      payload.append("jobId", selectedJob._id);
+      payload.append("jobTitle", selectedJob.title);
+      payload.append("department", selectedJob.department || "");
+      payload.append("location", selectedJob.location || "");
+      // payload.append("fullName", applicationForm.fullName.trim());
+      payload.append("email", applicationForm.email.trim());
+      payload.append("phoneNumber", applicationForm.phoneNumber.trim());
+      // payload.append("experience", applicationForm.experience.trim());
+      // payload.append("linkedIn", applicationForm.linkedIn.trim());
+      payload.append("coverLetter", applicationForm.coverLetter.trim());
+      payload.append("source", "job_detail_modal");
+      payload.append("firstName", applicationForm.firstName.trim());
+      payload.append("lastName", applicationForm.lastName.trim());
+
+      if (applicationResume) {
+        payload.append("resume", applicationResume);
+      }
+
+      const response = await fetch(JOB_APPLICATIONS_ENDPOINT, {
+        method: "POST",
+        body: payload,
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(
+          result?.message ||
+            result?.error ||
+            "Unable to submit your application. Please try again.",
+        );
+      }
+
+      resetApplicationForm();
+      setShowThankYouPopup(true);
+    } catch (error) {
+      setApplicationError(
+        error instanceof Error
+          ? error.message
+          : "Unable to submit your application. Please try again.",
+      );
+    } finally {
+      setIsApplying(false);
+    }
   };
 
   return (
@@ -364,6 +421,7 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
               <h2 className="pb-3 text-3xl font-bold uppercase leading-tight text-[#BA0C2F] md:text-4xl">
                 Jobs For You
               </h2>
+
               <p className="max-w-xs text-sm leading-relaxed text-[#4A4A4A]">
                 Explore current openings and find the role that matches your
                 skills.
@@ -464,104 +522,316 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
 
       {selectedJob && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-8">
-          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl md:p-8">
-            <div className="flex items-start justify-between gap-4">
+          <div className="max-h-[90vh] w-full max-w-6xl overflow-y-auto rounded-3xl bg-white p-5 shadow-2xl md:p-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_410px]">
+              {/* LEFT SIDE JOB INFORMATION */}
               <div>
-                <span className="mb-3 inline-block rounded-full bg-[#BA0C2F]/10 px-4 py-1 text-xs font-semibold uppercase text-[#BA0C2F]">
-                  {formatLabel(selectedJob.department)}
-                </span>
-                <h3 className="text-2xl font-bold text-[#4A4A4A]">
-                  {selectedJob.title}
-                </h3>
-                <p className="mt-2 text-sm font-medium text-[#BA0C2F]">
-                  {formatLocation(selectedJob.location)}
-                </p>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="mb-3 inline-block rounded-full bg-[#BA0C2F]/10 px-4 py-1 text-xs font-semibold uppercase text-[#BA0C2F]">
+                      {selectedJob.department
+                        ? formatLabel(selectedJob.department)
+                        : "Information Technology"}
+                    </span>
+
+                    <h3 className="text-2xl font-bold text-[#4A4A4A]">
+                      {selectedJob.title}
+                    </h3>
+
+                    <p className="mt-2 flex items-center gap-2 text-sm font-medium text-[#BA0C2F]">
+                      <MapPin className="h-4 w-4" />
+                      {formatLocation(selectedJob.location)}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-1 gap-4 rounded-2xl bg-[#F8F8F8] p-4 text-sm md:grid-cols-3">
+                  <div>
+                    <p className="text-xs uppercase text-[#777]">Job Type</p>
+                    <p className="mt-1 font-semibold text-[#4A4A4A]">
+                      {formatLabel(selectedJob.jobType)}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs uppercase text-[#777]">Experience</p>
+                    <p className="mt-1 font-semibold text-[#4A4A4A]">
+                      {formatExperience(selectedJob)}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs uppercase text-[#777]">Salary</p>
+                    <p className="mt-1 font-semibold text-[#4A4A4A]">
+                      {formatSalary(selectedJob.salary)}
+                    </p>
+                  </div>
+                </div>
+
+                {selectedJob.description && (
+                  <div className="mt-6">
+                    <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
+                      Job Description
+                    </h4>
+                    <p className="text-sm leading-relaxed text-[#4A4A4A]">
+                      {selectedJob.description}
+                    </p>
+                  </div>
+                )}
+
+                {selectedJob.responsibilities?.length ? (
+                  <div className="mt-6">
+                    <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
+                      Responsibilities
+                    </h4>
+                    <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#4A4A4A]">
+                      {selectedJob.responsibilities.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {selectedJob.requirements?.length ? (
+                  <div className="mt-6">
+                    <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
+                      Requirements
+                    </h4>
+                    <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#4A4A4A]">
+                      {selectedJob.requirements.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                <div className="mt-8">
+                  <button
+                    type="button"
+                    onClick={() => toggleSavedJob(selectedJob)}
+                    className="rounded-full border border-[#BA0C2F] px-6 py-3 text-sm font-semibold uppercase text-[#BA0C2F] transition hover:bg-[#BA0C2F] hover:text-white"
+                  >
+                    {savedJobIds.has(selectedJob._id)
+                      ? "Remove Saved"
+                      : "Save Job"}
+                  </button>
+                </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setSelectedJob(null)}
-                className="rounded-full bg-[#F4F4F5] p-2 text-[#4A4A4A] transition hover:bg-[#BA0C2F] hover:text-white"
-                aria-label="Close job detail"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+              {/* RIGHT SIDE APPLICATION FORM */}
+              <div className="rounded-3xl border border-[#BA0C2F]/15 bg-[#F8F8F8] p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h4 className="text-xl font-bold text-[#BA0C2F]">
+                      Apply Now
+                    </h4>
 
-            <div className="mt-6 grid grid-cols-1 gap-4 rounded-2xl bg-[#F8F8F8] p-4 text-sm md:grid-cols-3">
-              <div>
-                <p className="text-xs uppercase text-[#777]">Job Type</p>
-                <p className="mt-1 font-semibold text-[#4A4A4A]">
-                  {formatLabel(selectedJob.jobType)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase text-[#777]">Experience</p>
-                <p className="mt-1 font-semibold text-[#4A4A4A]">
-                  {formatExperience(selectedJob)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase text-[#777]">Salary</p>
-                <p className="mt-1 font-semibold text-[#4A4A4A]">
-                  {formatSalary(selectedJob.salary)}
-                </p>
-              </div>
-            </div>
+                    <p className="mt-1 text-xs leading-relaxed text-[#666]">
+                      Fill the form below to apply for this position.
+                    </p>
+                  </div>
 
-            {selectedJob.description && (
-              <div className="mt-6">
-                <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
-                  Job Description
-                </h4>
-                <p className="text-sm leading-relaxed text-[#4A4A4A]">
-                  {selectedJob.description}
-                </p>
-              </div>
-            )}
+                  <button
+                    type="button"
+                    onClick={closeJobDetail}
+                    className="shrink-0 rounded-full bg-white p-2 text-[#4A4A4A] transition hover:bg-[#BA0C2F] hover:text-white"
+                    aria-label="Close application form"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
 
-            {selectedJob.responsibilities?.length ? (
-              <div className="mt-6">
-                <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
-                  Responsibilities
-                </h4>
-                <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#4A4A4A]">
-                  {selectedJob.responsibilities.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+                <form
+                  onSubmit={handleApplicationSubmit}
+                  className="mt-5 space-y-4"
+                >
+                  {/* <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={applicationForm.fullName}
+                      onChange={handleApplicationChange}
+                      className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div> */}
 
-            {selectedJob.requirements?.length ? (
-              <div className="mt-6">
-                <h4 className="mb-2 text-lg font-bold text-[#BA0C2F]">
-                  Requirements
-                </h4>
-                <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#4A4A4A]">
-                  {selectedJob.requirements.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                      <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={applicationForm.firstName}
+                        onChange={handleApplicationChange}
+                        className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                        placeholder="First name"
+                        required
+                      />
+                    </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={() => toggleSavedJob(selectedJob)}
-                className="rounded-full border border-[#BA0C2F] px-6 py-3 text-sm font-semibold uppercase text-[#BA0C2F] transition hover:bg-[#BA0C2F] hover:text-white"
-              >
-                {savedJobIds.has(selectedJob._id) ? "Remove Saved" : "Save Job"}
-              </button>
-              <button
-                type="button"
-                className="rounded-full bg-[#BA0C2F] px-6 py-3 text-sm font-semibold uppercase text-white transition hover:bg-[#970A27]"
-              >
-                Apply Now
-              </button>
+                    <div>
+                      <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={applicationForm.lastName}
+                        onChange={handleApplicationChange}
+                        className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                        placeholder="Last name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={applicationForm.email}
+                      onChange={handleApplicationChange}
+                      className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      value={applicationForm.phoneNumber}
+                      onChange={handleApplicationChange}
+                      className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="Enter your phone number"
+                      required
+                    />
+                  </div>
+                  {/* 
+                  <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Experience
+                    </label>
+                    <input
+                      type="text"
+                      name="experience"
+                      value={applicationForm.experience}
+                      onChange={handleApplicationChange}
+                      className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="e.g. 2 years"
+                    />
+                  </div> */}
+
+                  {/* <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      LinkedIn / Portfolio
+                    </label>
+                    <input
+                      type="url"
+                      name="linkedIn"
+                      value={applicationForm.linkedIn}
+                      onChange={handleApplicationChange}
+                      className="h-11 w-full rounded-full border border-[#E2E2E2] bg-white px-4 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="https://linkedin.com/in/..."
+                    />
+                  </div> */}
+
+                  <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Upload Resume
+                    </label>
+
+                    <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-full border border-dashed border-[#BA0C2F]/40 bg-white px-4 text-sm text-[#4A4A4A]">
+                      <span className="truncate">
+                        {applicationResume?.name || "Choose resume file"}
+                      </span>
+                      <span className="shrink-0 text-xs font-semibold text-[#BA0C2F]">
+                        Browse
+                      </span>
+                      <input
+                        ref={applicationResumeInputRef}
+                        type="file"
+                        className="hidden"
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleApplicationResumeChange}
+                      />
+                    </label>
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-xs font-semibold uppercase text-[#4A4A4A]">
+                      Message
+                    </label>
+                    <textarea
+                      name="coverLetter"
+                      value={applicationForm.coverLetter}
+                      onChange={handleApplicationChange}
+                      rows={4}
+                      className="w-full resize-none rounded-2xl border border-[#E2E2E2] bg-white px-4 py-3 text-sm text-[#4A4A4A] outline-none focus:border-[#BA0C2F]"
+                      placeholder="Write a short message..."
+                    />
+                  </div>
+
+                  {applicationError && (
+                    <div className="rounded-2xl bg-red-50 px-4 py-3 text-xs font-semibold text-red-600">
+                      {applicationError}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isApplying}
+                    className="h-11 w-full rounded-full bg-[#BA0C2F] px-6 text-sm font-semibold uppercase text-white transition hover:bg-[#970A27] disabled:cursor-not-allowed disabled:opacity-70"
+                  >
+                    {isApplying ? "Submitting..." : "Apply Now"}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
+
+          {showThankYouPopup && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 px-4">
+              <div className="w-full max-w-sm rounded-3xl bg-white p-7 text-center shadow-2xl">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#BA0C2F]/10 text-2xl text-[#BA0C2F]">
+                  ✓
+                </div>
+
+                <h4 className="text-2xl font-bold text-[#BA0C2F]">
+                  Thank You!
+                </h4>
+
+                <p className="mt-2 text-sm leading-relaxed text-[#4A4A4A]">
+                  Your application has been submitted successfully. Our team
+                  will review your details and contact you soon.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowThankYouPopup(false);
+                    setSelectedJob(null);
+                  }}
+                  className="mt-6 h-11 rounded-full bg-[#BA0C2F] px-8 text-sm font-semibold uppercase text-white transition hover:bg-[#970A27]"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </section>

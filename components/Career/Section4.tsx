@@ -106,7 +106,7 @@ const Section4 = () => {
       payload.append("firstName", form.firstName.trim());
       payload.append("lastName", form.lastName.trim());
       payload.append("email", form.email.trim());
-      payload.append("countryCode", form.countryCode);
+      // payload.append("countryCode", form.countryCode);
       payload.append("phoneNumber", form.phoneNumber.trim());
       payload.append("category", form.category);
       payload.append("location", form.location.trim());
@@ -216,7 +216,7 @@ const Section4 = () => {
 
               {/* ROW 2 */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <div>
+                {/* <div>
                   <label className={labelClass}>Country Code *</label>
                   <select
                     name="countryCode"
@@ -230,7 +230,7 @@ const Section4 = () => {
                     <option value="+966">+966</option>
                     <option value="+44">+44</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label className={labelClass}>Phone Number *</label>

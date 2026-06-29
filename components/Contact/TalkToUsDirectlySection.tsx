@@ -23,7 +23,7 @@ export default function TalkToUsDirectlySection() {
           </h2>
 
           <p className="font-futura mt-5 max-w-[790px] text-[14px] font-normal leading-[1.7] text-[#666666] md:text-[15px]">
-            While the rest of us are busy digitizing, our secure AI Agent is
+            While the rest of us are busy servicing you, our secure AI Agent is
             right here, waiting to assist with your policy details or walk you
             through our latest services.
           </p>

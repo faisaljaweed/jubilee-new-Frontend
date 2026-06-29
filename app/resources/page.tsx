@@ -60,13 +60,7 @@ type Post = {
   createdAt?: string;
 };
 
-type MainTabKey =
-  | "news"
-  | "media_kit"
-  | "interview"
-  | "partnership"
-  | "event"
-  | "policyholder_info";
+type MainTabKey = "news_events" | "media_kit" | "interview" | "partnership";
 
 type MediaKitTabKey =
   | "commercial"
@@ -86,16 +80,10 @@ const mainTabs: {
   label: string;
   icon: ReactNode;
 }[] = [
-  { key: "news", label: "News", icon: <FaNewspaper /> },
+  { key: "news_events", label: "News & Events", icon: <FaNewspaper /> },
   { key: "media_kit", label: "Media Kit", icon: <FaImages /> },
   { key: "interview", label: "Interviews", icon: <FaPlay /> },
   { key: "partnership", label: "Partnerships", icon: <FaNewspaper /> },
-  { key: "event", label: "Events", icon: <FaCalendarAlt /> },
-  {
-    key: "policyholder_info",
-    label: "Policyholder Info",
-    icon: <FaDownload />,
-  },
 ];
 
 const mediaKitTabs: {
@@ -151,7 +139,7 @@ const getYoutubeEmbedUrl = (url: string) => {
 };
 
 const Resources = () => {
-  const [activeMainTab, setActiveMainTab] = useState<MainTabKey>("news");
+  const [activeMainTab, setActiveMainTab] = useState<MainTabKey>("news_events");
   const [activeMediaKitTab, setActiveMediaKitTab] =
     useState<MediaKitTabKey>("commercial");
 
@@ -197,6 +185,10 @@ const Resources = () => {
             post.category === "media_kit" &&
             post.subCategory === activeMediaKitTab
           );
+        }
+
+        if (activeMainTab === "news_events") {
+          return post.category === "news" || post.category === "event";
         }
 
         return post.category === activeMainTab;
