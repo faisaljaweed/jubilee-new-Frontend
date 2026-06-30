@@ -439,7 +439,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Hercare.jpg.jpeg",
+      imageUrl: "/img/Product/Travel.jpeg",
     },
 
     counters: [

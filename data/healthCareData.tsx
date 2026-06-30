@@ -1087,7 +1087,7 @@ export const motor = [
   {
     planKey: "motorcycle-comprehensive",
     Card_Name: "Motorcycle Comprehensive",
-    Card_description: "Lorem Ipsum Sample Text",
+    Card_description: "Starting from",
     Card_price: "9.00%",
     Card_price_period: "of I.E.V. \nPer Year",
     Card_features: [
@@ -1104,7 +1104,7 @@ export const motor = [
   {
     planKey: "private-car-third-party-insurance",
     Card_Name: "Third Party Liability",
-    Card_description: "Lorem Ipsum Sample Text",
+    Card_description: "Starting from",
     Card_price: "PKR 200",
     Card_price_period: "of I.E.V. \nPer Year",
     Card_features: [
@@ -1315,7 +1315,7 @@ export const travelInsurancePackage = [
   {
     planKey: "home-trip-schengen",
     Card_Name: "Home Trip - Schengen",
-    Card_description: "Lorem Ipsum Sample Text",
+    Card_description: "Individual/Family",
     Card_price_prefix: "\nFrom",
     Card_price: "2,850",
     Card_price_period: "PKR \nPer Year",
@@ -1354,7 +1354,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "9,799",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer half Year",
     Card_features: [
       "US$ 10,000 Sickness & Hospitalization Cover",
       "Up to US$ 7,500 Fee Coverage Available",
@@ -1372,7 +1372,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "12,837",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer half Year",
     Card_features: [
       "US$ 25,000 Sickness & Hospitalization Cover",
       "Up to US$ 10,000 Fee Coverage Available",
@@ -1390,7 +1390,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "19,672",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer half Year",
     Card_features: [
       "US$ 50,000 Sickness & Hospitalization Cover",
       "Up to US$ 20,000 Fee Coverage Available",
@@ -1408,7 +1408,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "34,195",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer half Year",
     Card_features: [
       "US$ 100,000 Sickness & Hospitalization Cover",
       "Up to US$ 20,000 Fee Coverage Available",
@@ -1426,7 +1426,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "250",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 300,000 Death & Disability Cover",
       "PKR 75,000 Hospitalization Cover",
@@ -1444,7 +1444,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "475",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 500,000 Death & Disability Cover",
       "PKR 150,000 Hospitalization Cover",
@@ -1462,7 +1462,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "500",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 300,000 Accidental Cover (Includes Terrorism Cover)",
       "PKR 75,000 Hospitalization Benefit",
@@ -1480,7 +1480,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "1,000",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 500,000 Accidental Cover (Includes Terrorism Cover)",
       "PKR 150,000 Hospitalization Benefit",
@@ -1498,7 +1498,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "110",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 500,000 Accidental Death & Disability Cover",
       "PKR 25,000 Accidental Medical Coverage",
@@ -1516,7 +1516,7 @@ export const travelInsurancePackage = [
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "200",
-    Card_price_period: "PKR \nPer Year",
+    Card_price_period: "PKR \nPer trip",
     Card_features: [
       "PKR 1,000,000 Accidental Death & Disability Cover",
       "PKR 50,000 Accidental Medical Reimbursement",
