@@ -20,44 +20,62 @@ interface FooterSection {
 
 const footerSections: FooterSection[] = [
   {
-    title: "Product",
+    title: "Health",
     links: [
-      { label: "Motor Insurance", href: "#" },
-      { label: "Travel Insurance", href: "#" },
-      { label: "Healt Care Insurance", href: "#" },
-      { label: "Self Insurance", href: "#" },
-      { label: "Home Insurance", href: "#" },
+      // { label: "Motor Insurance", href: "#" },
+      { label: "Parents Care Plus", href: "/health/parents-care-plus" },
+      { label: "Family Health Care", href: "/health/family-health-care" },
+      { label: "Personal Health Care", href: "/health/personal-health-care" },
+      { label: "LifeStyle Care", href: "/health/lifestyle-care" },
+      { label: "Parents Care", href: "/health/parents-care" },
+      { label: "Her Care", href: "/health/her-care" },
+    ],
+  },
+  {
+    title: "Products",
+    links: [
+      {
+        label: "Motor Insurance",
+        href: "/motor/motor-insurance",
+      },
+      {
+        label: "Travel Insurance",
+        href: "/travel/travel-insurance",
+      },
+      { label: "Home Insurance", href: "/home/home-insurance" },
+      { label: "Self Insurance", href: "/self/self-insurance" },
+      // { label: "Lorem Ipsum Text", href: "#" },
     ],
   },
   {
     title: "Company Information",
     links: [
       {
-        label: "Profile",
-        href: "#",
+        label: "About Us",
+        href: "/about",
       },
-      { label: "Leadership", href: "#" },
-      { label: "Sustainability", href: "#" },
-      { label: "Awards", href: "#" },
-      { label: "Discount Card", href: "#" },
+      { label: "Leadership", href: "/about#leadership" },
+      { label: "Sustainability", href: "/sustainability" },
+      { label: "Awards", href: "/awards" },
+      // { label: "Discount Card", href: "#" },
     ],
   },
-  {
-    title: "Investor Relations",
-    links: [
-      {
-        label: "Financial Highlights",
-        href: "#",
-      },
-      {
-        label: "Performance Review",
-        href: "#",
-      },
-      { label: "Financial Reports", href: "#" },
-      { label: "Stock Updates", href: "#" },
-      // { label: "Lorem Ipsum Text", href: "#" },
-    ],
-  },
+  // {
+  //   title: "Investor Relations",
+  //   links: [
+  //     {
+  //       label: "Financial Highlights",
+  //       href: "#",
+  //     },
+  //     {
+  //       label: "Performance Review",
+  //       href: "#",
+  //     },
+  //     { label: "Financial Reports", href: "#" },
+  //     { label: "Stock Updates", href: "#" },
+  //     // { label: "Lorem Ipsum Text", href: "#" },
+  //   ],
+  // },
 
   {
     title: "Quick Links",
@@ -72,21 +90,25 @@ const footerSections: FooterSection[] = [
       // },
       { label: "News & Events", href: "#" },
       // { label: "Quick Quote", href: "#" },
-      { label: "E-Verify", href: "#" },
+      { label: "E-Verify", href: "/e-verify" },
       // { label: "Mobile Apps", href: "#" },
-      { label: "Apply Now", href: "#" },
-    ],
-  },
-  {
-    title: "Contact Us",
-    links: [
-      { label: "Branch Locator", href: "#" },
-      { label: "Complain", href: "#" },
-      { label: " Resolution ", href: "#" },
+      // { label: "Apply Now", href: "#" },
+      { label: "Branch Locator", href: "/branch-network" },
+      { label: "Complaint Resolution", href: "/complaints-queries" },
+      // { label: " Resolution ", href: "#" },
       { label: "FIO Website", href: "#" },
-      // { label: "Lorem Ipsum Text", href: "#" },
     ],
   },
+  // {
+  //   title: "Contact Us",
+  //   links: [
+  //     { label: "Branch Locator", href: "#" },
+  //     { label: "Complain", href: "#" },
+  //     { label: " Resolution ", href: "#" },
+  //     { label: "FIO Website", href: "#" },
+  //     // { label: "Lorem Ipsum Text", href: "#" },
+  //   ],
+  // },
 ];
 
 function MobileFooterSection({ section }: { section: FooterSection }) {
@@ -230,7 +252,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="hidden lg:grid col-span-5 grid-cols-5 gap-4">
+          <div className="hidden lg:grid col-span-5 grid-cols-4 gap-4">
             {footerSections.map((section, index) => (
               <div key={index}>
                 <h4 className="text-white font-bold text-xs md:text-sm mb-4">
@@ -261,7 +283,7 @@ export default function Footer() {
 
         <div className="border-t border-[#FFFFFF] pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex gap-4 flex-wrap justify-center md:justify-start text-xs text-red-100 order-2 md:order-1">
-            <a href="#" className="hover:text-white transition">
+            <a href="/privacy-policy" className="hover:text-white transition">
               Privacy Policy
             </a>
             <span className="text-white">|</span>
