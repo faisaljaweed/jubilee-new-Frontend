@@ -2,35 +2,40 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Container from "../home/container";
-
+import fastest_calims from "../../public/Icons/About Us/Fastest-Claims.png";
+import top_rated from "../../public/Icons/About Us/Top-Rated.png";
+import pkr_50b from "../../public/Icons/About Us/PKR-50B+.png";
+import three_m from "../../public/Icons/About Us/3M-customer.png";
+import years from "../../public/Icons/About Us/73+-Years.png";
+import global from "../../public/Icons/About Us/Global-Presence.png";
 const Square_Card = [
   {
-    icons: "/Icons/About Us/Fastest-Claims.png",
+    icons: fastest_calims,
     heading: "Fastest Claims",
     description: "when it matters most",
   },
   {
-    icons: "/Icons/About Us/Top-Rated.png",
+    icons: top_rated,
     heading: "Top-Rated",
     description: "insurer in Pakistan",
   },
   {
-    icons: "/Icons/About Us/PKR-50B+.png",
+    icons: pkr_50b,
     heading: "PKR 50B+",
     description: "claims settled",
   },
   {
-    icons: "/Icons/About Us/3M-customer.png",
+    icons: three_m,
     heading: "3M+ Customers",
     description: "protected nationwide",
   },
   {
-    icons: "/Icons/About Us/73+-Years.png",
+    icons: years,
     heading: "73+ Years",
     description: "of trusted experience",
   },
   {
-    icons: "/Icons/About Us/Global-Presence.png",
+    icons: global,
     heading: "Global Presence",
     description: "with local expertise",
   },
@@ -100,7 +105,7 @@ const Section1 = () => {
               }}
             >
               <img
-                src={item.icons}
+                src={item.icons.src}
                 alt=""
                 className="mb-2 h-14 w-14 shrink-0"
               />

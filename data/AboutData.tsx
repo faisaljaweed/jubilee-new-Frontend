@@ -77,70 +77,75 @@ export const Square_Card_Data = [
 //   },
 
 // ];
+import uzair from "../public/img/About/Executive & Management/uzair.jpg";
+import kamran from "../public/img/About/Executive & Management/kamran.jpg";
+import owais from "../public/img/About/Executive & Management/ovais.jpg";
+import fawad from "../public/img/About/Executive & Management/fawad.jpg";
+import safar from "../public/img/About/Executive & Management/safar.jpg";
+import naresh from "../public/img/About/Executive & Management/naresh.jpg";
+import asad from "../public/img/About/Executive & Management/asad.jpg";
+import rameez from "../public/img/About/Executive & Management/rameez.jpg";
+import imran from "../public/img/About/Executive & Management/imran.jpg";
+import faisal from "../public/img/About/Executive & Management/faisal.jpg";
 export const ManagementCommittee = [
   {
-    Direactor_Image: default_user,
+    Direactor_Image: uzair,
     Direactot_Name: "Muhammad Uzair Mirza",
     Direactor_Designation: "Head of ERM, Compliance & Quality Assurance",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: kamran,
     Direactot_Name: "Kamran Arif",
     Direactor_Designation: "Head of Claims",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: owais,
     Direactot_Name: "Syed Ovais Bin Alam",
     Direactor_Designation: "Head of Window Takaful Operations",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: fawad,
     Direactot_Name: "Dr Fawad Sarwar",
     Direactor_Designation: "Head of Health ",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: safar,
     Direactot_Name: "Safar Ali",
     Direactor_Designation: "Head of Internal Audit",
     Direactor_Description: "",
   },
-  // {
-  //   Direactor_Image: default_user,
-  //   Direactot_Name: "Muhammad Zeeshan Khan",
-  //   Direactor_Designation: "Head of Information Technology",
-  //   Direactor_Description: "",
-  // },
+
   {
-    Direactor_Image: default_user,
+    Direactor_Image: naresh,
     Direactot_Name: "Naresh Kumar",
     Direactor_Designation: "Head of Investments",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: asad,
     Direactot_Name: "Asadullah Javeed",
     Direactor_Designation:
       "Head of Engineering Projects, Bonds & Risk Management",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: rameez,
     Direactot_Name: "Rameez Ahmed",
     Direactor_Designation: "Head of Reinsurance",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: imran,
     Direactot_Name: "Imran Chagani",
     Direactor_Designation: "Company Secretary",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: faisal,
     Direactot_Name: "Muhammad Faisal Rashid",
     Direactor_Designation: "Head of Marketing",
     Direactor_Description: "",
@@ -152,6 +157,10 @@ export const ManagementCommittee = [
   //   Direactor_Description: "",
   // },
 ];
+import ali from "../public/img/About/Executive & Management/ali.jpg";
+import nadeem from "../public/img/About/Executive & Management/nadeem.jpg";
+import adeel from "../public/img/About/Executive & Management/adil.jpg";
+import humayoon from "../public/img/About/Executive & Management/humayoon.jpg";
 export const ExecutiveCommittee = [
   {
     Direactor_Image: AzfarArshad,
@@ -160,30 +169,31 @@ export const ExecutiveCommittee = [
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: ali,
     Direactot_Name: "Syed Ali Adnan",
     Direactor_Designation: "Chief Financial Officer",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: nadeem,
     Direactot_Name: "M.Nadeem Irshad",
     Direactor_Designation: "Chief Sales Officer",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: adeel,
     Direactot_Name: "M.Adil Saleh",
     Direactor_Designation: "Chief Human Resources Officer",
     Direactor_Description: "",
   },
   {
-    Direactor_Image: default_user,
+    Direactor_Image: humayoon,
     Direactot_Name: "Humayoon Asghar",
     Direactor_Designation: "Chief Digital Strategy Officer",
     Direactor_Description: "",
   },
 ];
+
 export const BoardDireactories = [
   {
     Direactor_Image: Akbarali_Pesnani,
