@@ -557,8 +557,43 @@ const RightInactiveCol = ({
 //   );
 // };
 
+type HealthSummary = {
+  totalHealthCoverage: string;
+  annualOpdLimit: string;
+  premium: string;
+};
+
+const DEFAULT_HEALTH_SUMMARY: HealthSummary = {
+  totalHealthCoverage: "PKR 500,000",
+  annualOpdLimit: "PKR 40,000",
+  premium: "PKR 87,000",
+};
+
+const cleanSummaryValue = (value?: string) => {
+  if (!value) return "";
+  if (value.trim() === "-") return "";
+  return value.trim();
+};
+
 const CoverageSummaryPills = ({ data }: { data: FormData }) => {
-  const summary = getHealthPlanSummary(data.selectedProduct, data.planTier);
+  const selectedSummary = getHealthPlanSummary(
+    data.selectedProduct,
+    data.planTier,
+  );
+
+  const summary: HealthSummary = {
+    totalHealthCoverage:
+      cleanSummaryValue(selectedSummary.totalHealthCoverage) ||
+      DEFAULT_HEALTH_SUMMARY.totalHealthCoverage,
+
+    annualOpdLimit:
+      cleanSummaryValue(selectedSummary.annualOpdLimit) ||
+      DEFAULT_HEALTH_SUMMARY.annualOpdLimit,
+
+    premium:
+      cleanSummaryValue(selectedSummary.premium) ||
+      DEFAULT_HEALTH_SUMMARY.premium,
+  };
 
   const items = [
     {

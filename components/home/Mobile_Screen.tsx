@@ -391,7 +391,7 @@ const Mobile_Screen = () => {
                       style={{
                         width: "170px",
                         height: "52px",
-                        objectFit: "contain",
+                        objectFit: "fill",
                         cursor: "pointer",
                         display: "block",
                       }}
@@ -414,10 +414,10 @@ const Mobile_Screen = () => {
                       style={{
                         width: "170px",
                         height: "52px",
-                        objectFit: "contain",
+                        objectFit: "fill",
                         cursor: "pointer",
                         display: "block",
-                        transform: "scale(1.08)",
+                        // transform: "scale(1.08)",
                         transformOrigin: "center",
                       }}
                     />

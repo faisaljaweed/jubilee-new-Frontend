@@ -753,15 +753,16 @@ const Card_package: React.FC<cardPackages> = ({
   };
 
   const sliderSettings: Settings = {
-    dots: false,
+    dots: plans.length > 3,
     infinite: plans.length > 3,
-    speed: 700,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
     pauseOnHover: true,
     arrows: false,
+    customPaging: () => <button type="button" aria-label="Slider dot" />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
@@ -786,11 +787,11 @@ const Card_package: React.FC<cardPackages> = ({
                   : ""
               }`
         }`}
-        style={{ transitionDelay: `${index * 140}ms` }}
+        // style={{ transitionDelay: `${index * 140}ms` }}
       >
         <div className="flex justify-between items-center">
           <div
-            className={`relative w-16 h-16 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 ${
+            className={`relative w-16 h-16 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-150 ${
               isActive
                 ? "bg-white"
                 : `bg-[#BA0C2F] ${enableHover ? "group-hover:bg-white" : ""}`
@@ -930,9 +931,12 @@ const Card_package: React.FC<cardPackages> = ({
           )}
         </div>
 
-        <ul className="space-y-4 mb-8">
+        <ul className="space-y-4 mb-8 flex-1">
           {plan.Card_features.map((feature, featureIndex) => (
-            <li key={featureIndex} className="flex items-start gap-3">
+            <li
+              key={featureIndex}
+              className="grid grid-cols-[16px_1fr] items-start gap-3"
+            >
               <span
                 className={`mt-0.5 h-4 w-4 min-h-[16px] min-w-[16px] shrink-0 rounded-full flex items-center justify-center transition-colors duration-300 ${
                   isActive
@@ -949,7 +953,7 @@ const Card_package: React.FC<cardPackages> = ({
                 />
               </span>
               <span
-                className={`text-sm font-futura transition-colors duration-300 ${
+                className={`block min-w-0 text-sm leading-[1.45] font-futura break-words transition-colors duration-150 ${
                   isActive
                     ? "text-white/90"
                     : `text-gray-700 ${enableHover ? "group-hover:text-white/90" : ""}`
@@ -1029,73 +1033,102 @@ const Card_package: React.FC<cardPackages> = ({
       className="pb-0 pt-0 px-6 sm:px-8 lg:px-12 overflow-visible"
     >
       <style>{`
-        .package-card-animate {
-          opacity: 0;
-          transform: translateY(55px) scale(0.94);
-          transition:
-            opacity 900ms ease,
-            transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
-            box-shadow 400ms ease,
-            background-color 300ms ease,
-            color 300ms ease;
-          will-change: opacity, transform;
-        }
-        .package-card-animate.show {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-        .package-card-animate.show.active-package {
-          transform: translateY(0) scale(1.05);
-        }
-        .package-card-animate.show:not(.active-package):hover {
-          transform: translateY(-10px) scale(1.02);
-        }
-        .package-title-animate {
-          opacity: 0;
-          transform: translateY(-25px);
-          transition:
-            opacity 800ms ease,
-            transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .package-title-animate.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .package-slider-scroll {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-        .package-slider-scroll::-webkit-scrollbar {
-          display: none;
-        }
-        .package-slick-slider .slick-track {
-          display: flex;
-          align-items: stretch;
-        }
-        .package-slick-slider .slick-slide {
-          height: auto;
-        }
-        .package-slick-slider .slick-slide > div {
-          height: 100%;
-        }
-        .package-slick-slider {
-          overflow: visible !important;
-        }
-        .package-slick-slider .slick-list {
-          overflow: hidden !important;
-          padding: 24px 0 !important;
-        }
-        .package-slick-slider .slick-track {
-          display: flex !important;
-          align-items: stretch;
-        }
-        .package-slick-slider .slick-slide {
-          height: auto;
-        }
-        .package-slick-slider .slick-slide > div {
-          height: 100%;
-        }
-      `}</style>
+  .package-card-animate {
+    opacity: 0;
+    transform: translateY(55px) scale(0.94);
+    transition:
+      opacity 500ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-color 150ms ease,
+      color 150ms ease;
+    will-change: opacity, transform;
+  }
+
+  .package-card-animate.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .package-card-animate.show.active-package {
+    transform: translateY(0) scale(1.05);
+  }
+
+  .package-card-animate.show:not(.active-package):hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .package-card-animate * {
+    transition-duration: 150ms !important;
+  }
+
+  .package-slider-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .package-slider-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .package-slick-slider {
+    overflow: visible !important;
+  }
+
+  .package-slick-slider .slick-list {
+    overflow: hidden !important;
+    padding: 24px 0 42px !important;
+  }
+
+  .package-slick-slider .slick-track {
+    display: flex !important;
+    align-items: stretch;
+  }
+
+  .package-slick-slider .slick-slide {
+    height: auto;
+  }
+
+  .package-slick-slider .slick-slide > div {
+    height: 100%;
+  }
+
+  .package-slick-slider .slick-dots {
+    position: static !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .package-slick-slider .slick-dots li {
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+
+  .package-slick-slider .slick-dots li button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 9999px;
+    border: 1.5px solid #BA0C2F;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .package-slick-slider .slick-dots li button:before {
+    display: none;
+  }
+
+  .package-slick-slider .slick-dots li.slick-active button {
+    background: #BA0C2F;
+    border-color: #BA0C2F;
+  }
+`}</style>
 
       <div className="container mx-auto max-w-7xl overflow-visible">
         {useCenteredLayout ? (

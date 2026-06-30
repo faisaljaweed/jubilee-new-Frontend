@@ -483,7 +483,7 @@ export const productPages = [
     bannerSubCategory: "homeinsurance",
     theme: {
       headingColor: "#BA0C2F",
-      textColor: "#ffffff",
+      textColor: "#4A4A4A",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -495,7 +495,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/Home.png",
+      imageUrl: "/img/Vechile/home.jpg",
     },
 
     counters: [
