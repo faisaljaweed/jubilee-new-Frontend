@@ -106,27 +106,29 @@ import "./awards.css";
 const achievementAwards = [
   {
     title: "InsurTech Summit III, Organized by Pakistan Fintech Network",
-    year: "2025",
+    // year: "2025",
     image: "/img/Awards/Fintech.jpg",
   },
   {
-    title: "IAP Regional Committee North Annual Dinner",
-    year: "2025",
+    title:
+      "Jubilee General Insurance at IAP Regional Committee North Annual Dinner 2025",
+    // year: "2025",
     image: "/img/Awards/IAP.jpg",
   },
   {
-    title: "Top-Ranking Position in Non-Life Insurance Sector",
-    year: "2024",
+    title:
+      "Jubilee General Insurance awarded top-ranking position in Non-Life Insurance Sector – MAP Corporate Excellence Awards 2024",
+    // year: "2024",
     image: "/img/Awards/39th-MAP-Corporate-Excellence-Awards-2024.jpeg",
   },
   {
-    title: "Best Corporate & Sustainability Report Awards",
-    year: "2023",
+    title: "4th Place – Best Corporate & Sustainability Report Awards 2023",
+    // year: "2023",
     image: "/img/Awards/Corporate-Sustainiblity-Report-Awards.jpeg",
   },
   {
-    title: "Corporate Excellence Award - MAP Awards",
-    year: "2023",
+    title: "Corporate Excellence Award – 38th MAP Awards 2023",
+    // year: "2023",
     image: "/img/Awards/34thCorporateExcellence.jpg",
   },
 ];
@@ -212,10 +214,10 @@ const AwardsPage = () => {
                 </button>
 
                 <div className="p-6">
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-600">
+                  {/* <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-600">
                     <CalendarDays size={15} />
                     {award.year}
-                  </div>
+                  </div> */}
 
                   <h3 className="text-lg font-bold leading-7 text-gray-900">
                     {award.title}
@@ -231,9 +233,9 @@ const AwardsPage = () => {
       <section className="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 text-center">
-            <span className="mb-3 inline-flex rounded-full bg-[#BA0C2F]/10 px-4 py-2 text-sm font-semibold text-[#BA0C2F]">
+            {/* <span className="mb-3 inline-flex rounded-full bg-[#BA0C2F]/10 px-4 py-2 text-sm font-semibold text-[#BA0C2F]">
               Legacy Recognition
-            </span>
+            </span> */}
 
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
               Top Companies Award

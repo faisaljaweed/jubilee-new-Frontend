@@ -132,7 +132,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <h1 className="text-white font-futura md:font-bold text-xl md:text-6xl tracking-wide">
             {mainText}
           </h1>
-
+          {/* 
           <h1 className="font-futura md:font-semibold text-xs md:text-[16px] tracking-wide mt-2">
             <Link
               className={`hover:underline ${
@@ -155,7 +155,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             >
               {text}
             </Link>
-          </h1>
+          </h1> */}
         </div>
       </Container>
     </div>

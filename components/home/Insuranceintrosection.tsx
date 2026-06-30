@@ -412,6 +412,17 @@ export default function InsuranceIntroSection() {
             mixBlendMode: "multiply",
           }}
         >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 4,
+              background: "#000000",
+              transform: `translate3d(${videoX}vw, 0, 0)`,
+              willChange: "transform",
+              pointerEvents: "none",
+            }}
+          />
           <DaylightText
             text={INTRO_TEXT}
             reveal={textReveal}

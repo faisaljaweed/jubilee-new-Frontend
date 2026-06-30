@@ -46,7 +46,7 @@ const megaMenuData: MegaMenuCategory[] = [
     icon: Car,
     items: [
       {
-        label: "Motot Insurance",
+        label: "Motor Insurance",
         href: "/motor/motor-insurance",
       },
       // {
