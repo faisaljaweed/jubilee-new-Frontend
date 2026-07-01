@@ -607,7 +607,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/product/motor.jpg",
+      imageUrl: "/img/Product/motor.jpg",
     },
     // agr kahin ye show ho tw ye line likhe hide hojaye ga
     // appDownload: {
