@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-// import { Facebook, Linkedin, Instagram, Youtube, Music } from "lucide-react";
 import Image from "next/image";
 import JubieeLogo from "../../public/img/Logo.png";
 import Footer_img1 from "../../public/img/Footer1.png";
@@ -13,112 +12,73 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import Link from "next/link";
+
+interface FooterLink {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
 interface FooterSection {
   title: string;
-  links: { label: string; href: string }[];
+  links: FooterLink[];
 }
+
+const healthcareLinks = [
+  { label: "Parents Care Plus", href: "/health/parents-care-plus" },
+  { label: "Family Health Care", href: "/health/family-health-care" },
+  { label: "Personal Health Care", href: "/health/personal-health-care" },
+  { label: "LifeStyle Care", href: "/health/lifestyle-care" },
+  { label: "Parents Care", href: "/health/parents-care" },
+  { label: "Her Care", href: "/health/her-care" },
+];
 
 const footerSections: FooterSection[] = [
   {
-    title: "Health",
+    title: "Company Information",
     links: [
-      // { label: "Motor Insurance", href: "#" },
-      { label: "Parents Care Plus", href: "/health/parents-care-plus" },
-      { label: "Family Health Care", href: "/health/family-health-care" },
-      { label: "Personal Health Care", href: "/health/personal-health-care" },
-      { label: "LifeStyle Care", href: "/health/lifestyle-care" },
-      { label: "Parents Care", href: "/health/parents-care" },
-      { label: "Her Care", href: "/health/her-care" },
+      { label: "About Us", href: "/about" },
+      { label: "Leadership", href: "/about#leadership" },
+      { label: "Sustainability", href: "/sustainability" },
+      { label: "Awards", href: "/awards" },
     ],
   },
   {
     title: "Products",
     links: [
+      { label: "Motor", href: "/motor/motor-insurance" },
       {
-        label: "Motor Insurance",
-        href: "/motor/motor-insurance",
+        label: "Health",
+        href: "#",
+        children: healthcareLinks,
       },
-      {
-        label: "Travel Insurance",
-        href: "/travel/travel-insurance",
-      },
-      { label: "Home Insurance", href: "/home/home-insurance" },
-      { label: "Self Insurance", href: "/self/self-insurance" },
-      // { label: "Lorem Ipsum Text", href: "#" },
+      { label: "Travel", href: "/travel/travel-insurance" },
+      { label: "Home", href: "/home/home-insurance" },
+      { label: "Self", href: "/self/self-insurance" },
     ],
   },
-  {
-    title: "Company Information",
-    links: [
-      {
-        label: "About Us",
-        href: "/about",
-      },
-      { label: "Leadership", href: "/about#leadership" },
-      { label: "Sustainability", href: "/sustainability" },
-      { label: "Awards", href: "/awards" },
-      // { label: "Discount Card", href: "#" },
-    ],
-  },
-  // {
-  //   title: "Investor Relations",
-  //   links: [
-  //     {
-  //       label: "Financial Highlights",
-  //       href: "#",
-  //     },
-  //     {
-  //       label: "Performance Review",
-  //       href: "#",
-  //     },
-  //     { label: "Financial Reports", href: "#" },
-  //     { label: "Stock Updates", href: "#" },
-  //     // { label: "Lorem Ipsum Text", href: "#" },
-  //   ],
-  // },
-
   {
     title: "Quick Links",
     links: [
-      {
-        label: "Panel Hospitals",
-        href: "#",
-      },
-      // {
-      //   label: "Downloads",
-      //   href: "#",
-      // },
+      { label: "Panel Hospitals", href: "#" },
       { label: "News & Events", href: "#" },
-      // { label: "Quick Quote", href: "#" },
       { label: "E-Verify", href: "/e-verify" },
-      // { label: "Mobile Apps", href: "#" },
-      // { label: "Apply Now", href: "#" },
       { label: "Branch Locator", href: "/branch-network" },
       { label: "Complaint Resolution", href: "/complaints-queries" },
-      // { label: " Resolution ", href: "#" },
       { label: "FIO Website", href: "#" },
     ],
   },
-  // {
-  //   title: "Contact Us",
-  //   links: [
-  //     { label: "Branch Locator", href: "#" },
-  //     { label: "Complain", href: "#" },
-  //     { label: " Resolution ", href: "#" },
-  //     { label: "FIO Website", href: "#" },
-  //     // { label: "Lorem Ipsum Text", href: "#" },
-  //   ],
-  // },
 ];
 
 function MobileFooterSection({ section }: { section: FooterSection }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <div className="border-b border-[#FFFFFF]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center py-4 text-white font-bold text-sm hover:text-red-100 transition"
+        className="flex w-full items-center justify-between py-4 text-sm font-bold text-white transition hover:text-red-100"
       >
         {section.title}
         <ChevronDown
@@ -126,16 +86,54 @@ function MobileFooterSection({ section }: { section: FooterSection }) {
           className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
+
       {isOpen && (
-        <div className="pb-4 space-y-2">
+        <div className="space-y-2 pb-4">
           {section.links.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              className="block text-red-100 hover:text-white font-futura transition text-xs"
-            >
-              {link.label}
-            </a>
+            <div key={index}>
+              {link.children ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === link.label ? null : link.label,
+                      )
+                    }
+                    className="flex w-full items-center justify-between font-futura text-xs text-red-100 transition hover:text-white"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${
+                        openDropdown === link.label ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {openDropdown === link.label && (
+                    <div className="ml-3 mt-3 space-y-2 rounded-xl border border-white/15 bg-white/10 p-3">
+                      {link.children.map((child, childIndex) => (
+                        <Link
+                          key={childIndex}
+                          href={child.href}
+                          className="block font-futura text-xs text-red-100 transition hover:text-white"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="block font-futura text-xs text-red-100 transition hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       )}
@@ -145,25 +143,27 @@ function MobileFooterSection({ section }: { section: FooterSection }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-linear-to-b from-[#6E071C] to-[#BA0C2F] ">
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 md:gap-6 mb-12">
+    <footer className="w-full bg-linear-to-b from-[#6E071C] to-[#BA0C2F]">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-7">
           <div className="col-span-1 md:col-span-2 lg:col-span-2">
             <div className="flex flex-col">
               <div className="mb-2">
                 <Link href="/">
                   <Image src={JubieeLogo} alt="" />
                 </Link>
-                <div className="border-b border-[#FAFCFC] mt-4"></div>
+                <div className="mt-4 border-b border-[#FAFCFC] w-[85%]"></div>
               </div>
-              <div className="mb-4 text-red-100 text-sm font-bold">
+
+              <div className="mb-4 text-sm font-bold text-red-100">
                 <h2>Jubilee General Insurance Company Limited</h2>
               </div>
-              <div className="space-y-2 font-futura text-red-100 text-xs mb-6">
+
+              <div className="mb-6 space-y-2 font-futura text-xs text-red-100">
                 <p>
                   <a
                     href="tel:+9221111654111"
-                    className="hover:text-white transition"
+                    className="transition hover:text-white"
                   >
                     UAN: (9221) 111-654-111
                   </a>
@@ -172,7 +172,7 @@ export default function Footer() {
                 <p>
                   <a
                     href="tel:+922132416022"
-                    className="hover:text-white transition"
+                    className="transition hover:text-white"
                   >
                     Tel: (9221) 32416022-26
                   </a>
@@ -181,7 +181,7 @@ export default function Footer() {
                 <p>
                   <a
                     href="tel:080003786"
-                    className="hover:text-white transition"
+                    className="transition hover:text-white"
                   >
                     Toll Free: 0800-03786
                   </a>
@@ -190,58 +190,59 @@ export default function Footer() {
                 <p>
                   <a
                     href="tel:+922132416728"
-                    className="hover:text-white transition"
+                    className="transition hover:text-white"
                   >
                     Fax: (9221) 32416728/32438738
                   </a>
                 </p>
 
                 <p>
-                  <a href="sms:82665" className="hover:text-white transition">
+                  <a href="sms:82665" className="transition hover:text-white">
                     TEXT: SMS 82665
                   </a>
                 </p>
               </div>
 
               <div className="mb-6 flex gap-2">
-                <p className="text-white font-bold text-xs mb-3">
+                <p className="mb-3 text-xs font-bold text-white">
                   Follow Us On:
                 </p>
+
                 <div className="flex gap-3">
                   <a
                     href="#"
-                    className="text-white hover:text-red-100 transition"
+                    className="text-white transition hover:text-red-100"
                   >
                     <FaFacebookF size={18} />
                   </a>
                   <a
                     href="#"
-                    className="text-white hover:text-red-100 transition"
+                    className="text-white transition hover:text-red-100"
                   >
                     <FaLinkedinIn size={18} />
                   </a>
                   <a
                     href="#"
-                    className="text-white hover:text-red-100 transition"
+                    className="text-white transition hover:text-red-100"
                   >
                     <FaInstagram size={18} />
                   </a>
                   <a
                     href="#"
-                    className="text-white hover:text-red-100 transition"
+                    className="text-white transition hover:text-red-100"
                   >
                     <FaYoutube size={18} />
                   </a>
                   <a
                     href="#"
-                    className="text-white hover:text-red-100 transition"
+                    className="text-white transition hover:text-red-100"
                   >
                     <FaTiktok size={18} />
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-row gap-2 ">
+              <div className="flex flex-row gap-2">
                 <Image src={Footer_img1} alt="" className="md:h-8 md:w-auto" />
                 <Image
                   src={Footer_img2}
@@ -252,21 +253,57 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="hidden lg:grid col-span-5 grid-cols-4 gap-4">
+          <div className="hidden lg:col-span-5 lg:grid lg:grid-cols-3 lg:gap-x-20 xl:gap-x-20">
             {footerSections.map((section, index) => (
               <div key={index}>
-                <h4 className="text-white font-bold text-xs md:text-sm mb-4">
+                <h4 className="mb-5 text-base font-bold text-white">
                   {section.title}
                 </h4>
-                <ul className="space-y-3">
+
+                <ul className="space-y-4">
                   {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a
-                        href={link.href}
-                        className="text-red-100 hover:text-white transition text-xs"
-                      >
-                        {link.label}
-                      </a>
+                    <li
+                      key={linkIndex}
+                      className={link.children ? "group relative w-fit" : ""}
+                    >
+                      {link.children ? (
+                        <>
+                          <button
+                            type="button"
+                            className="flex items-center gap-1 text-sm text-red-100 transition hover:text-white"
+                          >
+                            {link.label}
+                            <ChevronDown
+                              size={14}
+                              className="transition-transform group-hover:rotate-180"
+                            />
+                          </button>
+
+                          <div className="invisible absolute left-full top-1 z-30 ml-3 w-[245px] opacity-0 translate-y-2 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                            <div className="rounded-2xl border border-white/20 bg-white p-3 shadow-[0_18px_45px_rgba(0,0,0,0.25)]">
+                              <ul className="space-y-1">
+                                {link.children.map((child, childIndex) => (
+                                  <li key={childIndex}>
+                                    <Link
+                                      href={child.href}
+                                      className="block rounded-lg px-3 py-2 font-futura text-xs text-[#6E071C] transition hover:bg-[#BA0C2F] hover:text-white"
+                                    >
+                                      {child.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-red-100 transition hover:text-white"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -274,24 +311,28 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="lg:hidden col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-2 lg:hidden">
             {footerSections.map((section, index) => (
               <MobileFooterSection key={index} section={section} />
             ))}
           </div>
         </div>
 
-        <div className="border-t border-[#FFFFFF] pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex gap-4 flex-wrap justify-center md:justify-start text-xs text-red-100 order-2 md:order-1">
-            <a href="/privacy-policy" className="hover:text-white transition">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[#FFFFFF] pt-6 md:flex-row md:pt-8">
+          <div className="order-2 flex flex-wrap justify-center gap-4 text-xs text-red-100 md:order-1 md:justify-start">
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-white"
+            >
               Privacy Policy
-            </a>
+            </Link>
             <span className="text-white">|</span>
-            <a href="#" className="hover:text-white transition">
+            <a href="#" className="transition hover:text-white">
               SiteMap
             </a>
           </div>
-          <p className="text-xs text-red-100 order-1 md:order-2">
+
+          <p className="order-1 text-xs text-red-100 md:order-2">
             © Copyright 2026{" "}
             <span className="font-bold text-white">
               Jubilee General Insurance
