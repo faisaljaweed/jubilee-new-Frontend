@@ -73,23 +73,49 @@ const formatDate = (date?: string) => {
   });
 };
 
+const normalizeKey = (value?: string | null) =>
+  value?.toLowerCase().trim().replaceAll("-", "_").replaceAll(" ", "_") ?? "";
+
+const isOutdoorCommercial = (post: Post) => {
+  const sub = normalizeKey(post.subCategory);
+  const title = normalizeKey(post.title);
+
+  return (
+    post.category === "media_kit" &&
+    (sub === "outdoor" ||
+      sub === "outdoor_commercials" ||
+      title === "outdoor" ||
+      title === "outdoor_commercials")
+  );
+};
+
+const getDisplayTitle = (post: Post) => {
+  return isOutdoorCommercial(post) ? "Outdoor Commercials" : post.title;
+};
+
 const getCategoryLabel = (cat: string, sub?: string | null): string => {
-  if (cat === "media_kit" && sub) {
+  const normalizedSub = normalizeKey(sub);
+
+  if (cat === "media_kit" && normalizedSub) {
     const map: Record<string, string> = {
       commercial: "Commercial",
       radio: "Radio",
       press_advertisement: "Press Ad",
-      outdoor: "Outdoor",
+      outdoor: "Outdoor Commercials",
+      outdoor_commercials: "Outdoor Commercials",
       other_campaign: "Campaign",
     };
-    return map[sub] ?? sub.replaceAll("_", " ");
+
+    return map[normalizedSub] ?? normalizedSub.replaceAll("_", " ");
   }
+
   const map: Record<string, string> = {
     news: "News",
     event: "Event",
     media_kit: "Media Kit",
     interview: "Interview",
   };
+
   return map[cat] ?? cat.replaceAll("_", " ");
 };
 
@@ -112,10 +138,12 @@ const Resources = () => {
       try {
         const res = await fetch(API_URL, { cache: "no-store" });
         const json = await res.json();
+
         if (!res.ok) {
           console.error("Posts API:", json);
           return;
         }
+
         setPosts(Array.isArray(json?.data) ? json.data : []);
       } catch (err) {
         console.error("Fetch error:", err);
@@ -123,6 +151,7 @@ const Resources = () => {
         setLoading(false);
       }
     };
+
     load();
   }, []);
 
@@ -135,12 +164,16 @@ const Resources = () => {
       .filter((p) => {
         if (activeTab === "news_events")
           return p.category === "news" || p.category === "event";
+
         if (activeTab === "media_kit") return p.category === "media_kit";
+
         return p.category === activeTab;
       })
       .filter((p) => {
         const kw = search.toLowerCase().trim();
+
         if (!kw) return true;
+
         return (
           p.title?.toLowerCase().includes(kw) ||
           p.subCategory?.toLowerCase().includes(kw) ||
@@ -170,7 +203,9 @@ const Resources = () => {
                   key={tab.key}
                   type="button"
                   onClick={() => setActiveTab(tab.key)}
-                  className={`res-tab-btn${activeTab === tab.key ? " is-active" : ""}`}
+                  className={`res-tab-btn${
+                    activeTab === tab.key ? " is-active" : ""
+                  }`}
                 >
                   <span className="res-tab-icon">{tab.icon}</span>
                   <span className="res-tab-label">{tab.label}</span>
@@ -187,6 +222,7 @@ const Resources = () => {
                 placeholder="Search resources…"
                 className="res-search-input"
               />
+
               {search && (
                 <button
                   type="button"
@@ -205,7 +241,8 @@ const Resources = () => {
           {search && (
             <p className="res-search-count">
               {filteredPosts.length} result
-              {filteredPosts.length !== 1 ? "s" : ""} for &ldquo;{search}&rdquo;
+              {filteredPosts.length !== 1 ? "s" : ""} for &ldquo;{search}
+              &rdquo;
             </p>
           )}
 
@@ -232,16 +269,22 @@ const Resources = () => {
                   post.category,
                   post.subCategory,
                 );
+                const displayTitle = getDisplayTitle(post);
                 const cta = getCardCta(activeTab);
 
                 return (
-                  <article className="res-card" key={post._id}>
+                  <article
+                    className={`res-card${
+                      activeTab !== "news_events" ? " res-card-compact" : ""
+                    }`}
+                    key={post._id}
+                  >
                     {/* Cover */}
                     <div className="res-card-cover">
                       {post.coverImage ? (
                         <Image
                           src={post.coverImage}
-                          alt={post.title}
+                          alt={displayTitle}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                           className="res-card-img"
@@ -252,6 +295,7 @@ const Resources = () => {
                           <span>{catLabel}</span>
                         </div>
                       )}
+
                       <span className="res-card-badge">{catLabel}</span>
                     </div>
 
@@ -263,7 +307,9 @@ const Resources = () => {
                           {dateStr}
                         </div>
                       )}
-                      <h3 className="res-card-title">{post.title}</h3>
+
+                      <h3 className="res-card-title">{displayTitle}</h3>
+
                       {excerpt && (
                         <p className="res-card-excerpt">
                           {excerpt.length > 110
@@ -271,6 +317,7 @@ const Resources = () => {
                             : excerpt}
                         </p>
                       )}
+
                       <Link
                         href={`/resources/${post._id}`}
                         className="res-card-cta"

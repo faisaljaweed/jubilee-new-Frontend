@@ -10,7 +10,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Container from "@/components/home/container";
 import {
   FaArrowLeft,
   FaCalendarAlt,
@@ -74,7 +73,9 @@ const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.includes("/api/v1")
 const formatDate = (date?: string) => {
   if (!date) return "";
   const d = new Date(date);
+
   if (Number.isNaN(d.getTime())) return "";
+
   return d.toLocaleDateString("en-US", {
     day: "2-digit",
     month: "long",
@@ -82,15 +83,40 @@ const formatDate = (date?: string) => {
   });
 };
 
+const normalizeKey = (value?: string | null) =>
+  value?.toLowerCase().trim().replaceAll("-", "_").replaceAll(" ", "_") ?? "";
+
+const isOutdoorCommercial = (post: Post) => {
+  const sub = normalizeKey(post.subCategory);
+  const title = normalizeKey(post.title);
+
+  return (
+    post.category === "media_kit" &&
+    (sub === "outdoor" ||
+      sub === "outdoor_commercials" ||
+      title === "outdoor" ||
+      title === "outdoor_commercials")
+  );
+};
+
+const getDisplayTitle = (post: Post) => {
+  return isOutdoorCommercial(post) ? "Outdoor Commercials" : post.title;
+};
+
 const getEmbedUrl = (url: string) => {
   try {
     const p = new URL(url);
-    if (p.hostname.includes("youtu.be"))
+
+    if (p.hostname.includes("youtu.be")) {
       return `https://www.youtube.com/embed/${p.pathname.replace("/", "")}`;
+    }
+
     if (p.hostname.includes("youtube.com")) {
       const id = p.searchParams.get("v");
+
       if (id) return `https://www.youtube.com/embed/${id}`;
     }
+
     return url;
   } catch {
     return url;
@@ -98,22 +124,28 @@ const getEmbedUrl = (url: string) => {
 };
 
 const getCategoryLabel = (cat: string, sub?: string | null): string => {
-  if (cat === "media_kit" && sub) {
+  const normalizedSub = normalizeKey(sub);
+
+  if (cat === "media_kit" && normalizedSub) {
     const m: Record<string, string> = {
       commercial: "Commercial",
       radio: "Radio",
       press_advertisement: "Press Ad",
-      outdoor: "Outdoor",
+      outdoor: "Outdoor Commercials",
+      outdoor_commercials: "Outdoor Commercials",
       other_campaign: "Campaign",
     };
-    return m[sub] ?? sub.replaceAll("_", " ");
+
+    return m[normalizedSub] ?? normalizedSub.replaceAll("_", " ");
   }
+
   const m: Record<string, string> = {
     news: "News",
     event: "Event",
     media_kit: "Media Kit",
     interview: "Interview",
   };
+
   return m[cat] ?? cat.replaceAll("_", " ");
 };
 
@@ -121,6 +153,7 @@ const getCategoryLabel = (cat: string, sub?: string | null): string => {
 
 const renderVideos = (links: string[] = [], postTitle = "") => {
   if (!links.length) return null;
+
   return (
     <div className="pd-video-grid">
       {links.map((link, i) => (
@@ -138,34 +171,40 @@ const renderVideos = (links: string[] = [], postTitle = "") => {
 };
 
 const renderCommercial = (post: Post) => {
+  const displayTitle = getDisplayTitle(post);
+
   if (post.videoGroups?.length) {
     return (
       <div className="pd-group-list">
         {post.videoGroups.map((g, i) => (
           <div className="pd-group-box" key={`${g.title}-${i}`}>
             <h3 className="pd-group-title">{g.title}</h3>
-            {renderVideos(g.youtubeLinks, post.title)}
+            {renderVideos(g.youtubeLinks, displayTitle)}
           </div>
         ))}
       </div>
     );
   }
-  return renderVideos(post.youtubeLinks ?? [], post.title);
+
+  return renderVideos(post.youtubeLinks ?? [], displayTitle);
 };
 
 const renderRadio = (post: Post) => {
   if (!post.audioGroups?.length) return null;
+
   return (
     <div className="pd-audio-section">
       {post.audioGroups.map((g, i) => (
         <div className="pd-audio-group" key={`${g.title}-${i}`}>
           <h3 className="pd-group-title">{g.title}</h3>
+
           <div className="pd-audio-list">
             {(g.audios ?? []).map((a, ai) => (
               <div className="pd-audio-card" key={`${a.url}-${ai}`}>
                 <div className="pd-audio-icon">
                   <FaVolumeUp />
                 </div>
+
                 <div className="pd-audio-player">
                   <p>{a.originalName ?? `Audio ${ai + 1}`}</p>
                   <audio controls src={a.url} />
@@ -181,6 +220,9 @@ const renderRadio = (post: Post) => {
 
 const renderPressAds = (post: Post) => {
   if (!post.additionalImages?.length) return null;
+
+  const displayTitle = getDisplayTitle(post);
+
   return (
     <div className="pd-image-grid">
       {post.additionalImages.map((img, i) => (
@@ -193,11 +235,12 @@ const renderPressAds = (post: Post) => {
         >
           <Image
             src={img.url}
-            alt={img.originalName ?? post.title}
+            alt={img.originalName ?? displayTitle}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
             className="pd-image-thumb"
           />
+
           <div className="pd-image-overlay">
             <span>View Full Size</span>
           </div>
@@ -209,58 +252,78 @@ const renderPressAds = (post: Post) => {
 
 const renderOutdoor = (post: Post) => {
   if (!post.imageGroups?.length) return null;
+
+  const displayTitle = getDisplayTitle(post);
+
+  const outdoorImages = post.imageGroups.flatMap((g) =>
+    (g.images ?? []).map((img) => ({
+      ...img,
+      groupTitle: g.title,
+    })),
+  );
+
+  if (!outdoorImages.length) return null;
+
   return (
-    <div className="pd-group-list">
-      {post.imageGroups.map((g, i) => (
-        <div className="pd-group-box" key={`${g.title}-${i}`}>
-          <h3 className="pd-group-title">{g.title}</h3>
-          <div className="pd-image-grid">
-            {(g.images ?? []).map((img, ii) => (
-              <a
-                href={img.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pd-image-card"
-                key={`${img.url}-${ii}`}
-              >
-                <Image
-                  src={img.url}
-                  alt={img.originalName ?? g.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
-                  className="pd-image-thumb"
-                />
-                <div className="pd-image-overlay">
-                  <span>View Full Size</span>
-                </div>
-              </a>
-            ))}
+    <div className="pd-image-grid">
+      {outdoorImages.map((img, i) => (
+        <a
+          href={img.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pd-image-card"
+          key={`${img.url}-${i}`}
+        >
+          <Image
+            src={img.url}
+            alt={img.originalName ?? img.groupTitle ?? displayTitle}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 420px"
+            className="pd-image-thumb"
+          />
+
+          <div className="pd-image-overlay">
+            <span>View Full Size</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );
 };
 
 const renderContent = (post: Post) => {
+  const normalizedSub = normalizeKey(post.subCategory);
+  const displayTitle = getDisplayTitle(post);
+
   if (post.category === "media_kit") {
-    if (post.subCategory === "commercial") return renderCommercial(post);
-    if (post.subCategory === "radio") return renderRadio(post);
-    if (post.subCategory === "press_advertisement") return renderPressAds(post);
-    if (post.subCategory === "outdoor") return renderOutdoor(post);
-    if (post.subCategory === "other_campaign" && post.contentHtml)
+    if (normalizedSub === "commercial") return renderCommercial(post);
+
+    if (normalizedSub === "radio") return renderRadio(post);
+
+    if (normalizedSub === "press_advertisement") return renderPressAds(post);
+
+    if (
+      normalizedSub === "outdoor" ||
+      normalizedSub === "outdoor_commercials"
+    ) {
+      return renderOutdoor(post);
+    }
+
+    if (normalizedSub === "other_campaign" && post.contentHtml) {
       return (
         <div
           className="pd-html"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
       );
+    }
   }
 
-  if (post.category === "interview")
-    return renderVideos(post.youtubeLinks ?? [], post.title);
+  if (post.category === "interview") {
+    return renderVideos(post.youtubeLinks ?? [], displayTitle);
+  }
 
-  if (post.pdfUrl)
+  if (post.pdfUrl) {
     return (
       <div className="pd-pdf-wrap">
         <a
@@ -273,14 +336,16 @@ const renderContent = (post: Post) => {
         </a>
       </div>
     );
+  }
 
-  if (post.contentHtml)
+  if (post.contentHtml) {
     return (
       <div
         className="pd-html"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
     );
+  }
 
   return (
     <div className="pd-empty">
@@ -301,14 +366,17 @@ const PostDetailPage = () => {
 
   useEffect(() => {
     if (!slug) return;
+
     const fetchPost = async () => {
       try {
         const res = await fetch(`${API_URL}/${slug}`, { cache: "no-store" });
         const json = await res.json();
+
         if (!res.ok || !json?.data) {
           setNotFound(true);
           return;
         }
+
         setPost(json.data);
       } catch (err) {
         console.error("Detail fetch error:", err);
@@ -317,6 +385,7 @@ const PostDetailPage = () => {
         setLoading(false);
       }
     };
+
     fetchPost();
   }, [slug]);
 
@@ -337,6 +406,7 @@ const PostDetailPage = () => {
         <FaImages className="pd-nf-icon" />
         <h2>Post not found</h2>
         <p>This page doesn&rsquo;t exist or has been removed.</p>
+
         <Link href="/resources" className="pd-nf-btn">
           <FaArrowLeft /> Back to Resources
         </Link>
@@ -345,12 +415,13 @@ const PostDetailPage = () => {
   }
 
   const catLabel = getCategoryLabel(post.category, post.subCategory);
+  const displayTitle = getDisplayTitle(post);
   const dateStr = formatDate(post.publishedAt ?? post.createdAt);
 
   // ── Render ───────────────────────────────────────────────────────────────────
   return (
     <main className="pd-page">
-      <Container>
+      <div className="pd-page-inner">
         <div className="pd-inner">
           {/* ── Back nav ── */}
           <Link href="/resources" className="pd-back-btn">
@@ -360,10 +431,13 @@ const PostDetailPage = () => {
 
           {/* ── Page header ── */}
           <div className="pd-header">
-            <h1 className="pd-title">{post.title}</h1>
+            <h1 className="pd-title">{displayTitle}</h1>
+
             {/* <div className="pd-accent" /> */}
+
             <div className="pd-meta">
               {/* <span className="pd-badge">{catLabel}</span> */}
+
               {dateStr && (
                 <span className="pd-date">
                   <FaCalendarAlt />
@@ -376,7 +450,7 @@ const PostDetailPage = () => {
           {/* ── Main content ── */}
           <div className="pd-content">{renderContent(post)}</div>
         </div>
-      </Container>
+      </div>
     </main>
   );
 };
