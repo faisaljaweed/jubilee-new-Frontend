@@ -200,7 +200,7 @@ function DaylightText({
   const containerOpacity = lerp(1, 0, fadeT);
   const containerBlur = lerp(0, 2.5, fadeT);
 
-  const redText = "Experience Yourself";
+  const redText = "Experience Yourself.";
   const redTextStart = text.indexOf(redText);
   const redTextEnd = redTextStart >= 0 ? redTextStart + redText.length : -1;
 
@@ -412,7 +412,7 @@ export default function InsuranceIntroSection() {
             mixBlendMode: "multiply",
           }}
         >
-          <div
+          {/* <div
             style={{
               position: "absolute",
               inset: 0,
@@ -422,7 +422,7 @@ export default function InsuranceIntroSection() {
               willChange: "transform",
               pointerEvents: "none",
             }}
-          />
+          /> */}
           <DaylightText
             text={INTRO_TEXT}
             reveal={textReveal}

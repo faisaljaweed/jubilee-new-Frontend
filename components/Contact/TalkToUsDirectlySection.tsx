@@ -1,5 +1,5 @@
 import Button from "../common/button";
-import Group_1000005372 from "../../public/img/Contact/contact us.png";
+import Group_1000005372 from "../../public/img/Contact/contact-us.png";
 
 export default function TalkToUsDirectlySection() {
   return (

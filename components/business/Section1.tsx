@@ -4,6 +4,7 @@ import { card_Btn } from "@/data/BusinessData";
 import Button from "../common/button";
 import Container from "../home/container";
 import Home_Card from "../business/Section";
+
 const Section1 = () => {
   const [btnActive, setBtnActive] = useState(0);
   const stickyRef = useRef<HTMLDivElement>(null);

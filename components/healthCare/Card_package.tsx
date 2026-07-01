@@ -697,6 +697,48 @@ const Card_package: React.FC<cardPackages> = ({
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [favoriteIndexes, setFavoriteIndexes] = useState<number[]>([]);
 
+  // Reverse ke liye logic
+  const sliderRef = useRef<Slider | null>(null);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesVisible, setSlidesVisible] = useState(3);
+
+  // const directionRef = useRef<"next" | "prev">("next");
+
+  useEffect(() => {
+    const updateSlidesVisible = () => {
+      if (window.innerWidth < 640) {
+        setSlidesVisible(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesVisible(2);
+      } else {
+        setSlidesVisible(3);
+      }
+    };
+
+    updateSlidesVisible();
+    window.addEventListener("resize", updateSlidesVisible);
+
+    return () => window.removeEventListener("resize", updateSlidesVisible);
+  }, []);
+
+  useEffect(() => {
+    if (plans.length <= slidesVisible) return;
+
+    const maxSlide = plans.length - slidesVisible;
+
+    const timer = setInterval(() => {
+      if (!sliderRef.current) return;
+
+      if (currentSlide >= maxSlide) {
+        sliderRef.current.slickGoTo(0);
+      } else {
+        sliderRef.current.slickNext();
+      }
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [currentSlide, plans.length, slidesVisible]);
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -752,23 +794,41 @@ const Card_package: React.FC<cardPackages> = ({
     });
   };
 
+  // const sliderSettings: Settings = {
+  //   dots: plans.length > 3,
+  //   infinite: plans.length > 3,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 2500,
+  //   pauseOnHover: true,
+  //   arrows: false,
+  //   customPaging: () => <button type="button" aria-label="Slider dot" />,
+  //   responsive: [
+  //     { breakpoint: 1024, settings: { slidesToShow: 2 } },
+  //     { breakpoint: 640, settings: { slidesToShow: 1 } },
+  //   ],
+  // };
+
   const sliderSettings: Settings = {
     dots: plans.length > 3,
-    infinite: plans.length > 3,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
+    autoplay: false,
     pauseOnHover: true,
     arrows: false,
+    beforeChange: (_oldIndex, newIndex) => {
+      setCurrentSlide(newIndex);
+    },
     customPaging: () => <button type="button" aria-label="Slider dot" />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
   };
-
   // ✅ Extracted card renderer — used in both layouts
   const renderCard = (plan: Plan, index: number) => {
     const isActive = activeIndex === index;
@@ -1148,6 +1208,7 @@ const Card_package: React.FC<cardPackages> = ({
           // ✅ Slider layout for 3+ cards (unchanged)
           <Slider
             {...sliderSettings}
+            ref={sliderRef}
             className="package-slider-scroll package-slick-slider py-8"
           >
             {plans.map((plan, index) => (

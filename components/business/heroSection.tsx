@@ -179,9 +179,9 @@ const HeroSection = () => {
                     Enterprises
                   </p>
 
-                  <div>
+                  {/* <div>
                     <Button text="Consult now" />
-                  </div>
+                  </div> */}
                 </div>
               </Container>
             </div>
@@ -216,9 +216,9 @@ const HeroSection = () => {
                           <p className="max-w-sm text-lg leading-relaxed text-white">
                             {slide.subtitle}
                           </p>
-                          <div>
+                          {/* <div>
                             <Button text={slide.buttonText} />
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -238,8 +238,8 @@ const HeroSection = () => {
               className="flex-1 bg-white placeholder-black rounded-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
             <input
-              type="text"
-              placeholder="COMPANY NAME"
+              type="number"
+              placeholder="Mobile Number"
               className="flex-1 bg-white placeholder-black rounded-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
             <input
@@ -250,7 +250,7 @@ const HeroSection = () => {
 
             {/* Button */}
             <Button
-              text="GET A QUOTE"
+              text="Consult Now"
               className="bg-[#BA0C2F] text-white rounded-full px-6 py-3 hover:bg-red-700 transition-colors uppercase"
             />
           </div>
