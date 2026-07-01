@@ -1,4 +1,4 @@
-import img1 from "../public/Icons/Parent Care Plus/odp-file_9682790.png";
+import img1 from "../public/Icons/Parent Care Plus/approval_18778464 1.png";
 import img2 from "../public/Icons/Parent Care Plus/laptop_3870083 1.png";
 import img3 from "../public/Icons/Parent Care Plus/approval_18778464 1.png";
 import img4 from "../public/img/hospital_4340965 1.png";
@@ -12,7 +12,7 @@ export const parentCarePackage = [
     card_title: (
       <>
         Pakistan’s ONLY
-        <br /> PLAN OFFERING{" "}
+        <br /> PLAN OFFERING
         <span className="font-semibold text-[#BA0C2F] group-hover:text-white">
           OPD
         </span>
@@ -276,9 +276,10 @@ export const domesticTravelTrustCards = [
   },
 ];
 // Family healthCare
+import no_medical from "../public/Icons/lifestyle-care/no-medical.png";
 export const familyHealthCareTrustCards = [
   {
-    card_image: { img1 },
+    card_image: { img2 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -288,7 +289,7 @@ export const familyHealthCareTrustCards = [
     ),
   },
   {
-    card_image: { img2 },
+    card_image: { no_medical },
     hover_image: { img2 },
     card_title: (
       <>
@@ -419,9 +420,12 @@ export const parentsCareTrustCards = [
   },
 ];
 // Her Care
+import hercare_1 from "../public/Icons/hercare/women.png";
+import her_care2 from "../public/Icons/hercare/no-medical-test.png";
+import her_care3 from "../public/Icons/hercare/24-7.png";
 export const herCareTrustCards = [
   {
-    card_image: { img1 },
+    card_image: { hercare_1 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -431,7 +435,7 @@ export const herCareTrustCards = [
     ),
   },
   {
-    card_image: { img2 },
+    card_image: { her_care2 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -441,7 +445,7 @@ export const herCareTrustCards = [
     ),
   },
   {
-    card_image: { img3 },
+    card_image: { her_care3 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -743,8 +747,8 @@ export const healthPackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/platinum-white.png",
+    redIcon: "/Icons/lifestyle-care/platinum.png",
   },
   {
     Card_Name: "Diamond",
@@ -760,8 +764,8 @@ export const healthPackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: true,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/diamond-white.png",
+    redIcon: "/Icons/lifestyle-care/diamond.png",
   },
   {
     Card_Name: "Gold",
@@ -777,8 +781,8 @@ export const healthPackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/gold-white.png",
+    redIcon: "/Icons/lifestyle-care/gold.png",
   },
   {
     Card_Name: "Silver",
@@ -794,8 +798,8 @@ export const healthPackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/silver-white.png",
+    redIcon: "/Icons/lifestyle-care/silver.png",
   },
 ];
 export const personalHealthCarePackage = [
@@ -891,8 +895,8 @@ export const lifestyleCarePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/platinum-white.png",
+    redIcon: "/Icons/lifestyle-care/platinum.png",
   },
   {
     Card_Name: "Diamond",
@@ -903,8 +907,8 @@ export const lifestyleCarePackage = [
     Card_features: ["Cash Payout: PKR 700,000", "Medical Tests: None Required"],
     Card_btn_text: "Get This Plan",
     highlighted: true,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/diamond-white.png",
+    redIcon: "/Icons/lifestyle-care/diamond.png",
   },
   {
     Card_Name: "Gold",
@@ -915,8 +919,8 @@ export const lifestyleCarePackage = [
     Card_features: ["Cash Payout: PKR 500,000", "Medical Tests: None Required"],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/gold-white.png",
+    redIcon: "/Icons/lifestyle-care/gold.png",
   },
   {
     Card_Name: "Silver",
@@ -927,8 +931,8 @@ export const lifestyleCarePackage = [
     Card_features: ["Cash Payout: PKR 300,000", "Medical Tests: None Required"],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/lifestyle-care/silver-white.png",
+    redIcon: "/Icons/lifestyle-care/silver.png",
   },
 ];
 
@@ -1056,8 +1060,8 @@ export const herCarePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum - Copy.png",
+    whiteIcon: "/Icons/hercare/platinum-white.png",
+    redIcon: "/Icons/hercare/platinum.png",
   },
   {
     Card_Name: "Diamond",
@@ -1073,8 +1077,8 @@ export const herCarePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: true,
-    whiteIcon: "/Icons/Parent Care Plus/gold.png",
-    redIcon: "/Icons/Parent Care Plus/gold - Copy.png",
+    whiteIcon: "/Icons/hercare/gold-white.png",
+    redIcon: "/Icons/hercare/gold.png",
   },
   {
     Card_Name: "Gold",
@@ -1089,8 +1093,8 @@ export const herCarePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/silver.png",
-    redIcon: "/Icons/Parent Care Plus/silver - Copy.png",
+    whiteIcon: "/icons/hercare/silver-white.png",
+    redIcon: "/icons/hercare/silver.png",
   },
 ];
 export const motor = [
@@ -1413,8 +1417,8 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/home-white.png",
+    redIcon: "/Icons/international travel/home.png",
   },
   // {
   //   planKey: "home-trip-multi-purpose",
@@ -1504,8 +1508,8 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/student-white.png",
+    redIcon: "/Icons/international travel/student.png",
   },
   // {
   //   planKey: "hajj-&-umrah-plana",
@@ -1540,8 +1544,8 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/hajj-white.png",
+    redIcon: "/Icons/international travel/hajj.png",
   },
   // {
   //   planKey: "ziarat-plana",
@@ -1576,8 +1580,8 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/ziarat-white.png",
+    redIcon: "/Icons/international travel/ziarat.png",
   },
   // {
   //   planKey: "domestic-travel-gold",
@@ -1612,8 +1616,8 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/domestic-white.png",
+    redIcon: "/Icons/international travel/domestic.png",
   },
 ];
 // Home Trip Travel
