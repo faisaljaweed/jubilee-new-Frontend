@@ -408,7 +408,7 @@ export default function Sustainability() {
       <div className="sustainability-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="w-full relative">
-          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0">
+          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0 pt-30">
             <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[40px] lg:text-[44px] max-w-2xl leading-14">
               Sustainability at Jubilee General Insurance
             </h1>

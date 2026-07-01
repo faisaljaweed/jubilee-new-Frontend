@@ -509,7 +509,7 @@ const About = () => {
       /> */}
 
       <div className="about_banner min-h-screen bg-cover bg-center bg-no-repeat">
-        <div className="mx-auto flex min-h-screen max-w-7xl items-end pb-10 ">
+        <div className="mx-auto flex min-h-screen max-w-7xl items-center pt-30 ">
           <div className="max-w-7xl text-black">
             {/* <p className="mb-4 font-futura text-[18px] font-semibold">
               About Us

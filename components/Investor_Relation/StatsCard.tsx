@@ -62,6 +62,12 @@ export default function Overview2025Section() {
           </p>
 
           <button
+            onClick={() =>
+              window.open(
+                "/pdf/Financial Report/2026/JGI-Q1-Report-2026.pdf",
+                "_blank",
+              )
+            }
             type="button"
             className="cursor-pointer rounded-full border-0 bg-white px-[18px] py-[11px] text-[11px] leading-none text-[#c9042d] shadow-[0_8px_22px_rgba(0,0,0,0.12)]"
           >

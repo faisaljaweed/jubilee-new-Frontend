@@ -168,14 +168,14 @@ const AwardsPage = () => {
         <HeroSection
           clasName="award-hero"
           text="Awards"
-          mainText="Achievement Awards"
+          mainText="Awards & Achievement "
           pageLink="/awards"
         />
       </div>
       {/* Awards Section */}
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-3xl">
+          <div className="mb-12 ">
             <span className="mb-3 inline-flex rounded-full bg-[#BA0C2F]/10 px-4 py-2 text-sm font-semibold text-[#BA0C2F]">
               Achievement Awards
             </span>

@@ -129,6 +129,12 @@ export default function GetConnected() {
       color: "#FF0000",
     },
     {
+      name: "whatsapp",
+      icon: <FaWhatsapp size={22} />,
+      href: "tel:021111654111",
+      color: "#25D366",
+    },
+    {
       name: "Facebook",
       icon: <FaFacebookF size={22} />,
       href: "",
@@ -146,12 +152,7 @@ export default function GetConnected() {
       href: "",
       color: "#0A66C2",
     },
-    {
-      name: "whatsapp",
-      icon: <FaWhatsapp size={22} />,
-      href: "tel:021111654111",
-      color: "#25D366",
-    },
+
     {
       name: "YouTube",
       icon: <FaYoutube size={22} />,

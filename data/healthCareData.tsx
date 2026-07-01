@@ -533,10 +533,12 @@ export const personalAccidentTrustCards = [
 ];
 
 // Motor Third Party
-
+import motor1 from "../public/Icons/Motor/flat-line.png";
+import motor2 from "../public/Icons/Motor/total-eco-system.png";
+import motor3 from "../public/Icons/Motor/zero-fiction.png";
 export const privateCarActOnlyTrustCards = [
   {
-    card_image: { img1 },
+    card_image: { motor1 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -546,7 +548,7 @@ export const privateCarActOnlyTrustCards = [
     ),
   },
   {
-    card_image: { img2 },
+    card_image: { motor3 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -556,7 +558,7 @@ export const privateCarActOnlyTrustCards = [
     ),
   },
   {
-    card_image: { img3 },
+    card_image: { motor2 },
     hover_image: { img2 },
     card_title: (
       <>
@@ -1110,8 +1112,8 @@ export const motor = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/Motor/Unselected/private-car.png",
+    redIcon: "/Icons/Motor/selected/private-car.png",
   },
   {
     planKey: "old-car-comprehensive",
@@ -1127,8 +1129,8 @@ export const motor = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: true,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/Motor/Unselected/old-car.png",
+    redIcon: "/Icons/Motor/selected/old-car.png",
   },
   {
     planKey: "3t-old-car-insurance",
@@ -1150,8 +1152,8 @@ export const motor = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/Motor/Unselected/3T-old-car.png",
+    redIcon: "/Icons/Motor/selected/3T-old-car.png",
   },
 
   {
@@ -1168,8 +1170,8 @@ export const motor = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/Motor/Unselected/motorcycle-insurance.png",
+    redIcon: "/Icons/Motor/selected/motorcycle-insurance.png",
   },
   {
     planKey: "private-car-third-party-insurance",
@@ -1185,8 +1187,8 @@ export const motor = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/Motor/Unselected/private-cars-third.png",
+    redIcon: "/Icons/Motor/selected/private-cars-third.png",
   },
 ];
 
@@ -1383,8 +1385,26 @@ export const travelInsurancePackage = [
   //   redIcon: "/Icons/Parent Care Plus/platinum.png",
   // },
   {
+    planKey: "international-travel",
+    Card_Name: "International Travel",
+    Card_description: "Lorem Ipsum Sample Text",
+    Card_price_prefix: "\nFrom",
+    Card_price: "34,195",
+    Card_price_period: "PKR \nPer half Year",
+    Card_features: [
+      "US$ 100,000 Sickness & Hospitalization Cover",
+      "Up to US$ 20,000 Fee Coverage Available",
+      "US$ 25,000 24-Hour Personal Accident Cove",
+      "Up to US$ 5,000 Travel & Stay Cover for 1 Member",
+    ],
+    Card_btn_text: "Get This Plan",
+    highlighted: false,
+    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
+    redIcon: "/Icons/Parent Care Plus/platinum.png",
+  },
+  {
     planKey: "home-trip-schengen",
-    Card_Name: "Home Trip - Schengen",
+    Card_Name: "Home Trip",
     Card_description: "Individual/Family",
     Card_price_prefix: "\nFrom",
     Card_price: "2,850",
@@ -1472,9 +1492,10 @@ export const travelInsurancePackage = [
   //   whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
   //   redIcon: "/Icons/Parent Care Plus/platinum.png",
   // },
+
   {
     planKey: "student-viacare-platinum",
-    Card_Name: "Student ViaCare ",
+    Card_Name: "Student Travel",
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
     Card_price: "34,195",

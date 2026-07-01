@@ -28,6 +28,36 @@ export const parentsCarePlusPlans: Plan[] = [
   { key: "platinum", label: "Platinum" },
 ];
 
+export const familyCarePlusPlans: Plan[] = [
+  { key: "silver", label: "Silver" },
+  { key: "gold", label: "Gold" },
+  { key: "platinum", label: "Platinum" },
+];
+export const personalCarePlusPlans: Plan[] = [
+  { key: "bronze", label: "	Bronze" },
+  { key: "silver", label: "Silver" },
+  { key: "gold", label: "Gold" },
+  { key: "diamond", label: "Diamond" },
+  { key: "platinum", label: "Platinum" },
+];
+export const lifeCarePlusPlans: Plan[] = [
+  { key: "silver", label: "Silver" },
+  { key: "gold", label: "Gold" },
+  { key: "diamond", label: "Diamond" },
+  { key: "platinum", label: "Platinum" },
+];
+export const parentPlusPlans: Plan[] = [
+  { key: "silver", label: "Silver" },
+  { key: "gold", label: "Gold" },
+  { key: "platinum", label: "Platinum" },
+  { key: "titanium", label: "Titanium" },
+  { key: "titaniumPlus", label: "Titanium Plus" },
+];
+export const herCarePlusPlans: Plan[] = [
+  { key: "gold", label: "Gold" },
+  { key: "diamond", label: "Diamond" },
+  { key: "platinum", label: "Platinum" },
+];
 export const parentsCarePlusSections: Section[] = [
   {
     title: "Product Details",
@@ -222,8 +252,8 @@ export const parentsCarePlusSections: Section[] = [
 ];
 export const familyHealthCareSections: Section[] = [
   {
-    title: "Plan Benefits",
-    showPlansHeader: true,
+    title: "Silver Plan",
+    showPlansHeader: false,
     rows: [
       {
         label: "Hospitalization Limit",
@@ -256,8 +286,12 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "Age Per Limit",
-        cells: [],
+        label: "Age Band",
+        cells: [
+          { content: "Family A" },
+          { content: "Family B" },
+          { content: "Family C" },
+        ],
       },
       {
         label: "18 - 24",
@@ -308,7 +342,7 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "50 - 54",
+        label: "50 - 54 Renewals only",
         cells: [
           { content: "53,140" },
           { content: "59,850" },
@@ -316,7 +350,7 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "55 - 59",
+        label: "55 - 59 Renewals only",
         cells: [
           { content: "59,315" },
           { content: "66,020" },
@@ -327,8 +361,8 @@ export const familyHealthCareSections: Section[] = [
   },
 
   {
-    title: "Plan Benefits",
-    showPlansHeader: true,
+    title: "Gold Plan",
+    showPlansHeader: false,
     rows: [
       {
         label: "Hospitalization Limit",
@@ -361,8 +395,12 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "Age Per Limit",
-        cells: [{ content: "Age Per Limit", colSpan: 3, align: "center" }],
+        label: "Age Band",
+        cells: [
+          { content: "Family A" },
+          { content: "Family B" },
+          { content: "Family C" },
+        ],
       },
       {
         label: "18 - 24",
@@ -413,15 +451,15 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "50 - 54",
+        label: "50 - 54 Renewals only",
         cells: [
-          { content: "106,800" },
+          { content: "106,890" },
           { content: "118,750" },
           { content: "130,650" },
         ],
       },
       {
-        label: "55 - 59",
+        label: "55 - 59 Renewals only",
         cells: [
           { content: "121,180" },
           { content: "133,100" },
@@ -431,110 +469,118 @@ export const familyHealthCareSections: Section[] = [
     ],
   },
 
-  // {
-  //   title: "Diamond Plan",
-  //   showPlansHeader: true,
-  //   rows: [
-  //     {
-  //       label: "Hospitalization Limit",
-  //       cells: [
-  //         {
-  //           content: "750,000",
-  //           colSpan: 3,
-  //           align: "center",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Room Entitlement",
-  //       cells: [
-  //         {
-  //           content: "Private",
-  //           colSpan: 3,
-  //           align: "center",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Emergency Local Ambulance Exp",
-  //       cells: [
-  //         {
-  //           content: "4,500",
-  //           colSpan: 3,
-  //           align: "center",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "18 - 24",
-  //       cells: [
-  //         { content: "69,800" },
-  //         { content: "86,400" },
-  //         { content: "103,100" },
-  //       ],
-  //     },
-  //     {
-  //       label: "25 - 29",
-  //       cells: [
-  //         { content: "72,500" },
-  //         { content: "89,125" },
-  //         { content: "105,770" },
-  //       ],
-  //     },
-  //     {
-  //       label: "30 - 34",
-  //       cells: [
-  //         { content: "77,915" },
-  //         { content: "94,530" },
-  //         { content: "111,150" },
-  //       ],
-  //     },
-  //     {
-  //       label: "35 - 39",
-  //       cells: [
-  //         { content: "83,850" },
-  //         { content: "100,475" },
-  //         { content: "117,150" },
-  //       ],
-  //     },
-  //     {
-  //       label: "40 - 44",
-  //       cells: [
-  //         { content: "94,140" },
-  //         { content: "110,765" },
-  //         { content: "127,380" },
-  //       ],
-  //     },
-  //     {
-  //       label: "45 - 49",
-  //       cells: [
-  //         { content: "112,525" },
-  //         { content: "129,150" },
-  //         { content: "145,780" },
-  //       ],
-  //     },
-  //     {
-  //       label: "50 - 54",
-  //       cells: [
-  //         { content: "149,600" },
-  //         { content: "166,215" },
-  //         { content: "182,850" },
-  //       ],
-  //     },
-  //     {
-  //       label: "55 - 59",
-  //       cells: [
-  //         { content: "169,575" },
-  //         { content: "186,225" },
-  //         { content: "202,860" },
-  //       ],
-  //     },
-  //   ],
-  // },
+  {
+    title: "Diamond Plan",
+    showPlansHeader: false,
+    rows: [
+      {
+        label: "Hospitalization Limit",
+        cells: [
+          {
+            content: "750,000",
+            colSpan: 3,
+            align: "center",
+          },
+        ],
+      },
+      {
+        label: "Room Entitlement",
+        cells: [
+          {
+            content: "Private",
+            colSpan: 3,
+            align: "center",
+          },
+        ],
+      },
+      {
+        label: "Emergency Local Ambulance Exp",
+        cells: [
+          {
+            content: "4,500",
+            colSpan: 3,
+            align: "center",
+          },
+        ],
+      },
+      {
+        label: "Age Band",
+        cells: [
+          { content: "Family A" },
+          { content: "Family B" },
+          { content: "Family C" },
+        ],
+      },
+      {
+        label: "18 - 24",
+        cells: [
+          { content: "69,800" },
+          { content: "86,400" },
+          { content: "103,100" },
+        ],
+      },
+      {
+        label: "25 - 29",
+        cells: [
+          { content: "72,500" },
+          { content: "89,125" },
+          { content: "105,770" },
+        ],
+      },
+      {
+        label: "30 - 34",
+        cells: [
+          { content: "77,915" },
+          { content: "94,530" },
+          { content: "111,150" },
+        ],
+      },
+      {
+        label: "35 - 39",
+        cells: [
+          { content: "83,850" },
+          { content: "100,475" },
+          { content: "117,150" },
+        ],
+      },
+      {
+        label: "40 - 44",
+        cells: [
+          { content: "94,140" },
+          { content: "110,765" },
+          { content: "127,380" },
+        ],
+      },
+      {
+        label: "45 - 49",
+        cells: [
+          { content: "112,525" },
+          { content: "129,150" },
+          { content: "145,780" },
+        ],
+      },
+      {
+        label: "50 - 54 Renewals only",
+        cells: [
+          { content: "149,600" },
+          { content: "166,215" },
+          { content: "182,850" },
+        ],
+      },
+      {
+        label: "55 - 59 Renewals only",
+        cells: [
+          { content: "169,575" },
+          { content: "186,225" },
+          { content: "202,860" },
+        ],
+      },
+    ],
+  },
 
   {
-    title: "Plan Benefits",
-    showPlansHeader: true,
+    title: "Platinum Plan",
+    showPlansHeader: false,
     rows: [
       {
         label: "Hospitalization Limit",
@@ -567,8 +613,12 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "Age Per Limit",
-        cells: [],
+        label: "Age Band",
+        cells: [
+          { content: "Family A" },
+          { content: "Family B" },
+          { content: "Family C" },
+        ],
       },
       {
         label: "18 - 24",
@@ -591,7 +641,7 @@ export const familyHealthCareSections: Section[] = [
         cells: [
           { content: "101,275" },
           { content: "122,900" },
-          { content: "144,900" },
+          { content: "144,500" },
         ],
       },
       {
@@ -619,7 +669,7 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "50 - 54",
+        label: "50 - 54 Renewals only",
         cells: [
           { content: "194,465" },
           { content: "216,100" },
@@ -627,7 +677,7 @@ export const familyHealthCareSections: Section[] = [
         ],
       },
       {
-        label: "55 - 59",
+        label: "55 - 59 Renewals only",
         cells: [
           { content: "220,450" },
           { content: "242,100" },
@@ -641,134 +691,125 @@ export const personalHealthCareSections: Section[] = [
   {
     title: "Personal HealthCare",
     showPlansHeader: true,
+
     rows: [
       {
         label: "Hospitalization Limit:",
         cells: [
-          // { content: "125,000" },
+          { content: "125,000" },
           { content: "275,000" },
           { content: "550,000" },
-          // { content: "750,000" },
+          { content: "750,000" },
           { content: "1,000,000" },
         ],
       },
       {
         label: "Room Entitlement:",
         cells: [
-          // { content: "General Ward" },
+          { content: "General Ward" },
           { content: "Semi-Private" },
           { content: "Private" },
-          // { content: "Private" },
+          { content: "Private" },
           { content: "Private" },
         ],
       },
       {
         label: "Emergency Local Ambulance",
         cells: [
-          // { content: "1,500" },
+          { content: "1,500" },
           { content: "2,500" },
           { content: "3,500" },
-          // { content: "4,500" },
+          { content: "4,500" },
           { content: "5,500" },
         ],
       },
       {
-        label: "",
+        label: "Age Band",
         cells: [
-          // { content: "Bronze" },
+          { content: "Bronze" },
           { content: "Silver" },
           { content: "Gold" },
-          // { content: "Diamond" },
+          { content: "Diamond" },
           { content: "Platinum" },
         ],
       },
       {
         label: "Max Entry Age 18 - 24",
         cells: [
-          // { content: "6,350" },
-          { content: "" },
-          { content: "" },
-          // { content: "26,765" },
-          { content: "" },
-        ],
-      },
-      {
-        label: "18 - 24",
-        cells: [
-          // { content: "6,350" },
+          { content: "6,350" },
           { content: "11,015" },
           { content: "19,440" },
-          // { content: "26,765" },
+          { content: "26,765" },
           { content: "34,440" },
         ],
       },
       {
         label: "25 - 29",
         cells: [
-          // { content: "7,138" },
+          { content: "7,138" },
           { content: "12,390" },
           { content: "22,020" },
-          // { content: "30,365" },
+          { content: "30,365" },
           { content: "39,125" },
         ],
       },
       {
         label: "30 - 34",
         cells: [
-          // { content: "8,838" },
+          { content: "8,838" },
           { content: "15,875" },
           { content: "28,170" },
-          // { content: "38,990" },
+          { content: "38,990" },
           { content: "50,340" },
         ],
       },
       {
         label: "35 - 39",
         cells: [
-          // { content: "9,525" },
+          { content: "9,525" },
           { content: "16,965" },
           { content: "30,340" },
-          // { content: "42,000" },
+          { content: "42,000" },
           { content: "54,250" },
         ],
       },
       {
         label: "40 - 44",
         cells: [
-          // { content: "10,700" },
+          { content: "10,700" },
           { content: "19,230" },
           { content: "34,500" },
-          // { content: "47,840" },
+          { content: "47,840" },
           { content: "61,840" },
         ],
       },
       {
         label: "45 - 49",
         cells: [
-          // { content: "12,513" },
+          { content: "12,513" },
           { content: "23,020" },
           { content: "41,050" },
-          // { content: "57,020" },
+          { content: "57,020" },
           { content: "73,780" },
         ],
       },
       {
         label: "Renewals only 50 - 54",
         cells: [
-          // { content: "17,851" },
+          { content: "17,851" },
           { content: "33,130" },
           { content: "58,890" },
-          // { content: "82,000" },
+          { content: "82,000" },
           { content: "106,265" },
         ],
       },
       {
-        label: "55 - 59",
+        label: "Renewals only 55 - 59",
         cells: [
-          // { content: "21,425" },
+          { content: "21,425" },
           { content: "40,270" },
           { content: "73,175" },
-          // { content: "101,990" },
+          { content: "101,990" },
           { content: "132,230" },
         ],
       },
@@ -786,7 +827,7 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "300,000" },
           { content: "500,000" },
-          // { content: "700,000" },
+          { content: "700,000" },
           { content: "1,000,000" },
         ],
       },
@@ -795,7 +836,7 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "Silver" },
           { content: "Gold" },
-          // { content: "Diamond" },
+          { content: "Diamond" },
           { content: "Platinum" },
         ],
       },
@@ -804,25 +845,16 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "Net Premium" },
           { content: "Net Premium" },
-          // { content: "Net Premium" },
+          { content: "Net Premium" },
           { content: "Net Premium" },
         ],
       },
       {
         label: "Max Entry Age 18 - 35",
         cells: [
-          { content: "" },
-          { content: "" },
-          // { content: "4,380" },
-          { content: "" },
-        ],
-      },
-      {
-        label: " 18 - 35",
-        cells: [
           { content: "2,280" },
           { content: "3,330" },
-          // { content: "4,380" },
+          { content: "4,380" },
           { content: "5,940" },
         ],
       },
@@ -831,7 +863,7 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "3,180" },
           { content: "4,810" },
-          // { content: "6,480" },
+          { content: "6,480" },
           { content: "8,940" },
         ],
       },
@@ -840,7 +872,7 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "4,540" },
           { content: "7,080" },
-          // { content: "9,600" },
+          { content: "9,600" },
           { content: "13,440" },
         ],
       },
@@ -849,7 +881,7 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "7,200" },
           { content: "11,520" },
-          // { content: "15,840" },
+          { content: "15,840" },
           { content: "22,320" },
         ],
       },
@@ -858,23 +890,22 @@ export const lifeStyleCareSections: Section[] = [
         cells: [
           { content: "13,170" },
           { content: "21,460" },
-          // { content: "25,980" },
+          { content: "25,980" },
           { content: "36,780" },
         ],
       },
       {
-        label: "56 - 60",
+        label: "Renewals Only 56 - 60",
         cells: [
           { content: "20,210" },
           { content: "33,210" },
-          // { content: "40,260" },
+          { content: "40,260" },
           { content: "57,240" },
         ],
       },
     ],
   },
 ];
-
 export const parentsCareCoverageSections: Section[] = [
   {
     title: "Benefit Plan",
@@ -887,8 +918,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "Rs. 200,000" },
           { content: "Rs. 300,000" },
           { content: "Rs. 500,000" },
-          // { content: "Rs. 700,000" },
-          // { content: "Rs. 1,000,000" },
+          { content: "Rs. 700,000" },
+          { content: "Rs. 1,000,000" },
         ],
       },
       {
@@ -897,8 +928,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "" },
           { content: "" },
           { content: "" },
-          // { content: "" },
-          // { content: "" },
+          { content: "" },
+          { content: "" },
         ],
       },
       {
@@ -907,8 +938,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "Semi Private" },
           { content: "Private" },
           { content: "Private" },
-          // { content: "Private" },
-          // { content: "Private" },
+          { content: "Private" },
+          { content: "Private" },
         ],
       },
       {
@@ -917,8 +948,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "Actual" },
           { content: "Actual" },
           { content: "Actual" },
-          // { content: "Actual" },
-          // { content: "Actual" },
+          { content: "Actual" },
+          { content: "Actual" },
         ],
       },
       {
@@ -927,8 +958,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "3000" },
           { content: "3000" },
           { content: "3000" },
-          // { content: "3000" },
-          // { content: "3000" },
+          { content: "3000" },
+          { content: "3000" },
         ],
       },
       {
@@ -937,8 +968,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "30 days" },
           { content: "30 days" },
           { content: "30 days" },
-          // { content: "30 days" },
-          // { content: "30 days" },
+          { content: "30 days" },
+          { content: "30 days" },
         ],
       },
       {
@@ -947,8 +978,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "30 days" },
           { content: "30 days" },
           { content: "30 days" },
-          // { content: "30 days" },
-          // { content: "30 days" },
+          { content: "30 days" },
+          { content: "30 days" },
         ],
       },
       {
@@ -969,8 +1000,8 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "Covered" },
           { content: "Covered" },
           { content: "Covered" },
-          // { content: "Covered" },
-          // { content: "Covered" },
+          { content: "Covered" },
+          { content: "Covered" },
         ],
       },
       {
@@ -988,14 +1019,14 @@ export const parentsCareCoverageSections: Section[] = [
             content:
               "1st year 10% of Annual Limit\n2nd year 20% of Annual Limit\n3rd year 30% of Annual Limit\n4th year & onward 50% of Annual Limit",
           },
-          // {
-          //   content:
-          //     "1st year 10% of Annual Limit\n2nd year 20% of Annual Limit\n3rd year 30% of Annual Limit\n4th year & onward 50% of Annual Limit",
-          // },
-          // {
-          //   content:
-          //     "1st year 10% of Annual Limit\n2nd year 20% of Annual Limit\n3rd year 30% of Annual Limit\n4th year & onward 50% of Annual Limit",
-          // },
+          {
+            content:
+              "1st year 10% of Annual Limit\n2nd year 20% of Annual Limit\n3rd year 30% of Annual Limit\n4th year & onward 50% of Annual Limit",
+          },
+          {
+            content:
+              "1st year 10% of Annual Limit\n2nd year 20% of Annual Limit\n3rd year 30% of Annual Limit\n4th year & onward 50% of Annual Limit",
+          },
         ],
       },
       {
@@ -1005,8 +1036,65 @@ export const parentsCareCoverageSections: Section[] = [
           { content: "Covered" },
           { content: "Covered" },
           { content: "Covered" },
-          // { content: "Covered" },
-          // { content: "Covered" },
+          { content: "Covered" },
+          { content: "Covered" },
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "Premium Details",
+    showPlansHeader: true,
+    rows: [
+      {
+        label: "New Entry 45 - 50 Years",
+        cells: [
+          { content: "22,800" },
+          { content: "37,450" },
+          { content: "63,000" },
+          { content: "93,390" },
+          { content: "107,365" },
+        ],
+      },
+      {
+        label: "New Entry 51 - 55 Years",
+        cells: [
+          { content: "28,060" },
+          { content: "40,260" },
+          { content: "69,360" },
+          { content: "99,800" },
+          { content: "114,635" },
+        ],
+      },
+      {
+        label: "New Entry 56 - 60 Years",
+        cells: [
+          { content: "30,890" },
+          { content: "46,680" },
+          { content: "78,845" },
+          { content: "112,460" },
+          { content: "129,330" },
+        ],
+      },
+      {
+        label: "New Entry 61 - 65 Years",
+        cells: [
+          { content: "34,560" },
+          { content: "50,760" },
+          { content: "89,540" },
+          { content: "132,960" },
+          { content: "152,760" },
+        ],
+      },
+      {
+        label: "Renewals Only 66 - 70 Years",
+        cells: [
+          { content: "38,110" },
+          { content: "52,830" },
+          { content: "100,450" },
+          { content: "160,020" },
+          { content: "183,300" },
         ],
       },
     ],
@@ -1029,19 +1117,15 @@ export const herCareSections: Section[] = [
         ],
       },
       {
-        label: "Max Entry Age",
-        cells: [{ content: "" }, { content: "" }, { content: "" }],
-      },
-      {
         label: "Age Bands",
         cells: [
-          { content: "Siver" },
           { content: "Gold" },
+          { content: "Diamond" },
           { content: "Platinum" },
         ],
       },
       {
-        label: "18 - 35",
+        label: "Max Entry Age 18 - 35",
         cells: [
           { content: "3,000" },
           { content: "4,680" },
@@ -1081,7 +1165,7 @@ export const herCareSections: Section[] = [
         ],
       },
       {
-        label: "56 - 60",
+        label: "Renewals Only 56 - 60",
         cells: [
           { content: "29,880" },
           { content: "43,560" },

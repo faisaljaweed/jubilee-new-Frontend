@@ -940,13 +940,13 @@ export default function Header({ menuColor }: menuProps) {
     // { label: "AWARDS", href: "/awards" },
     // { label: "LEADERSHIP", href: "/leadership" },
     // { label: "CLAIMS", href: "/claims" },
-    { label: "COMPLAINT & QUERY", href: "/complaints-queries" },
-    { label: "DISCLAIMER", href: "/disclaimer" },
-    { label: "PRIVACY POLICY", href: "/privacy-policy" },
+    // { label: "COMPLAINT & QUERY", href: "/complaints-queries" },
+    // { label: "DISCLAIMER", href: "/disclaimer" },
+    // { label: "PRIVACY POLICY", href: "/privacy-policy" },
     // { label: "CAREERS", href: "#" },
     // { label: "E-VERIFY", href: "#" },
     // { label: "MANAGE MY POLICY", href: "#" },
-    { label: "RESOURCES", href: "/resources" },
+    // { label: "RESOURCES", href: "/resources" },
     // { label: "CLAIMS", href: "#" },
   ];
 
@@ -1055,7 +1055,7 @@ export default function Header({ menuColor }: menuProps) {
             <div className="w-full">
               <div className={`max-w-7xl mx-auto ${LOGO_PL} ${LOGO_PL_XL}`}>
                 <div className="flex items-center justify-between px-5 py-3">
-                  <nav className="flex items-center gap-4 xl:gap-7">
+                  <nav className="flex items-center gap-4 xl:gap-7 ">
                     {mainNavLinks.map((link, i) => (
                       <React.Fragment key={`${link.label}-${i}`}>
                         {/* <Link
@@ -1076,11 +1076,11 @@ export default function Header({ menuColor }: menuProps) {
                           >
                             <Link
                               href={link.href}
-                              className={`flex items-center gap-1 font-futura text-xs xl:text-sm font-medium uppercase tracking-wide transition whitespace-nowrap ${
+                              className={`flex items-center gap-1 font-futura text-xs xl:text-sm font-bold uppercase tracking-wide  transition whitespace-nowrap ${
                                 pathname === link.href ||
                                 pathname === "/awards" ||
                                 pathname === "/leadership"
-                                  ? "text-[#BA0C2F] font-semibold"
+                                  ? "text-[#BA0C2F] font-bold"
                                   : `${menuColor} hover:text-[#BA0C2F]`
                               }`}
                             >
@@ -1115,9 +1115,9 @@ export default function Header({ menuColor }: menuProps) {
                         ) : (
                           <Link
                             href={link.href}
-                            className={`font-futura text-xs xl:text-sm font-medium  tracking-wide transition whitespace-nowrap ${
+                            className={`font-futura text-xs xl:text-sm font-bold  tracking-wide transition whitespace-nowrap ${
                               pathname === link.href
-                                ? "text-[#BA0C2F] font-semibold"
+                                ? "text-[#BA0C2F] font-bold"
                                 : `${menuColor} hover:text-[#BA0C2F]`
                             }`}
                           >
@@ -1133,7 +1133,7 @@ export default function Header({ menuColor }: menuProps) {
                           >
                             <button
                               type="button"
-                              className={`flex items-center gap-1 font-futura text-xs xl:text-sm font-medium uppercase tracking-wide transition whitespace-nowrap ${
+                              className={`flex items-center gap-1 font-futura text-xs xl:text-sm font-bold uppercase tracking-wide transition whitespace-nowrap ${
                                 pathname.includes("/health") ||
                                 pathname.includes("/healthcare") ||
                                 pathname.includes("/parentscare") ||
@@ -1142,7 +1142,7 @@ export default function Header({ menuColor }: menuProps) {
                                 pathname.includes("/travel") ||
                                 pathname.includes("/self") ||
                                 pathname.includes("/home")
-                                  ? "text-[#BA0C2F] font-semibold cursor-pointer"
+                                  ? "text-[#BA0C2F] font-bold cursor-pointer"
                                   : `${menuColor} hover:text-[#BA0C2F] cursor-pointer`
                               }`}
                             >

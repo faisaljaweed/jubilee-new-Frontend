@@ -93,11 +93,11 @@ export default function HeaderWrapper() {
 
   useEffect(() => {
     const whiteMenuPages = [
-      "/careers",
+      // "/careers",
       "/contact",
-      "/sustainability",
+      // "/sustainability",
       "/business",
-      "/awards",
+      // "/awards",
       "/leadership",
       "/branchNetwork",
       "/claims",

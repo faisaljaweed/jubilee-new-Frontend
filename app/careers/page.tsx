@@ -9,7 +9,7 @@ const page = () => {
     <>
       <div className="carrers-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
-          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-end pb-10 px-6 md:px-0">
+          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center pb-10 px-6 md:px-0 pt-30">
             <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[42px] lg:text-[48px]">
               Inside Jubilee General
             </h1>
