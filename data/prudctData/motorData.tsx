@@ -51,7 +51,7 @@ export const privateCarComprehensiveDetails = {
   tables: [
     {
       sectionTitle: "",
-      tableTitle: "Key Terms",
+      tableTitle: "",
       headerRows: [[{ label: "Key Terms" }, { label: "Details" }]],
       rows: [
         {
@@ -70,7 +70,7 @@ export const privateCarComprehensiveDetails = {
     },
     {
       sectionTitle: "",
-      tableTitle: "Product Benefit Table",
+      tableTitle: "Product Benefit ",
       headerRows: [[{ label: "Add-Ons" }, { label: "Amount (PKR)" }]],
       rows: [
         {
@@ -98,7 +98,7 @@ export const oldCarComprehensiveDetails = {
   tables: [
     {
       sectionTitle: "",
-      tableTitle: "Key Terms",
+      tableTitle: "",
       headerRows: [[{ label: "Key Terms" }, { label: "Details" }]],
       rows: [
         {
@@ -123,7 +123,7 @@ export const oldCarComprehensiveDetails = {
     },
     {
       sectionTitle: "",
-      tableTitle: "Product Benefit Table",
+      tableTitle: "Product Benefit ",
       headerRows: [[{ label: "Add-Ons" }, { label: "Amount (PKR)" }]],
       rows: [
         {
@@ -151,7 +151,7 @@ export const threeTOldCarInsuranceDetails = {
   tables: [
     {
       sectionTitle: "",
-      tableTitle: "Key Terms",
+      tableTitle: "",
       headerRows: [[{ label: "Key Terms" }, { label: "Details" }]],
       rows: [
         {
@@ -176,7 +176,7 @@ export const threeTOldCarInsuranceDetails = {
     },
     {
       sectionTitle: "",
-      tableTitle: "Product Benefit Table",
+      tableTitle: "Product Benefit ",
       headerRows: [[{ label: "Add-Ons" }, { label: "Amount (PKR)" }]],
       rows: [
         {
@@ -204,7 +204,7 @@ export const motorCycleComprehensiveDetails = {
   tables: [
     {
       sectionTitle: "",
-      tableTitle: "Key Terms",
+      tableTitle: "",
       headerRows: [[{ label: "Key Terms" }, { label: "Details" }]],
       rows: [
         {
@@ -238,7 +238,7 @@ export const motorCycleComprehensiveDetails = {
     },
     {
       sectionTitle: "",
-      tableTitle: "Product Benefit Table",
+      tableTitle: "Product Benefit ",
       headerRows: [[{ label: "Add-Ons" }, { label: "Amount (PKR)" }]],
       rows: [
         {

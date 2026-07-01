@@ -1180,8 +1180,8 @@ export const herCareNote =
   "Note: Above rates are inclusive FIF & Stamp duty but Excluding 4% advance tax for non filers.";
 export const parentsCarePlusNote = (
   <>
-    <strong>Note:</strong> Above rates are inclusive of FIF & Stamp duty but
-    excluding 4% advance tax for non-filers.
+    Note: Above rates are inclusive of FIF & Stamp duty but excluding 4% advance
+    tax for non-filers.
   </>
 );
 

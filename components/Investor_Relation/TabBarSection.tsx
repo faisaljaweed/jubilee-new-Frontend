@@ -1142,7 +1142,7 @@ const tabData = {
     cards: [
       {
         title: "Securities and Exchange Commission of Pakistan",
-        content: "Direct no: 042-99014050 \nUAN: 042-111-117-327",
+        content: "Direct No: 042-99014050 \nUAN: 042-111-117-327",
       },
       {
         title: "Securities and Exchange Commission of Pakistan",
@@ -1162,7 +1162,7 @@ const tabData = {
     cards: [
       {
         title: "Official Coordinator, Small Disputes Resolution Committee",
-        content: "Direct no: 051-9195391 \nUAN: 051-111-117-327",
+        content: "Direct No: 051-9195391 \nUAN: 051-111-117-327",
       },
       {
         title: "Securities and Exchange Commission of Pakistan",

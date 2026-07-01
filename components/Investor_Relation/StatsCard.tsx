@@ -64,7 +64,7 @@ export default function Overview2025Section() {
           <button
             onClick={() =>
               window.open(
-                "/pdf/Financial Report/2026/JGI-Q1-Report-2026.pdf",
+                "/pdf/Financial Report/2025/Annual-Report-2025-JGI.pdf",
                 "_blank",
               )
             }

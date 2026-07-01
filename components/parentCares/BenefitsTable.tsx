@@ -77,7 +77,7 @@ export default function BenefitsTable({
       </div>
 
       {note && (
-        <div className="border-t border-[#d9d9d9] px-5 py-4 font-futura text-[15px] leading-[1.6] text-[#111]">
+        <div className="border-t border-[#d9d9d9] px-5 py-4 font-futura text-[15px] leading-[1.6] text-[#4b4b4b]">
           {note}
         </div>
       )}

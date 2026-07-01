@@ -1091,7 +1091,7 @@ export default function ContactSection() {
     <>
       <div className="back h-screen">
         <div className="mx-auto flex h-full max-w-7xl items-center px-6 md:px-10">
-          <div className="flex flex-col justify-center text-left text-white pt-30">
+          <div className="flex flex-col justify-center text-left text-black pt-30">
             <h1 className="font-futura text-[34px] font-bold uppercase leading-[1..08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
               connect with us
             </h1>

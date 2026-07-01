@@ -734,6 +734,7 @@ export const VechileCarePackage = [
 export const healthPackage = [
   // { Card_heading: "" },
   {
+    planKey: "platinum",
     Card_Name: "Platinum",
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
@@ -751,6 +752,7 @@ export const healthPackage = [
     redIcon: "/Icons/lifestyle-care/platinum.png",
   },
   {
+    planKey: "diamond",
     Card_Name: "Diamond",
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
@@ -768,6 +770,7 @@ export const healthPackage = [
     redIcon: "/Icons/lifestyle-care/diamond.png",
   },
   {
+    planKey: "gold",
     Card_Name: "Gold",
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
@@ -785,6 +788,7 @@ export const healthPackage = [
     redIcon: "/Icons/lifestyle-care/gold.png",
   },
   {
+    planKey: "silver",
     Card_Name: "Silver",
     Card_description: "Lorem Ipsum Sample Text",
     Card_price_prefix: "\nFrom",
@@ -946,7 +950,7 @@ export const parentsCarePackage = [
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Annual Hospitalization Limit: PKR 1,000,000",
-      "Room Style Booking: Private Room",
+      "Room Booking: Private Room",
       "At-Home Nursing Care: PKR 20,000",
       "Online Doctor Consults: Unlimited",
     ],
@@ -963,7 +967,7 @@ export const parentsCarePackage = [
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Annual Hospitalization Limit: PKR 700,000",
-      "Room Style Booking: Private Room",
+      "Room  Booking: Private Room",
       "At-Home Nursing Care: PKR 20,000",
       "Online Doctor Consults: Unlimited",
     ],
@@ -980,7 +984,7 @@ export const parentsCarePackage = [
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Annual Hospitalization Limit: PKR 500,000",
-      "Room Style Booking: Private Room",
+      "Room  Booking: Private Room",
       "At-Home Nursing Care: PKR 20,000",
       "Online Doctor Consults: Unlimited",
     ],
@@ -997,7 +1001,7 @@ export const parentsCarePackage = [
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Annual Hospitalization Limit: PKR 300,000",
-      "Room Style Booking: Private Room",
+      "Room Booking: Private Room",
       "At-Home Nursing Care: PKR 20,000",
       "Online Doctor Consults: Unlimited",
     ],
@@ -1014,7 +1018,7 @@ export const parentsCarePackage = [
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Annual Hospitalization Limit: PKR 200,000",
-      "Room Style Booking: Semi - Private Room",
+      "Room Booking: Semi - Private Room",
       "At-Home Nursing Care: PKR 20,000",
       "Online Doctor Consults: Unlimited",
     ],
@@ -1175,8 +1179,14 @@ export const motor = [
   },
   {
     planKey: "private-car-third-party-insurance",
-    Card_Name: "Third Party Liability",
+    Card_Name: (
+      <>
+        Third Party
+        <br /> Liability
+      </>
+    ),
     Card_description: "Starting from",
+    Card_price_prefix: "\nFrom",
     Card_price: "PKR 200",
     Card_price_period: "of I.E.V. \nPer Year",
     Card_features: [
@@ -1399,12 +1409,12 @@ export const travelInsurancePackage = [
     ],
     Card_btn_text: "Get This Plan",
     highlighted: false,
-    whiteIcon: "/Icons/Parent Care Plus/filled/platinum.png",
-    redIcon: "/Icons/Parent Care Plus/platinum.png",
+    whiteIcon: "/Icons/international travel/international-white.png",
+    redIcon: "/Icons/international travel/international.png",
   },
   {
     planKey: "home-trip-schengen",
-    Card_Name: "Home Trip",
+    Card_Name: "HomeTrip",
     Card_description: "Individual/Family",
     Card_price_prefix: "\nFrom",
     Card_price: "2,850",

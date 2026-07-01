@@ -289,7 +289,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/LifeStyle.png",
+      imageUrl: "/img/Product/lifestyle.jpg.jpeg",
     },
 
     counters: [
@@ -446,7 +446,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/travel.jpg",
+      imageUrl: "/img/Product/travel1.jpg",
     },
 
     counters: [
@@ -554,7 +554,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/Self.png",
+      imageUrl: "/img/Product/self-care.jpg",
     },
 
     counters: [

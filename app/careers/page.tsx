@@ -3,18 +3,25 @@ import Section3 from "@/components/Career/Section3";
 import "./careers.css";
 import Section4 from "@/components/Career/Section4";
 import Section5 from "@/components/Career/Section5";
-
+import Container from "@/components/home/container";
+import Image from "next/image";
 const page = () => {
+  const scrollToJobs = () => {
+    document.getElementById("jobs-section")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <>
       <div className="carrers-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center pb-10 px-6 md:px-0 pt-30">
-            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[42px] lg:text-[48px]">
+            <h1 className="font-futura text-[34px] font-bold uppercase text-black md:text-[42px] lg:text-[48px]">
               Inside Jubilee General
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-normal leading-[1.6]  text-white  md:text-[22px] tracking-wide">
+            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-normal leading-[1.6]  text-black  md:text-[22px] tracking-wide">
               Where ideas grow, teams win, and your work actually makes a
               difference.
               {/* WHERE IDEAS GROW, TEAMS WIN, AND YOUR WORK ACTUALLY MAKES A
@@ -31,7 +38,10 @@ const page = () => {
                 className="border border-white px-4 py-2 rounded-full bg-white outline-none focus:ring-1 ring-[#ba0c2f] font-futura"
                 placeholder="City, State or Zip"
               />
-              <button className="bg-[#ba0c2f] text-white border-none px-10 py-2 font-futura rounded-full uppercase font-medium text-md cursor-pointer">
+              <button
+                onClick={scrollToJobs}
+                className="bg-[#ba0c2f] text-white border-none px-10 py-2 font-futura rounded-full uppercase font-medium text-md cursor-pointer"
+              >
                 Search
               </button>
             </div>
@@ -216,7 +226,58 @@ const page = () => {
           ))}
         </div>
       </div>
+
       {/* <Section3 /> */}
+      <Container>
+        <div className="mx-10 mb-10 grid grid-cols-1 items-center gap-10 overflow-hidden rounded-[50px]  px-15 py-12 bg-[#BA0C2F] lg:grid-cols-2">
+          {/* Left Content */}
+          <div className="font-futura text-black">
+            <span className="mb-3 inline-block text-sm font-medium uppercase tracking-[0.18em] text-white">
+              Introducing
+            </span>
+
+            <h1 className="text-4xl font-semibold uppercase leading-tight text-white lg:text-5xl">
+              NEXTJEN PROGRAM
+            </h1>
+            <div className="flex items-center justify-start gap-4 pt-2">
+              <span className="h-[2px] w-40 bg-white" />
+
+              <h1 className="text-sm font-semibold uppercase leading-tight text-white lg:text-sm">
+                MT Program
+              </h1>
+
+              <span className="h-[2px] w-40 bg-white" />
+            </div>
+            <h3 className="max-w-[500px] pt-5 text-xl font-semibold leading-[1.35] text-white">
+              Designed to transform potential into performance
+            </h3>
+
+            <p className="max-w-[540px] pt-7 text-[16px] font-normal leading-[1.8] text-white">
+              At Jubilee General Insurance, we believe great talent deserves
+              real opportunities. Through our NextJen MT Program, we empower
+              aspiring professionals with hands-on experience, structured
+              learning, mentorship, and meaningful work that creates lasting
+              impact.
+            </p>
+            <button className="mt-8 rounded-full bg-white px-10 py-3 text-lg font-semibold uppercase text-[#BA0C2F] transition-all duration-300 hover:bg-[#f5f5f5]">
+              Apply Now
+            </button>
+          </div>
+
+          {/* Right Image */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <div className="relative w-full max-w-[560px]">
+              <Image
+                src="/img/careers/Next Jen.png"
+                alt="DUKAN HIFAZAT"
+                width={1000}
+                height={1000}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
       <Section4 />
       <Section5 />
     </>

@@ -692,7 +692,7 @@ const HomePage = () => {
               // plans={packagePlans[selectedPlan]}
               selectedCategory={selectedCategory}
               onGetPlanClick={handleGetPlanClick}
-              showPrice={false}
+              showPrice={true}
               showDescription={false}
             />
           </div>

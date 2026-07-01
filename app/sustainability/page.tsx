@@ -406,14 +406,14 @@ export default function Sustainability() {
     <>
       {/* ── HERO BANNER (background set via sustainability.css) ── */}
       <div className="sustainability-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
-        <div className="absolute inset-0 bg-black opacity-50" />
+        <div className="absolute " />
         <div className="w-full relative">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0 pt-30">
-            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[40px] lg:text-[44px] max-w-2xl leading-14">
+            <h1 className="font-futura text-[34px] font-bold uppercase text-black md:text-[40px] lg:text-[44px] max-w-2xl leading-14">
               Sustainability at Jubilee General Insurance
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[17px] font-normal leading-[1.6] text-white md:text-[22px] tracking-wide">
+            <p className="mt-3 max-w-[560px] font-futura text-[17px] font-normal leading-[1.6] text-black md:text-[22px] tracking-wide">
               Resilient today, responsible tomorrow
             </p>
 
@@ -426,7 +426,7 @@ export default function Sustainability() {
               </a>
               <a
                 href="#"
-                className="border border-white text-white px-10 py-2 font-futura rounded-full uppercase font-medium text-md cursor-pointer"
+                className="border border-white bg-white text-black px-10 py-2 font-futura rounded-full uppercase font-medium text-md cursor-pointer"
               >
                 Download Report
               </a>

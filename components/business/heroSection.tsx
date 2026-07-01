@@ -38,7 +38,7 @@ const HeroSection = () => {
     const fetchBanners = async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/banners?category=business&isActive=true`,
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/bannrs?category=business&isActive=true`,
           // `${process.env.NEXT_PUBLIC_API_BASE_URL}/banners?category=busines&isActive=true`,
         );
 
@@ -168,13 +168,13 @@ const HeroSection = () => {
             <div className="dummy_Hero">
               <Container>
                 <div className="flex min-h-screen max-w-162.5 flex-col justify-center gap-6">
-                  <h1 className="text-5xl font-bold uppercase leading-[1.15] text-white">
+                  <h1 className="text-5xl font-bold uppercase leading-[1.15] text-black">
                     Protecting <br />
                     Pakistan’s Businesses
                     <br /> with Confidence
                   </h1>
 
-                  <p className="max-w-sm text-lg leading-relaxed text-white">
+                  <p className="max-w-sm text-lg leading-relaxed text-black">
                     Insurance Solutions Designed for SMEs, Corporates, and Large
                     Enterprises
                   </p>
@@ -209,11 +209,11 @@ const HeroSection = () => {
                         <div className="flex min-h-screen max-w-145 flex-col justify-center gap-6">
                           {/* <div className="bg-orange h-1 w-10"></div> */}
 
-                          <h1 className="text-5xl font-bold uppercase leading-[1.15] text-white">
+                          <h1 className="text-5xl font-bold uppercase leading-[1.15] text-black">
                             {slide.title}
                           </h1>
 
-                          <p className="max-w-sm text-lg leading-relaxed text-white">
+                          <p className="max-w-sm text-lg leading-relaxed text-black">
                             {slide.subtitle}
                           </p>
                           {/* <div>

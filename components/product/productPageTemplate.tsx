@@ -516,7 +516,42 @@ const getPlanTierFromClickedPlan = (
 
   return candidates[0] || "";
 };
+const normalizeBenefitPlanKey = (value: string) =>
+  String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\bplan\b/g, "")
+    .replace(/[^a-z0-9]/g, "");
 
+const getHealthPlanKeyFromClickedPlan = (data: {
+  planKey?: string;
+  selectedProduct?: string;
+  plan?: any;
+}) => {
+  const plan = data.plan || {};
+
+  const candidates = [
+    plan.planKey,
+    plan.planLabel,
+    plan.Card_Name,
+    plan.Card_name,
+    plan.cardName,
+    plan.name,
+    plan.title,
+    data.planKey,
+    data.selectedProduct,
+  ]
+    .map((value) => {
+      if (typeof value === "string" || typeof value === "number") {
+        return String(value).trim();
+      }
+
+      return "";
+    })
+    .filter(Boolean);
+
+  return normalizeBenefitPlanKey(candidates[0] || "");
+};
 export default function ProductPageTemplate({
   product,
 }: ProductPageTemplateProps) {
@@ -530,10 +565,12 @@ export default function ProductPageTemplate({
   const [selectedMotorPlanKey, setSelectedMotorPlanKey] = useState("");
   const [selectedTravelPlanKey, setSelectedTravelPlanKey] = useState("");
   const [selectedQuotePlanTier, setSelectedQuotePlanTier] = useState("");
+  const [selectedHealthPlanKey, setSelectedHealthPlanKey] = useState("");
 
   useEffect(() => {
     setSelectedMotorPlanKey("");
     setSelectedTravelPlanKey("");
+    setSelectedQuotePlanTier("");
     setSelectedQuotePlanTier("");
   }, [product?.slug]);
 
@@ -640,9 +677,17 @@ export default function ProductPageTemplate({
       setSelectedTravelPlanKey(data.planKey || data.selectedProduct);
     }
 
+    if (
+      product.detailsType === "health" &&
+      product.slug === "family-health-care"
+    ) {
+      setSelectedHealthPlanKey(getHealthPlanKeyFromClickedPlan(data));
+    }
+
     setSelectedQuotePlanTier(
       getPlanTierFromClickedPlan(data, quotePrefillData.selectedProduct),
     );
+
     scrollToQuoteSection();
   };
 
@@ -655,14 +700,51 @@ export default function ProductPageTemplate({
     product.detailsType === "travel" && selectedTravelPlanKey
       ? (product.travelPlanDetails?.[selectedTravelPlanKey] ?? product.details)
       : product.details;
+  const selectedHealthBenefits = useMemo(() => {
+    if (
+      product.detailsType !== "health" ||
+      product.slug !== "family-health-care" ||
+      !selectedHealthPlanKey ||
+      !product.benefits?.sections
+    ) {
+      return product.benefits;
+    }
 
+    const filteredSections = product.benefits.sections.filter(
+      (section: any) => {
+        const sectionKey = normalizeBenefitPlanKey(section.title);
+
+        return (
+          sectionKey === selectedHealthPlanKey ||
+          sectionKey.includes(selectedHealthPlanKey) ||
+          selectedHealthPlanKey.includes(sectionKey)
+        );
+      },
+    );
+
+    return {
+      ...product.benefits,
+      sections:
+        filteredSections.length > 0
+          ? filteredSections
+          : product.benefits.sections,
+    };
+  }, [
+    product.detailsType,
+    product.slug,
+    product.benefits,
+    selectedHealthPlanKey,
+  ]);
   const renderProductDetails = () => {
     if (!product.showBenefitsTable) return null;
 
     switch (product.detailsType) {
       case "health":
-        return product.benefits ? (
-          <ProductBenefitsSection benefits={product.benefits} />
+        return selectedHealthBenefits ? (
+          <ProductBenefitsSection
+            key={selectedHealthPlanKey || "default-health-benefits"}
+            benefits={selectedHealthBenefits}
+          />
         ) : null;
 
       case "travel":

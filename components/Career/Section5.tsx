@@ -413,7 +413,10 @@ const Section5 = ({ searchQuery = "", locationQuery = "" }: Section5Props) => {
   };
 
   return (
-    <section className="border-y border-[#BA0C2F] bg-white py-16 font-futura">
+    <section
+      id="jobs-section"
+      className="border-y border-[#BA0C2F] bg-white py-16 font-futura"
+    >
       <Container>
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[28%_72%]">

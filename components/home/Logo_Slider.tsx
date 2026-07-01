@@ -115,7 +115,13 @@ import AghaKhanHabitat from "../../public/img/Agha Khan.png";
 import AghaKhanAgency from "../../public/img/AGA_Agency.png";
 import pepsi from "../../public/img/Pepsi.png";
 import unilever from "../../public/img/Unilever.png";
-
+import Hashwani from "../../public/img/Associated Logo/Hashwani.png";
+import agha_khan_develment from "../../public/img/Associated Logo/agha-khan-develment.png";
+import aga_khan_foundation from "../../public/img/Associated Logo/aga-khan-foundation.png";
+import aga_khan_uni from "../../public/img/Associated Logo/aga-khan-uni.png";
+import hashoo from "../../public/img/Associated Logo/hashoo.png";
+import habib from "../../public/img/Associated Logo/Habib.png";
+import psl from "../../public/img/Associated Logo/psl.png";
 type Logo = {
   name: string;
   image: StaticImageData;
@@ -123,39 +129,79 @@ type Logo = {
 
 const businessLogos: Logo[] = [
   {
-    name: "Serena Hotels",
-    image: Serena,
+    name: "Hashwani",
+    image: Hashwani,
   },
   {
-    name: "HBL",
-    image: Hbl,
+    name: "agha-khan-develment",
+    image: agha_khan_develment,
   },
   {
-    name: "Unilever",
-    image: unilever,
+    name: "aga-khan-foundation",
+    image: aga_khan_foundation,
   },
   {
-    name: "Pepsi",
-    image: pepsi,
+    name: "aga-khan-uni",
+    image: aga_khan_uni,
   },
+  {
+    name: "hashoo",
+    image: hashoo,
+  },
+  {
+    name: "Habib",
+    image: habib,
+  },
+  {
+    name: "psl",
+    image: psl,
+  },
+  // {
+  //   name: "Serena Hotels",
+  //   image: Serena,
+  // },
+  // {
+  //   name: "HBL",
+  //   image: Hbl,
+  // },
+  // {
+  //   name: "Unilever",
+  //   image: unilever,
+  // },
+  // {
+  //   name: "Pepsi",
+  //   image: pepsi,
+  // },
 ];
 
 const otherPageLogos: Logo[] = [
   {
-    name: "Serena Hotels",
-    image: Serena,
+    name: "Hashwani",
+    image: Hashwani,
   },
   {
-    name: "HBL",
-    image: Hbl,
+    name: "agha-khan-develment",
+    image: agha_khan_develment,
   },
   {
-    name: "Aga Khan Habitat",
-    image: AghaKhanHabitat,
+    name: "aga-khan-foundation",
+    image: aga_khan_foundation,
   },
   {
-    name: "Aga Khan Agency",
-    image: AghaKhanAgency,
+    name: "aga-khan-uni",
+    image: aga_khan_uni,
+  },
+  {
+    name: "hashoo",
+    image: hashoo,
+  },
+  {
+    name: "Habib",
+    image: habib,
+  },
+  {
+    name: "psl",
+    image: psl,
   },
 ];
 
@@ -201,14 +247,14 @@ function LogoCard({ logo }: { logo: Logo }) {
 
   return (
     <div
-      className="mx-3 flex flex-shrink-0 items-center justify-center rounded-2xl border border-gray-200 bg-white"
+      className="mx-3 flex flex-shrink-0 items-center justify-center "
       style={{
-        padding: "20px 36px",
-        minWidth: "220px",
-        height: "100px",
-        boxShadow: hovered
-          ? "0 4px 18px rgba(0,0,0,0.13)"
-          : "0 1px 6px rgba(0,0,0,0.07)",
+        // padding: "20px 36px",
+        // minWidth: "220px",
+        // height: "100px",
+        // boxShadow: hovered
+        //   ? "0 4px 18px rgba(0,0,0,0.13)"
+        //   : "0 1px 6px rgba(0,0,0,0.07)",
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
         transition: "box-shadow 0.2s, transform 0.2s",
       }}
@@ -218,9 +264,9 @@ function LogoCard({ logo }: { logo: Logo }) {
       <Image
         src={logo.image}
         alt={logo.name}
-        width={150}
+        width={250}
         height={60}
-        className="h-auto max-h-[58px] w-auto object-contain"
+        className="h-auto h-auto w-[250px] object-contain"
       />
     </div>
   );

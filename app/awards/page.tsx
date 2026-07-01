@@ -134,7 +134,7 @@ const achievementAwards = [
   {
     title: "Top Companies Award",
     year: "1985, 1997, 1998",
-    image: "/img/Awards/award-1998.jpg",
+    image: "/img/Awards/Awards.png",
   },
 ];
 
