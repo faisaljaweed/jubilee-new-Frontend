@@ -30,7 +30,7 @@ import Group from "../../public/Icons/home/highest rated insurer.png";
 import Group1 from "../../public/Icons/home/hospital network.png";
 import TestimonialsPreview from "@/components/home/CarpuselDemoTestimonial";
 import content from "../../public/img/hospital network.jpeg";
-import home_Section_Card_05 from "../../public/img/value-driven-ecosystem.png";
+import home_Section_Card_05 from "../../public/img/value-driven-ecosystem.jpeg";
 import InsuranceIntroSection from "@/components/home/Insuranceintrosection";
 import GetConnected from "@/components/home/GetConnected";
 import CtrlStyleScrollableSection from "@/components/home/CtrlStyleScrollableSection";
@@ -47,7 +47,7 @@ const services = [
     title: "highest rated insurer",
     // tag: "Simple",
     tag: "",
-    text: "Highest Rated Insurer AA++ Rating Accredited By PACRA & VIS",
+    text: "Highest Rated Insurer AA++ Rating Accredited By PACRA & VIS.",
     // text: "Jubilee General holds an insurer financial strength rating of B (Fair) and a long-term Issuer Credit Rating of bb (Fair) assigned by AM Best -USA. VIS and PACRA have awarded Jubilee with insurer financial strength rating of AA++ with stable outlook.",
     icon: Group,
     image: support,
@@ -64,7 +64,7 @@ const services = [
     title: "value driven ecosystem",
     // tag: "Support",
     tag: "",
-    text: "Enjoy Upto 55% off with Jubilee General Discount Card. It is our way of thanking and giving you more than just protection.",
+    text: "Enjoy upto 55% off with Jubilee General Discount Card. It is our way of thanking and giving you more than just protection.",
     icon: icon_24_7,
     image: home_Section_Card_05,
   },

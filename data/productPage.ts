@@ -53,6 +53,11 @@ import {
   homeTripSections,
   homeTripNote,
   homeTripPlans,
+  familyCarePlusPlans,
+  personalCarePlusPlans,
+  lifeCarePlusPlans,
+  parentPlusPlans,
+  herCarePlusPlans,
 } from "@/data/parentsCarePlusTableData";
 import {
   domesticTravelDetails,
@@ -204,7 +209,7 @@ export const productPages = [
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
-      plans: parentsCarePlusPlans,
+      plans: familyCarePlusPlans,
       sections: familyHealthCareSections,
       note: parentsCarePlusNote,
     },
@@ -256,7 +261,7 @@ export const productPages = [
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
-      plans: parentsCarePlusPlans,
+      plans: personalCarePlusPlans,
       sections: personalHealthCareSections,
       note: parentsCarePlusNote,
     },
@@ -309,7 +314,7 @@ export const productPages = [
 
     showBenefitsTable: true,
     benefits: {
-      plans: parentsCarePlusPlans,
+      plans: lifeCarePlusPlans,
       sections: lifeStyleCareSections,
       note: parentsCarePlusNote,
     },
@@ -361,7 +366,7 @@ export const productPages = [
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
-      plans: parentsCarePlusPlans,
+      plans: parentPlusPlans,
       sections: parentsCareCoverageSections,
       note: parentsCareCoverageNote,
     },
@@ -412,7 +417,7 @@ export const productPages = [
     detailsType: "health",
     showBenefitsTable: true,
     benefits: {
-      plans: parentsCarePlusPlans,
+      plans: herCarePlusPlans,
       sections: herCareSections,
       note: herCareNote,
     },
@@ -613,8 +618,9 @@ export const productPages = [
       title: "Download the App",
       playStoreImage: "/img/Play_Store.png",
       appStoreImage: "/img/App_Store.png",
-      playStoreUrl: "#",
-      appStoreUrl: "#",
+      playStoreUrl:
+        "https://play.google.com/store/apps/details?id=com.jgi.customerapp",
+      appStoreUrl: "https://apps.apple.com/pk/app/my-jubilee/id1609851621",
     },
     counters: [
       {

@@ -511,7 +511,7 @@ export default function MissionVisionScrollSection() {
 
                   <h1 className="mt-3 max-w-[900px] font-futura text-3xl font-medium leading-tight text-white md:text-7xl md:leading-[1.2]">
                     <AnimatedText
-                      text="To provide solutions that protect the future of our customers"
+                      text="To provide solutions that protect the future of our customers."
                       progress={progress}
                       start={0.58}
                       end={0.68}

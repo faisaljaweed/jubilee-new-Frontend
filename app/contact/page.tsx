@@ -1091,7 +1091,7 @@ export default function ContactSection() {
     <>
       <div className="back h-screen">
         <div className="mx-auto flex h-full max-w-7xl items-center px-6 md:px-10">
-          <div className="flex flex-col justify-center text-left text-white pt-10">
+          <div className="flex flex-col justify-center text-left text-white pt-30">
             <h1 className="font-futura text-[34px] font-bold uppercase leading-[1..08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
               connect with us
             </h1>
@@ -1115,16 +1115,41 @@ export default function ContactSection() {
                 title: "Corporate Head Office",
                 text: "2nd Floor, Jubilee Insurance House I. I. Chundrigar Road, Karachi-74000",
                 icon: headOffice,
+                type: "text",
               },
               {
                 title: "Talk to us",
-                text: "(0800)-0-3786\n(9221) 32416022-26\n(9221) 32402004-09",
                 icon: talkToUs,
+                type: "phone",
+                links: [
+                  {
+                    label: "(0800)-0-3786",
+                    href: "tel:080003786",
+                  },
+                  {
+                    label: "(9221) 32416022-26",
+                    href: "tel:+922132416022",
+                  },
+                  {
+                    label: "(9221) 32402004-09",
+                    href: "tel:+922132402004",
+                  },
+                ],
               },
               {
                 title: "Email Us",
-                text: "info@jubileegeneral.com.pk \ntakaful1@jubileegeneral.com.pk",
                 icon: emailOurTeam,
+                type: "email",
+                links: [
+                  {
+                    label: "info@jubileegeneral.com.pk",
+                    href: "mailto:info@jubileegeneral.com.pk",
+                  },
+                  {
+                    label: "takaful1@jubileegeneral.com.pk",
+                    href: "mailto:takaful1@jubileegeneral.com.pk",
+                  },
+                ],
               },
             ].map((item, index) => (
               <div
@@ -1138,23 +1163,31 @@ export default function ContactSection() {
                       "radial-gradient(circle, #EADFD100 0%, #9C836252 90%)",
                   }}
                 >
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    width={30}
-                    height={30}
-                    // className="fill-[#BA0C2F]"
-                  />
-                  {/* <div className="text-2xl text-red-800">{item.icon}</div> */}
+                  <Image src={item.icon} alt="" width={30} height={30} />
                 </div>
 
                 <div className="flex flex-col">
                   <h3 className="font-futura text-lg font-bold text-gray-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 whitespace-pre-line font-futura text-gray-600">
-                    {item.text}
-                  </p>
+
+                  {item.type === "text" ? (
+                    <p className="mt-2 font-futura text-gray-600">
+                      {item.text}
+                    </p>
+                  ) : (
+                    <div className="mt-2 flex flex-col gap-1">
+                      {item.links?.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link.href}
+                          className="font-futura text-gray-600 transition-colors duration-300 hover:text-[#BA0C2F]"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

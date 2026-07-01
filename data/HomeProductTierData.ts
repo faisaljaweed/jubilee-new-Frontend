@@ -67,7 +67,10 @@ export const HEALTH_TIER_SUMMARY_BY_PRODUCT: Record<
     },
   },
 
-  "Life Style Care": {
+  // IMPORTANT:
+  // Pehle yahan "Life Style Care" tha.
+  // Form/Product name ke sath match karne ke liye "Lifestyle Care" kar diya hai.
+  "Lifestyle Care": {
     Silver: {
       totalHealthCoverage: "",
       annualOpdLimit: "-",
@@ -118,7 +121,10 @@ export const HEALTH_TIER_SUMMARY_BY_PRODUCT: Record<
     },
   },
 
-  "Her Care": {},
+  // Agar form mai HerCare aa raha hai to key bhi HerCare honi chahiye.
+  // Abhi empty hai, is liye HerCare select karne par plan tiers nahi ayenge.
+  HerCare: {},
+
   "Self Care": {
     "Plan A": {
       totalHealthCoverage: "",

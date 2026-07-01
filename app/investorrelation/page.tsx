@@ -208,7 +208,7 @@ const InvestorRelation = () => {
     <>
       <div className="invest relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
-          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center pt-20 px-6 md:px-10">
+          <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center pt-30 px-6 md:px-10">
             <h1 className="font-futura text-[34px] font-bold uppercase text-[#424145] md:text-[40px] lg:text-[44px] ">
               Investor Relations
             </h1>

@@ -1324,13 +1324,13 @@ export const Investor_Relations = () => {
           className="cursor-pointer hover:border-1 hover:border-[#BA0C2F]  rounded-full bg-[#BA0C2F] px-8 py-2 font-futura font-normal text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#BA0C2F] md:px-6 md:py-2"
         />
         <Button
-          // onClick={() =>() }
-          // window.open(
-          //   "/pdf/Request-Letter-for-Annual-Report.pdf",
-          //   "_blank",
-          //   "noopener,noreferrer",
-          // )
-
+          onClick={() =>
+            window.open(
+              "/pdf/Unpaid-Dividend-Unclaimed-Shares.pdf",
+              "_blank",
+              "noopener,noreferrer",
+            )
+          }
           text="Form for Unpaid Dividend & Unclaimed Shares"
           className="cursor-pointer border-1 border-[#BA0C2F] rounded-full bg-white px-8 py-2 font-futura font-normal text-[#BA0C2F] hover:bg-[#BA0C2F] hover:text-[#FFFFFF] md:px-6 md:py-2"
         />

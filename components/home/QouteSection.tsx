@@ -104,8 +104,8 @@ const PRODUCT_OPTIONS_BY_COVERAGE: Record<string, string[]> = {
     "Private Car Comprehensive",
     "Old Car Comprehensive",
     "3T Old Car Insurance",
-    "Motor Cycle Comprehensive ",
-    "Third Party Liability ",
+    "Motor Cycle Comprehensive",
+    "Third Party Liability",
     // "Privates Cars Third Party Liability Insurance",
     // "Motor Cycles Third Party Liability Insurance",
   ],
@@ -143,6 +143,27 @@ const normalizeCoverageType = (value: string) => {
   }
 
   return value;
+};
+
+const normalizeSelectKey = (value: string) =>
+  String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
+const findMatchingOption = (options: string[], value: string) => {
+  const valueKey = normalizeSelectKey(value);
+
+  if (!valueKey) return "";
+
+  return (
+    options.find((option) => normalizeSelectKey(option) === valueKey) ||
+    options.find((option) => {
+      const optionKey = normalizeSelectKey(option);
+      return valueKey.includes(optionKey) || optionKey.includes(valueKey);
+    }) ||
+    ""
+  );
 };
 
 const PROGRESS = ["33%", "66%", "100%"];
@@ -695,8 +716,13 @@ const Step1 = ({
     hidePlanTier ? "xl:grid-cols-3" : "xl:grid-cols-4"
   }`;
 
+  const matchedSelectedProduct = findMatchingOption(
+    productOptions,
+    data.selectedProduct,
+  );
+
   const effectiveProductOptions =
-    data.selectedProduct && !productOptions.includes(data.selectedProduct)
+    data.selectedProduct && !matchedSelectedProduct
       ? [data.selectedProduct, ...productOptions]
       : productOptions;
 
@@ -711,10 +737,42 @@ const Step1 = ({
     if (!normalizedCoverageType) return;
     if (!productOptions.length) return;
 
-    if (!productOptions.includes(data.selectedProduct)) {
+    const matchedProduct = findMatchingOption(
+      productOptions,
+      data.selectedProduct,
+    );
+
+    if (!matchedProduct) {
       onChange("selectedProduct", "");
+      onChange("planTier", "");
+      return;
+    }
+
+    if (matchedProduct !== data.selectedProduct) {
+      onChange("selectedProduct", matchedProduct);
     }
   }, [normalizedCoverageType, data.selectedProduct, productOptions, onChange]);
+
+  useEffect(() => {
+    if (hidePlanTier) return;
+    if (!data.planTier) return;
+
+    if (!planTierOptions.length) {
+      onChange("planTier", "");
+      return;
+    }
+
+    const matchedPlanTier = findMatchingOption(planTierOptions, data.planTier);
+
+    if (!matchedPlanTier) {
+      onChange("planTier", "");
+      return;
+    }
+
+    if (matchedPlanTier !== data.planTier) {
+      onChange("planTier", matchedPlanTier);
+    }
+  }, [hidePlanTier, data.planTier, planTierOptions, onChange]);
 
   const f = (key: keyof FormData) => ({
     value: String(data[key] ?? ""),
@@ -1156,9 +1214,9 @@ const PRODUCT_PAGE_ROUTE_MAP: Record<string, string> = {
   "Parents Care Plus": "/parentscare",
   "Family HealthCare": "/healthcare",
   "Personal HealthCare": "/personal-healthcare",
-  "Life Style Care": "/life-style-care",
+  "Lifestyle Care": "/life-style-care",
   "Parents Care": "/parents-care",
-  "Her Care": "/her-care",
+  HerCare: "/her-care",
 
   Home: "/home-insurance",
   "Self Care": "/self-care",

@@ -1,4 +1,4 @@
-// // "use client";
+"use client";
 
 // // import { useEffect, useMemo, useRef, useState } from "react";
 // // import axios from "axios";
@@ -8,6 +8,7 @@
 // // import ProductBenefitsSection from "./ProductBenefitsSection";
 // // import ProductCTA from "./ProductCTA";
 // // import QuoteSection from "@/components/home/QouteSection";
+// import { getHealthPlanTierOptions } from "@/data/HomeProductTierData";
 // // import TestimonialsPreview from "@/components/home/CarpuselDemoTestimonial";
 // // import { useGetAllTestimonialsQuery } from "@/lib/redux/services/testimonialsApi";
 // // import { testimonial_Slider } from "@/data/HomeDate";
@@ -390,7 +391,7 @@
 //   );
 // }
 
-"use client";
+// ("use client");
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -401,6 +402,7 @@ import ProductPlans from "./ProductPlans";
 import ProductBenefitsSection from "./ProductBenefitsSection";
 import ProductCTA from "./ProductCTA";
 import QuoteSection from "@/components/home/QouteSection";
+import { getHealthPlanTierOptions } from "@/data/HomeProductTierData";
 import TestimonialsPreview from "@/components/home/CarpuselDemoTestimonial";
 import { useGetAllTestimonialsQuery } from "@/lib/redux/services/testimonialsApi";
 import { testimonial_Slider } from "@/data/HomeDate";
@@ -437,6 +439,7 @@ const FORM_PRODUCT_BY_SLUG: Record<string, string> = {
   "family-healthcare": "Family HealthCare",
   "personal-healthcare": "Personal HealthCare",
   "lifestyle-care": "Lifestyle Care",
+  "life-style-care": "Lifestyle Care",
   "parents-care": "Parents Care",
   "her-care": "HerCare",
 
@@ -464,16 +467,54 @@ const FORM_PRODUCT_BY_SLUG: Record<string, string> = {
   "self-insurance": "Self Care",
 };
 
-const getPlanTierFromClickedPlan = (data: { planKey?: string; plan?: any }) => {
-  return (
-    data.plan?.Card_Name ||
-    data.plan?.Card_name ||
-    data.plan?.cardName ||
-    data.plan?.name ||
-    data.plan?.title ||
-    data.planKey ||
-    ""
-  );
+const normalizePlanKey = (value: string) =>
+  String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
+const getPlanTierFromClickedPlan = (
+  data: { planKey?: string; selectedProduct?: string; plan?: any },
+  selectedProductForQuote: string,
+) => {
+  const plan = data.plan || {};
+  const candidates = [
+    plan.Card_Name,
+    plan.Card_name,
+    plan.cardName,
+    plan.Card_Title,
+    plan.Card_title,
+    plan.Plan_Name,
+    plan.planName,
+    plan.plan_name,
+    plan.tier,
+    plan.tierName,
+    plan.name,
+    plan.title,
+    data.planKey,
+    data.selectedProduct,
+  ]
+    .map((value) => String(value || "").trim())
+    .filter(Boolean);
+
+  const tierOptions = getHealthPlanTierOptions(selectedProductForQuote);
+
+  for (const candidate of candidates) {
+    const candidateKey = normalizePlanKey(candidate);
+
+    const matchedTier = tierOptions.find((tier) => {
+      const tierKey = normalizePlanKey(tier);
+      return (
+        candidateKey === tierKey ||
+        candidateKey.includes(tierKey) ||
+        tierKey.includes(candidateKey)
+      );
+    });
+
+    if (matchedTier) return matchedTier;
+  }
+
+  return candidates[0] || "";
 };
 
 export default function ProductPageTemplate({
@@ -599,7 +640,9 @@ export default function ProductPageTemplate({
       setSelectedTravelPlanKey(data.planKey || data.selectedProduct);
     }
 
-    setSelectedQuotePlanTier(getPlanTierFromClickedPlan(data));
+    setSelectedQuotePlanTier(
+      getPlanTierFromClickedPlan(data, quotePrefillData.selectedProduct),
+    );
     scrollToQuoteSection();
   };
 
