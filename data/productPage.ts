@@ -114,8 +114,8 @@ export const productPages = [
     bannerSubCategory: "parentscareplus",
 
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -166,8 +166,8 @@ export const productPages = [
     slug: "family-health-care",
     bannerSubCategory: "healthcar",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#ffffff",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -180,7 +180,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/Family.png",
+      imageUrl: "/img/Product/family-healthcare.jpg",
     },
 
     counters: [
@@ -219,8 +219,8 @@ export const productPages = [
     slug: "personal-health-care",
     bannerSubCategory: "personalhealthcare",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -271,8 +271,8 @@ export const productPages = [
     slug: "lifestyle-care",
     bannerSubCategory: "lifestylecare",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#ffffff",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -323,8 +323,8 @@ export const productPages = [
     slug: "parents-care",
     bannerSubCategory: "parentscare",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -337,7 +337,7 @@ export const productPages = [
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Lifestyle-Care.jpg.jpeg",
+      imageUrl: "/img/Product/parentscare.jpg",
     },
 
     counters: [
@@ -375,8 +375,8 @@ export const productPages = [
     slug: "her-care",
     bannerSubCategory: "hercare",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -429,8 +429,8 @@ export const productPages = [
     slug: "travel-insurance",
     bannerSubCategory: "internationaltravel",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -441,7 +441,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/Travel.jpeg",
+      imageUrl: "/img/Product/travel.jpg",
     },
 
     counters: [
@@ -484,8 +484,8 @@ export const productPages = [
     slug: "home-insurance",
     bannerSubCategory: "homeinsurance",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#4A4A4A",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -536,8 +536,8 @@ export const productPages = [
     slug: "self-insurance",
     bannerSubCategory: "selftravel",
     theme: {
-      headingColor: "#BA0C2F",
-      textColor: "#ffffff",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -589,8 +589,8 @@ export const productPages = [
     slug: "motor-insurance",
     bannerSubCategory: "selftravel",
     theme: {
-      headingColor: "#ffffff",
-      textColor: "#ffffff",
+      headingColor: "#000",
+      textColor: "#000",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -602,7 +602,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/Motor.png",
+      imageUrl: "/img/product/motor.jpg",
     },
     // agr kahin ye show ho tw ye line likhe hide hojaye ga
     // appDownload: {

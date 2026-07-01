@@ -1,45 +1,24 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import HeroSection from "@/components/About/heroSection";
 import Container from "@/components/home/container";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import {
+  FaArrowRight,
   FaCalendarAlt,
-  FaChevronDown,
-  FaChevronUp,
-  FaDownload,
-  FaFileAlt,
   FaImages,
-  FaMicrophone,
   FaNewspaper,
   FaPlay,
   FaSearch,
-  FaVolumeUp,
+  FaTimes,
 } from "react-icons/fa";
 import "./resources.css";
 
-type MediaItem = {
-  url: string;
-  publicId?: string;
-  originalName?: string;
-};
-
-type VideoGroup = {
-  title: string;
-  youtubeLinks: string[];
-};
-
-type AudioGroup = {
-  title: string;
-  audios: MediaItem[];
-};
-
-type ImageGroup = {
-  title: string;
-  images: MediaItem[];
-};
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 type Post = {
   _id: string;
@@ -50,24 +29,18 @@ type Post = {
   contentHtml?: string;
   coverImage?: string;
   youtubeLinks?: string[];
-  videoGroups?: VideoGroup[];
-  audioGroups?: AudioGroup[];
-  additionalImages?: MediaItem[];
-  imageGroups?: ImageGroup[];
+  videoGroups?: unknown[];
+  audioGroups?: unknown[];
+  additionalImages?: unknown[];
+  imageGroups?: unknown[];
   pdfUrl?: string;
-  status?: string;
   publishedAt?: string;
   createdAt?: string;
 };
 
-type MainTabKey = "news_events" | "media_kit" | "interview" | "partnership";
+type MainTabKey = "news_events" | "media_kit" | "interview";
 
-type MediaKitTabKey =
-  | "commercial"
-  | "radio"
-  | "press_advertisement"
-  | "outdoor"
-  | "other_campaign";
+// ─── Constants ────────────────────────────────────────────────────────────────
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.includes("/api/v1")
   ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/posts`
@@ -75,42 +48,24 @@ const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.includes("/api/v1")
       process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api/v1"
     }/posts`;
 
-const mainTabs: {
-  key: MainTabKey;
-  label: string;
-  icon: ReactNode;
-}[] = [
+const MAIN_TABS: { key: MainTabKey; label: string; icon: ReactNode }[] = [
   { key: "news_events", label: "News & Events", icon: <FaNewspaper /> },
   { key: "media_kit", label: "Media Kit", icon: <FaImages /> },
   { key: "interview", label: "Interviews", icon: <FaPlay /> },
-  { key: "partnership", label: "Partnerships", icon: <FaNewspaper /> },
 ];
 
-const mediaKitTabs: {
-  key: MediaKitTabKey;
-  label: string;
-  icon: ReactNode;
-}[] = [
-  { key: "commercial", label: "Commercials", icon: <FaPlay /> },
-  { key: "radio", label: "Radio", icon: <FaMicrophone /> },
-  { key: "press_advertisement", label: "Press Ads", icon: <FaFileAlt /> },
-  { key: "outdoor", label: "Outdoor", icon: <FaImages /> },
-  { key: "other_campaign", label: "Other Campaigns", icon: <FaImages /> },
-];
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
-const stripHtml = (html = "") => {
-  return html
+const stripHtml = (html = "") =>
+  html
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-};
 
 const formatDate = (date?: string) => {
   if (!date) return "";
-
   const d = new Date(date);
   if (Number.isNaN(d.getTime())) return "";
-
   return d.toLocaleDateString("en-US", {
     day: "2-digit",
     month: "short",
@@ -118,287 +73,85 @@ const formatDate = (date?: string) => {
   });
 };
 
-const getYoutubeEmbedUrl = (url: string) => {
-  try {
-    const parsed = new URL(url);
-
-    if (parsed.hostname.includes("youtu.be")) {
-      const id = parsed.pathname.replace("/", "");
-      return `https://www.youtube.com/embed/${id}`;
-    }
-
-    if (parsed.hostname.includes("youtube.com")) {
-      const id = parsed.searchParams.get("v");
-      if (id) return `https://www.youtube.com/embed/${id}`;
-    }
-
-    return url;
-  } catch {
-    return url;
+const getCategoryLabel = (cat: string, sub?: string | null): string => {
+  if (cat === "media_kit" && sub) {
+    const map: Record<string, string> = {
+      commercial: "Commercial",
+      radio: "Radio",
+      press_advertisement: "Press Ad",
+      outdoor: "Outdoor",
+      other_campaign: "Campaign",
+    };
+    return map[sub] ?? sub.replaceAll("_", " ");
   }
+  const map: Record<string, string> = {
+    news: "News",
+    event: "Event",
+    media_kit: "Media Kit",
+    interview: "Interview",
+  };
+  return map[cat] ?? cat.replaceAll("_", " ");
 };
 
-const Resources = () => {
-  const [activeMainTab, setActiveMainTab] = useState<MainTabKey>("news_events");
-  const [activeMediaKitTab, setActiveMediaKitTab] =
-    useState<MediaKitTabKey>("commercial");
+const getCardCta = (tab: MainTabKey): string => {
+  if (tab === "interview") return "Watch Now";
+  if (tab === "media_kit") return "View Details";
+  return "Read More";
+};
 
+// ─── Component ────────────────────────────────────────────────────────────────
+
+const Resources = () => {
+  const [activeTab, setActiveTab] = useState<MainTabKey>("news_events");
   const [search, setSearch] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [expandedPostId, setExpandedPostId] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchMediaCenterPosts = async () => {
+    const load = async () => {
       try {
-        const res = await fetch(API_URL, {
-          cache: "no-store",
-        });
-
+        const res = await fetch(API_URL, { cache: "no-store" });
         const json = await res.json();
-
         if (!res.ok) {
-          console.error("Posts API error:", json);
+          console.error("Posts API:", json);
           return;
         }
-
         setPosts(Array.isArray(json?.data) ? json.data : []);
-      } catch (error) {
-        console.error("Error fetching Media Center posts:", error);
+      } catch (err) {
+        console.error("Fetch error:", err);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchMediaCenterPosts();
+    load();
   }, []);
 
   useEffect(() => {
-    setExpandedPostId(null);
-  }, [activeMainTab, activeMediaKitTab, search]);
+    setSearch("");
+  }, [activeTab]);
 
   const filteredPosts = useMemo(() => {
     return posts
-      .filter((post) => {
-        if (activeMainTab === "media_kit") {
-          return (
-            post.category === "media_kit" &&
-            post.subCategory === activeMediaKitTab
-          );
-        }
-
-        if (activeMainTab === "news_events") {
-          return post.category === "news" || post.category === "event";
-        }
-
-        return post.category === activeMainTab;
+      .filter((p) => {
+        if (activeTab === "news_events")
+          return p.category === "news" || p.category === "event";
+        if (activeTab === "media_kit") return p.category === "media_kit";
+        return p.category === activeTab;
       })
-      .filter((post) => {
-        const keyword = search.toLowerCase().trim();
-        if (!keyword) return true;
-
+      .filter((p) => {
+        const kw = search.toLowerCase().trim();
+        if (!kw) return true;
         return (
-          post.title?.toLowerCase().includes(keyword) ||
-          post.category?.toLowerCase().includes(keyword) ||
-          post.subCategory?.toLowerCase().includes(keyword) ||
-          stripHtml(post.contentHtml).toLowerCase().includes(keyword)
+          p.title?.toLowerCase().includes(kw) ||
+          p.subCategory?.toLowerCase().includes(kw) ||
+          stripHtml(p.contentHtml).toLowerCase().includes(kw)
         );
       });
-  }, [posts, activeMainTab, activeMediaKitTab, search]);
-
-  const currentTitle =
-    activeMainTab === "media_kit"
-      ? mediaKitTabs.find((tab) => tab.key === activeMediaKitTab)?.label
-      : mainTabs.find((tab) => tab.key === activeMainTab)?.label;
-
-  const renderVideos = (links: string[] = []) => {
-    if (!links.length) return null;
-
-    return (
-      <div className="resource-video-grid">
-        {links.map((link, index) => (
-          <div className="resource-video-card" key={`${link}-${index}`}>
-            <iframe
-              src={getYoutubeEmbedUrl(link)}
-              title={`Video ${index + 1}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  const renderCommercial = (post: Post) => {
-    if (post.videoGroups?.length) {
-      return (
-        <div className="resource-group-list">
-          {post.videoGroups.map((group, index) => (
-            <div className="resource-group-box" key={`${group.title}-${index}`}>
-              <h3>{group.title}</h3>
-              {renderVideos(group.youtubeLinks)}
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    return renderVideos(post.youtubeLinks || []);
-  };
-
-  const renderRadio = (post: Post) => {
-    if (!post.audioGroups?.length) return null;
-
-    return (
-      <div className="resource-audio-list">
-        {post.audioGroups.map((group, index) => (
-          <div className="resource-audio-group" key={`${group.title}-${index}`}>
-            <h3>{group.title}</h3>
-
-            {(group.audios || []).map((audio, audioIndex) => (
-              <div
-                className="resource-audio-card"
-                key={`${audio.url}-${audioIndex}`}
-              >
-                <div className="resource-audio-icon">
-                  <FaVolumeUp />
-                </div>
-
-                <div className="resource-audio-player">
-                  <p>{audio.originalName || `Audio ${audioIndex + 1}`}</p>
-                  <audio controls src={audio.url} />
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  const renderPressAds = (post: Post) => {
-    if (!post.additionalImages?.length) return null;
-
-    return (
-      <div className="resource-image-grid">
-        {post.additionalImages.map((img, index) => (
-          <a
-            href={img.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="resource-image-card"
-            key={`${img.url}-${index}`}
-          >
-            <Image
-              src={img.url}
-              alt={img.originalName || post.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 350px"
-              className="resource-gallery-img"
-            />
-          </a>
-        ))}
-      </div>
-    );
-  };
-
-  const renderOutdoor = (post: Post) => {
-    if (!post.imageGroups?.length) return null;
-
-    return (
-      <div className="resource-group-list">
-        {post.imageGroups.map((group, index) => (
-          <div className="resource-group-box" key={`${group.title}-${index}`}>
-            <h3>{group.title}</h3>
-
-            <div className="resource-image-grid">
-              {(group.images || []).map((img, imgIndex) => (
-                <a
-                  href={img.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="resource-image-card"
-                  key={`${img.url}-${imgIndex}`}
-                >
-                  <Image
-                    src={img.url}
-                    alt={img.originalName || group.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 350px"
-                    className="resource-gallery-img"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  const renderHtml = (post: Post) => {
-    if (!post.contentHtml) return null;
-
-    return (
-      <div
-        className="resource-html"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-      />
-    );
-  };
-
-  const renderPolicyholderInfo = (post: Post) => {
-    if (!post.pdfUrl) return null;
-
-    return (
-      <a
-        href={post.pdfUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="resource-pdf-btn"
-      >
-        <FaDownload />
-        Download Policyholder Document
-      </a>
-    );
-  };
-
-  const renderEmptyDetails = () => {
-    return (
-      <div className="resource-empty-detail">
-        No detailed content available for this item.
-      </div>
-    );
-  };
-
-  const renderDetails = (post: Post) => {
-    if (post.category === "media_kit") {
-      if (post.subCategory === "commercial")
-        return renderCommercial(post) || renderEmptyDetails();
-      if (post.subCategory === "radio")
-        return renderRadio(post) || renderEmptyDetails();
-      if (post.subCategory === "press_advertisement")
-        return renderPressAds(post) || renderEmptyDetails();
-      if (post.subCategory === "outdoor")
-        return renderOutdoor(post) || renderEmptyDetails();
-      if (post.subCategory === "other_campaign")
-        return renderHtml(post) || renderEmptyDetails();
-    }
-
-    if (post.category === "interview") {
-      return renderVideos(post.youtubeLinks || []) || renderEmptyDetails();
-    }
-
-    if (post.category === "policyholder_info") {
-      return renderPolicyholderInfo(post) || renderEmptyDetails();
-    }
-
-    return renderHtml(post) || renderEmptyDetails();
-  };
+  }, [posts, activeTab, search]);
 
   return (
     <>
+      {/* Hero */}
       <HeroSection
         clasName="resources-hero"
         text="Resources"
@@ -406,154 +159,124 @@ const Resources = () => {
         pageLink="/resources"
       />
 
-      <div className="resources-main-tabs-wrap">
+      {/* ── Content Section ──────────────────────────────────────────────── */}
+      <section className="res-content-section">
         <Container>
-          <div className="resources-main-tabs-box">
-            {mainTabs.map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => {
-                  setActiveMainTab(tab.key);
-
-                  if (tab.key === "media_kit") {
-                    setActiveMediaKitTab("commercial");
-                  }
-                }}
-                className={`resources-main-tab ${
-                  activeMainTab === tab.key ? "active" : ""
-                }`}
-              >
-                <span>{tab.icon}</span>
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </Container>
-      </div>
-
-      <section className="resources-api-section">
-        <Container>
-          <div className="resources-top-row">
-            <div>
-              <span>Media Center</span>
-              <h1>{currentTitle}</h1>
-              <p>
-                Explore Jubilee General news, campaigns, interviews,
-                partnerships, events and policyholder information.
-              </p>
-            </div>
-
-            <div className="resources-search">
-              <FaSearch />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search resources..."
-              />
-            </div>
-          </div>
-
-          {activeMainTab === "media_kit" && (
-            <div className="resources-sub-tabs">
-              {mediaKitTabs.map((tab) => (
+          {/* ── Top bar: tabs + search side by side ── */}
+          <div className="res-top-bar">
+            <div className="res-tabs">
+              {MAIN_TABS.map((tab) => (
                 <button
                   key={tab.key}
                   type="button"
-                  onClick={() => setActiveMediaKitTab(tab.key)}
-                  className={`resources-sub-tab ${
-                    activeMediaKitTab === tab.key ? "active" : ""
-                  }`}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`res-tab-btn${activeTab === tab.key ? " is-active" : ""}`}
                 >
-                  {tab.icon}
-                  {tab.label}
+                  <span className="res-tab-icon">{tab.icon}</span>
+                  <span className="res-tab-label">{tab.label}</span>
                 </button>
               ))}
             </div>
-          )}
 
-          <div className="resources-section-title">
-            <h2>{currentTitle}</h2>
-            <span>{filteredPosts.length} item(s)</span>
+            <div className="res-search-box">
+              <FaSearch className="res-search-icon" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search resources…"
+                className="res-search-input"
+              />
+              {search && (
+                <button
+                  type="button"
+                  className="res-search-clear"
+                  onClick={() => setSearch("")}
+                  aria-label="Clear"
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
           </div>
 
+          <div className="res-bar-divider" />
+
+          {search && (
+            <p className="res-search-count">
+              {filteredPosts.length} result
+              {filteredPosts.length !== 1 ? "s" : ""} for &ldquo;{search}&rdquo;
+            </p>
+          )}
+
+          {/* ── States & Grid ── */}
           {loading ? (
-            <div className="resources-state-box">Loading API data...</div>
+            <div className="res-state-box">
+              <div className="res-spinner" />
+              <p>Loading content…</p>
+            </div>
           ) : filteredPosts.length === 0 ? (
-            <div className="resources-state-box">
-              No data found for this section.
+            <div className="res-state-box">
+              <FaSearch className="res-empty-icon" />
+              <p>
+                No results found
+                {search ? ` for "${search}"` : " in this section"}.
+              </p>
             </div>
           ) : (
-            <div className="resources-api-list">
+            <div className="res-card-grid">
               {filteredPosts.map((post) => {
-                const isExpanded = expandedPostId === post._id;
+                const excerpt = stripHtml(post.contentHtml);
+                const dateStr = formatDate(post.publishedAt ?? post.createdAt);
+                const catLabel = getCategoryLabel(
+                  post.category,
+                  post.subCategory,
+                );
+                const cta = getCardCta(activeTab);
 
                 return (
-                  <article
-                    className={`resource-api-card ${isExpanded ? "is-expanded" : ""}`}
-                    key={post._id}
-                  >
-                    <div className="resource-card-cover">
+                  <article className="res-card" key={post._id}>
+                    {/* Cover */}
+                    <div className="res-card-cover">
                       {post.coverImage ? (
                         <Image
                           src={post.coverImage}
                           alt={post.title}
                           fill
-                          sizes="(max-width: 768px) 100vw, 420px"
-                          className="resource-card-cover-img"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                          className="res-card-img"
                         />
                       ) : (
-                        <div className="resource-no-image">
-                          <span>{post.category.replaceAll("_", " ")}</span>
-                          <strong>No Image Available</strong>
+                        <div className="res-card-no-img">
+                          <FaImages />
+                          <span>{catLabel}</span>
                         </div>
                       )}
+                      <span className="res-card-badge">{catLabel}</span>
                     </div>
 
-                    <div className="resource-content">
-                      <div className="resource-meta">
-                        <span>{post.category.replaceAll("_", " ")}</span>
-
-                        {post.subCategory && (
-                          <span>{post.subCategory.replaceAll("_", " ")}</span>
-                        )}
-
-                        {formatDate(post.publishedAt || post.createdAt) && (
-                          <span>
-                            <FaCalendarAlt />
-                            {formatDate(post.publishedAt || post.createdAt)}
-                          </span>
-                        )}
-                      </div>
-
-                      <h2>{post.title}</h2>
-
-                      <button
-                        type="button"
-                        className={`resource-view-btn ${isExpanded ? "active" : ""}`}
-                        aria-expanded={isExpanded}
-                        onClick={() =>
-                          setExpandedPostId((currentId) =>
-                            currentId === post._id ? null : post._id,
-                          )
-                        }
-                      >
-                        {isExpanded ? "Show Less" : "Read More"}
-                        {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-                      </button>
-
-                      {isExpanded && (
-                        <div className="resource-details-panel">
-                          <div className="resource-details-heading">
-                            <span>Details</span>
-                            <p>{post.title}</p>
-                          </div>
-
-                          <div className="resource-dynamic-content">
-                            {renderDetails(post)}
-                          </div>
+                    {/* Body */}
+                    <div className="res-card-body">
+                      {dateStr && (
+                        <div className="res-card-date">
+                          <FaCalendarAlt />
+                          {dateStr}
                         </div>
                       )}
+                      <h3 className="res-card-title">{post.title}</h3>
+                      {excerpt && (
+                        <p className="res-card-excerpt">
+                          {excerpt.length > 110
+                            ? `${excerpt.slice(0, 110)}…`
+                            : excerpt}
+                        </p>
+                      )}
+                      <Link
+                        href={`/resources/${post._id}`}
+                        className="res-card-cta"
+                      >
+                        {cta} <FaArrowRight />
+                      </Link>
                     </div>
                   </article>
                 );
