@@ -268,7 +268,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* =============================================================
@@ -277,6 +277,8 @@
 .res-card {
   display: flex;
   flex-direction: column;
+  height: 430px;
+  min-height: 430px;
   border-radius: 20px;
   background: #ffffff;
   overflow: hidden;
@@ -289,6 +291,15 @@
     box-shadow 280ms ease;
 }
 
+.res-card-compact {
+  height: 355px;
+  min-height: 355px;
+}
+
+.res-card-compact .res-card-body {
+  padding-bottom: 20px;
+}
+
 .res-card:hover {
   transform: translateY(-7px);
   box-shadow:
@@ -299,8 +310,9 @@
 /* ── Cover image ─────────────────────────────────────────────── */
 .res-card-cover {
   position: relative;
+  flex: 0 0 190px;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 190px;
   overflow: hidden;
   background: #f0f0f0;
 }
@@ -356,6 +368,7 @@
 .res-card-body {
   display: flex;
   flex: 1;
+  min-height: 0;
   flex-direction: column;
   padding: 20px 22px 24px;
 }
@@ -444,6 +457,21 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
+
+  .res-card {
+    height: 420px;
+    min-height: 420px;
+  }
+
+  .res-card-compact {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .res-card-cover {
+    flex-basis: 185px;
+    height: 185px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -504,6 +532,21 @@
   .res-card-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .res-card {
+    height: 410px;
+    min-height: 410px;
+  }
+
+  .res-card-compact {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .res-card-cover {
+    flex-basis: 185px;
+    height: 185px;
   }
 }
 
