@@ -270,7 +270,7 @@ export default function ProductHero({
             {counters.map((counter, index) => (
               <div
                 key={`${counter.label}-${index}`}
-                className="flex h-[82px] w-[200px] flex-col items-center justify-center rounded-md bg-white px-5 py-3 shadow-2xl xl:h-[92px] xl:w-[230px]"
+                className="flex h-[82px] w-[200px] flex-col items-center justify-center rounded-md bg-white px-5 py-3 shadow-2xl xl:h-[92px] xl:w-[250px]"
                 style={fromRight(heroOn, 200 + index * 160)}
               >
                 <span className="block w-full text-center text-[24px] font-medium uppercase tabular-nums text-[#BA0C2F] xl:text-3xl">

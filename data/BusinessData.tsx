@@ -277,7 +277,7 @@ export const card_Btn = [
     ],
   },
   {
-    text: "Crop & Livestock",
+    text: "Marine",
     card: [
       {
         heading: "Advance Loss of Profit",
@@ -329,6 +329,7 @@ export const card_Btn = [
       },
     ],
   },
+
   // Yaha se 2nd Line ka Duplicate hai
   {
     text: "Liability",
@@ -596,7 +597,7 @@ export const card_Btn = [
     ],
   },
   {
-    text: "Marine",
+    text: "Crop & Livestock",
     card: [
       {
         heading: "Advance Loss of Profit",

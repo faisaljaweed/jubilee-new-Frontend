@@ -139,11 +139,11 @@ export default function BranchNetwork() {
       <div className="py-8 md:pb-12">
         <Container>
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-center md:gap-12 lg:gap-16">
-            <div className="flex flex-wrap gap-6 justify-center">
+            <div className="flex flex-wrap gap-6 justify-start">
               {offices.map((office, index) => (
                 <div
                   key={index}
-                  onMouseEnter={() => setActiveOffice(office)}
+                  // onMouseEnter={() => setActiveOffice(office)}
                   className="rounded-3xl bg-white px-6 py-8 md:w-80 lg:w-96 border border-gray-200"
                 >
                   <h2 className="font-futura text-lg font-bold tracking-tight md:text-[16px] text-[#4A4A4A]">

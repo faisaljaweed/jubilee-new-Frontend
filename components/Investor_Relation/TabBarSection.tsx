@@ -41,7 +41,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 2,
-    title: "Jubilee Annual Report 2025",
+    title: "Annual Report 2025",
     year: "2025",
     category: "Annual Report",
     fileUrl: "#",
@@ -69,7 +69,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 6,
-    title: "Jubilee Annual Report 2024",
+    title: "Annual Report 2024",
     year: "2024",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2024/JGI-AR-2024.pdf",
@@ -99,12 +99,12 @@ const reportsData: ReportItem[] = [
     id: 10,
     title: "BCR Criteria Checklist for Annual Report 2023",
     year: "2023",
-    category: "Annual Report",
+    category: "BCR",
     fileUrl: "/pdf/Financial Report/2023/BCR_CRITERIA_2023.pdf",
   },
   {
     id: 11,
-    title: "Jubilee Annual Report 2023",
+    title: "Annual Report 2023",
     year: "2023",
     category: "Annual Report",
     fileUrl:
@@ -135,12 +135,12 @@ const reportsData: ReportItem[] = [
     id: 15,
     title: "BCR Checklist Annual Report 2022",
     year: "2022",
-    category: "Annual Report",
+    category: "BCR",
     fileUrl: "/pdf/Financial Report/2022/BCR-Checklist-Annual-Report-2022.pdf",
   },
   {
     id: 16,
-    title: "Jubilee Annual Report 2022",
+    title: "Annual Report 2022",
     year: "2022",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2022/JGI-AR-2022-Final1.pdf",
@@ -168,16 +168,16 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 20,
-    title: "Jubilee Annual Report 2021",
+    title: "Annual Report 2021",
     year: "2021",
     category: "Annual Report",
     fileUrl: "#",
   },
   {
     id: 21,
-    title: "Jubilee Half Yearly Accounts 2021",
+    title: "2nd Quarter Accounts 2021",
     year: "2021",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2021/JGI-Half-Yearly-Report-2021.pdf",
   },
   {
@@ -196,7 +196,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 24,
-    title: "Jubilee Annual Report 2020",
+    title: "Annual Report 2020",
     year: "2020",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2020/Annual-Report-2020-JGI-F.pdf",
@@ -224,7 +224,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 28,
-    title: "Jubilee Annual Report 2019",
+    title: "Annual Report 2019",
     year: "2019",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2019/Jubilee-General-Insurance-AR-2019.pdf",
@@ -238,9 +238,9 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 30,
-    title: "Jubilee Half Year Accounts 2019",
+    title: "2nd Quarter Accounts 2019",
     year: "2019",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2019/quarter2-report-2019.pdf",
   },
   {
@@ -252,7 +252,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 32,
-    title: "Jubilee Annual Report 2018",
+    title: "Annual Report 2018",
     year: "2018",
     category: "Annual Report",
     fileUrl:
@@ -260,9 +260,9 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 33,
-    title: "Jubilee Half Year Accounts 2018",
+    title: "2nd Quarter Accounts 2018",
     year: "2018",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2018/quarter2-report-2019.pdf",
   },
   {
@@ -274,7 +274,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 35,
-    title: "Jubilee Annual Report 2017",
+    title: "Annual Report 2017",
     year: "2017",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2017/annualreport2017.pdf",
@@ -288,9 +288,9 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 37,
-    title: "Jubilee Half Year Accounts 2017",
+    title: "2nd Quarter Accounts 2017",
     year: "2017",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2017/six-month-report-2017.pdf",
   },
   {
@@ -302,7 +302,7 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 39,
-    title: "Jubilee Annual Report 2016",
+    title: "Annual Report 2016",
     year: "2016",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2016/Jubileeannualreport2016.pdf",
@@ -316,9 +316,9 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 41,
-    title: "Jubilee Half Year Accounts 2016",
+    title: "2nd Quarter Accounts 2016",
     year: "2016",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2016/3rdquarter2016.pdf",
   },
   {
@@ -330,23 +330,23 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 43,
-    title: "Jubilee Annual Report 2015",
+    title: "Annual Report 2015",
     year: "2015",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2015/Jubileeannualreport2015.pdf",
   },
   {
     id: 44,
-    title: "Jubilee Nine Months Accounts 2015",
+    title: "3rd Quarter Accounts 2015",
     year: "2015",
-    category: "Nine Monthly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2015/JGI_Nine_Months_report.pdf",
   },
   {
     id: 45,
-    title: "Jubilee Half Year Accounts 2015",
+    title: "2nd Quarter Accounts 2015",
     year: "2015",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2015/HalfJubileeFinancialsJune2015.pdf",
   },
   {
@@ -358,23 +358,23 @@ const reportsData: ReportItem[] = [
   },
   {
     id: 47,
-    title: "Jubilee Annual Report 2014",
+    title: "Annual Report 2014",
     year: "2014",
     category: "Annual Report",
     fileUrl: "/pdf/Financial Report/2014/Jubilee-Annual-Report-2014.pdf",
   },
   {
     id: 48,
-    title: "Jubilee Nine Months Accounts 2014",
+    title: "3rd Quarter Accounts 2014",
     year: "2014",
-    category: "Nine Monthly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2014/Nine-Month-Accounts-2014.pdf",
   },
   {
     id: 49,
-    title: "Jubilee Half Year Accounts 2014",
+    title: "2nd Quarter Accounts 2014",
     year: "2014",
-    category: "Half Yearly Report",
+    category: "Quarterly Report",
     fileUrl: "/pdf/Financial Report/2014/Jubilee-Half-Year-Accounts-2014.pdf",
   },
   {
@@ -488,42 +488,89 @@ const Corporate_Governance_DocumentsData: ReportItem[] = [
 const Notice_Of_EOGMData: ReportItem[] = [
   {
     id: 1,
-    title: "EOG-to-be-held-on-Monday-26-June-2023.",
+    title: "Notice",
     year: "2023",
     category: "Notice",
-    fileUrl: "#",
+    fileUrl: "/pdf/Notice EOGM/JGI_Notice_of_EOGM.pdf",
   },
   {
     id: 2,
-    title: "proxy forms in English-Urdu",
+    title: "Proxy Form ",
     year: "2025",
     category: "Proxy Form",
-    fileUrl: "#",
+    fileUrl: "/pdf/Notice EOGM/Proxy-From-in-English.pdf",
   },
-  {
-    id: 3,
-    title: "Ballot forms in English-Urdu",
-    year: "2025",
-    category: "Ballot Form",
-    fileUrl: "#",
-  },
+  // {
+  //   id: 3,
+  //   title: "Ballot forms in English-Urdu",
+  //   year: "2025",
+  //   category: "Ballot Form",
+  //   fileUrl: "#",
+  // },
 ];
 const Profile_Of_The_Candidate_Data: ReportItem[] = [
   {
     id: 1,
-    title: "Notice of the Extraordinary General Meeting",
+    title: "List of Shareholders",
     year: "2023",
     category: "Notice",
-    fileUrl:
-      "/pdf/Profile of the Candidate – Election of Directors/Notice/Election-of-Directors-2023.pdf",
+    fileUrl: "#",
   },
   {
     id: 2,
-    title: "Notice of Election of Directors 2023",
+    title: "Candidates Profile",
     year: "2023",
     category: "Notice",
     fileUrl:
-      "/pdf/Profile of the Candidate – Election of Directors/Notice/Notice-of-EOG-to-be-held-on-Monday-26-June-2023.pdf",
+      "/pdf/Profile of the Candidate – Election of Directors/Candidates-Profile-for-Election-of-Directors.pdf",
+  },
+  {
+    id: 3,
+    title: "Notice of Election - English",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/Notice-of-Election-under-Section-159(4)-English.jpg",
+  },
+  {
+    id: 4,
+    title: "Notice of Election - Urdu",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/Notice-of-Election-under-Section-159(4)-Urdu.jpg",
+  },
+  {
+    id: 5,
+    title: "Ballot Form For Voting - English",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/Ballot-Form-For-Voting-English.jpg",
+  },
+  {
+    id: 6,
+    title: "Ballot Form For Voting - Urdu",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/Ballot-Form-For-Voting-in-Urdu.jpg",
+  },
+  {
+    id: 7,
+    title: "Certified Copy of Resolution Passed at the EOGM",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/CTC-of-Resolutions-Passed-at-EOGM.pdf",
+  },
+  {
+    id: 8,
+    title: "Scrutinizer Report on Election of Directors",
+    year: "2023",
+    category: "Notice",
+    fileUrl:
+      "/pdf/Profile of the Candidate – Election of Directors/Scrutinizer-Report-EOGM-Election-of-Directors-2026.pdf",
   },
   // {
   //   id: 3,
@@ -1726,12 +1773,12 @@ export const Profile_of_the_Candidate = () => {
           >
             {/* Left Filters */}
             <div className="space-y-5 lg:sticky lg:top-24 lg:self-start h-fit">
-              <FilterSelect
+              {/* <FilterSelect
                 value={selectedCategory}
                 onChange={setSelectedCategory}
                 options={categories}
                 placeholder="All Categories"
-              />
+              /> */}
             </div>
 
             {/* Right Reports */}

@@ -673,14 +673,38 @@ const HealthQuestion = ({
 const Step1 = ({
   data,
   onChange,
+  lockCategory = false,
+  lockProduct = false,
 }: {
   data: FormData;
   onChange: (k: keyof FormData, v: string) => void;
+  lockCategory?: boolean;
+  lockProduct?: boolean;
 }) => {
   const normalizedCoverageType = normalizeCoverageType(data.coverageType);
   const productOptions =
     PRODUCT_OPTIONS_BY_COVERAGE[normalizedCoverageType] || [];
   const planTierOptions = getHealthPlanTierOptions(data.selectedProduct);
+
+  const hidePlanTier =
+    normalizedCoverageType === "Travel" ||
+    normalizedCoverageType === "Motor Insurance" ||
+    normalizedCoverageType === "Home";
+
+  const firstRowGridClass = `grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 ${
+    hidePlanTier ? "xl:grid-cols-3" : "xl:grid-cols-4"
+  }`;
+
+  const effectiveProductOptions =
+    data.selectedProduct && !productOptions.includes(data.selectedProduct)
+      ? [data.selectedProduct, ...productOptions]
+      : productOptions;
+
+  useEffect(() => {
+    if (hidePlanTier && data.planTier) {
+      onChange("planTier", "");
+    }
+  }, [hidePlanTier, data.planTier, onChange]);
 
   useEffect(() => {
     if (!data.selectedProduct) return;
@@ -706,14 +730,19 @@ const Step1 = ({
   const cnicIssueMinDate = data.dob ? getDateAfterYears(data.dob, 18) : "";
   return (
     <div>
-      <div className="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-4">
+      {/* <div className="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-4"> */}
+      <div className={firstRowGridClass}>
         <div>
           <FieldLabel>Category</FieldLabel>
           <Select
             value={normalizedCoverageType}
+            disabled={lockCategory}
             onChange={(e) => {
+              if (lockCategory) return;
+
               onChange("coverageType", e.target.value);
               onChange("selectedProduct", "");
+              onChange("planTier", "");
             }}
           >
             <option value="">Select</option>
@@ -737,44 +766,48 @@ const Step1 = ({
           <Select
             value={data.selectedProduct || ""}
             onChange={(e) => {
+              if (lockProduct) return;
+
               onChange("selectedProduct", e.target.value);
               onChange("planTier", "");
             }}
-            disabled={!normalizedCoverageType}
+            disabled={!normalizedCoverageType || lockProduct}
           >
             <option value="">
               {normalizedCoverageType ? "Select" : "Select coverage first"}
             </option>
 
-            {productOptions.map((product) => (
+            {effectiveProductOptions.map((product) => (
               <option key={product} value={product}>
                 {product}
               </option>
             ))}
           </Select>
         </div>
-        <div>
-          <FieldLabel>Plan Tier</FieldLabel>
-          <Select
-            value={data.planTier}
-            onChange={(e) => onChange("planTier", e.target.value)}
-            disabled={!data.selectedProduct || !planTierOptions.length}
-          >
-            <option value="">
-              {!data.selectedProduct
-                ? "Select product first"
-                : planTierOptions.length
-                  ? "Select"
-                  : "No plan tiers available"}
-            </option>
-
-            {planTierOptions.map((tier) => (
-              <option key={tier} value={tier}>
-                {tier}
+        {!hidePlanTier && (
+          <div>
+            <FieldLabel>Plan Tier</FieldLabel>
+            <Select
+              value={data.planTier}
+              onChange={(e) => onChange("planTier", e.target.value)}
+              disabled={!data.selectedProduct || !planTierOptions.length}
+            >
+              <option value="">
+                {!data.selectedProduct
+                  ? "Select product first"
+                  : planTierOptions.length
+                    ? "Select"
+                    : "No plan tiers available"}
               </option>
-            ))}
-          </Select>
-        </div>
+
+              {planTierOptions.map((tier) => (
+                <option key={tier} value={tier}>
+                  {tier}
+                </option>
+              ))}
+            </Select>
+          </div>
+        )}
 
         {/* <div>
           <FieldLabel>Plan Tier</FieldLabel>
@@ -1063,9 +1096,18 @@ function renderStepContent(
   currentStep: number,
   data: FormData,
   handleChange: (key: keyof FormData, value: string) => void,
+  lockCategory = false,
+  lockProduct = false,
 ) {
   if (currentStep === 0) {
-    return <Step1 data={data} onChange={handleChange} />;
+    return (
+      <Step1
+        data={data}
+        onChange={handleChange}
+        lockCategory={lockCategory}
+        lockProduct={lockProduct}
+      />
+    );
   }
 
   if (currentStep === 1) {
@@ -1082,6 +1124,9 @@ function renderStepContent(
 type QuotePrefillData = {
   coverageType?: string;
   selectedProduct?: string;
+  planTier?: string;
+  lockCategory?: boolean;
+  lockProduct?: boolean;
 };
 
 type QuoteSectionProps = {
@@ -1148,6 +1193,10 @@ export default function QuoteSection({
   const router = useRouter();
   const searchParams = useSearchParams();
   const resumeQuote = searchParams.get("resumeQuote");
+  const lockCategory =
+    Boolean(prefillData?.lockCategory) && !redirectAfterStepOne;
+  const lockProduct =
+    Boolean(prefillData?.lockProduct) && !redirectAfterStepOne;
   useEffect(() => {
     if (!prefillData) return;
 
@@ -1157,6 +1206,7 @@ export default function QuoteSection({
         ? normalizeCoverageType(prefillData.coverageType)
         : prev.coverageType,
       selectedProduct: prefillData.selectedProduct ?? prev.selectedProduct,
+      planTier: prefillData.planTier ?? prev.planTier,
     }));
 
     setStep(0);
@@ -1293,7 +1343,13 @@ export default function QuoteSection({
                 handleNext();
               }}
             >
-              {renderStepContent(displayStep, data, handleChange)}
+              {renderStepContent(
+                displayStep,
+                data,
+                handleChange,
+                lockCategory,
+                lockProduct,
+              )}
             </form>
 
             {animating && nextStep !== null && (
@@ -1306,7 +1362,13 @@ export default function QuoteSection({
                     : "animate-slide-in-left"
                 }`}
               >
-                {renderStepContent(nextStep, data, handleChange)}
+                {renderStepContent(
+                  nextStep,
+                  data,
+                  handleChange,
+                  lockCategory,
+                  lockProduct,
+                )}
               </div>
             )}
           </>

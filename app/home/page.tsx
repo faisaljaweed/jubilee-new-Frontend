@@ -56,7 +56,7 @@ const services = [
     title: "largest network of panel hospitals",
     // tag: "Protected",
     tag: "",
-    text: "Premium network of over 700+ panel hospitals across Pakistan, ensuring seamless, cashless medical treatment for all policyholders.",
+    text: "Premium network of over 700+ panel hospitals across Pakistan, ensuring seamless, cashless medical treatment.",
     icon: Group1,
     image: content,
   },
