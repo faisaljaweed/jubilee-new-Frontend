@@ -1,0 +1,590 @@
+/* =============================================================
+   POST DETAIL PAGE
+   app/resources/[slug]/post-detail.css
+   Brand: Jubilee General | #ba0c2f | var(--font-futura)
+   ============================================================= */
+
+@keyframes pdFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pdSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================================================
+   PAGE — sits on the site's existing header/footer
+   ============================================================= */
+.pd-page {
+  min-height: 80vh;
+  background: #f7f8fa;
+  padding: 200px 0 100px;
+}
+
+/* Constrained content column, left-aligned */
+.pd-inner {
+  max-width: 860px;
+  animation: pdFadeUp 380ms ease both;
+}
+
+/* =============================================================
+   FULL-SCREEN STATES (loading / not found)
+   ============================================================= */
+.pd-screen-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 70vh;
+  text-align: center;
+  padding: 40px 24px;
+  background: #f7f8fa;
+}
+
+.pd-screen-center p {
+  margin: 0;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 15px;
+  color: #aaaaaa;
+}
+
+.pd-screen-center h2 {
+  margin: 0;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.pd-nf-icon {
+  font-size: 52px;
+  color: #e0e0e0;
+}
+
+.pd-nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 10px;
+  background: #ba0c2f;
+  padding: 12px 22px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.pd-nf-btn:hover {
+  background: #990923;
+  transform: translateY(-2px);
+}
+
+.pd-spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(186, 12, 47, 0.12);
+  border-top-color: #ba0c2f;
+  animation: pdSpin 0.8s linear infinite;
+}
+
+/* =============================================================
+   BACK BUTTON
+   ============================================================= */
+.pd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  text-decoration: none;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ba0c2f;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  transition:
+    gap 200ms ease,
+    color 200ms ease;
+}
+
+.pd-back-btn svg {
+  font-size: 11px;
+  transition: transform 200ms ease;
+}
+
+.pd-back-btn:hover {
+  color: #990923;
+  gap: 12px;
+}
+
+.pd-back-btn:hover svg {
+  transform: translateX(-3px);
+}
+
+/* =============================================================
+   PAGE HEADER — badge, date, title, accent line
+   ============================================================= */
+.pd-header {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Badge + date row */
+.pd-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.pd-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  background: #ba0c2f;
+  padding: 5px 13px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.pd-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #aaaaaa;
+}
+
+.pd-date svg {
+  font-size: 11px;
+  color: #ba0c2f;
+}
+
+/* Title */
+.pd-title {
+  margin: 0 0 24px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1a1a1a;
+}
+
+/* Short red accent bar under title */
+.pd-accent {
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: #ba0c2f;
+}
+
+/* =============================================================
+   CONTENT AREA — directly on gray bg, no white card
+   ============================================================= */
+.pd-content {
+  /* intentionally unstyled wrapper —
+     content renderers each handle their own look */
+}
+
+/* =============================================================
+   HTML PROSE
+   ============================================================= */
+.pd-html {
+  font-family: var(--font-futura), sans-serif;
+  font-size: 16.5px;
+  line-height: 1.88;
+  color: #4e4e4e;
+}
+
+.pd-html p {
+  margin: 0 0 20px;
+}
+
+.pd-html ul,
+.pd-html ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.pd-html li {
+  margin-bottom: 8px;
+}
+
+.pd-html h1,
+.pd-html h2,
+.pd-html h3,
+.pd-html h4 {
+  font-family: var(--font-futura), sans-serif;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 36px 0 12px;
+  line-height: 1.2;
+}
+
+.pd-html h1 {
+  font-size: 30px;
+}
+.pd-html h2 {
+  font-size: 24px;
+}
+.pd-html h3 {
+  font-size: 20px;
+}
+.pd-html h4 {
+  font-size: 17px;
+}
+
+.pd-html a {
+  color: #ba0c2f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pd-html a:hover {
+  color: #990923;
+}
+
+/* Images inside HTML — always full width, never cropped */
+.pd-html img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin: 28px 0;
+}
+
+.pd-html blockquote {
+  margin: 28px 0;
+  padding: 18px 22px;
+  border-left: 3px solid #ba0c2f;
+  background: rgba(186, 12, 47, 0.04);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: #777777;
+}
+
+.pd-html table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pd-html th,
+.pd-html td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.pd-html th {
+  background: rgba(186, 12, 47, 0.05);
+  font-weight: 700;
+  color: #2a2a2a;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pd-html tr:last-child td {
+  border-bottom: none;
+}
+
+/* =============================================================
+   VIDEO GRID
+   ============================================================= */
+.pd-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pd-video-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0d0d0d;
+  aspect-ratio: 16 / 9;
+  /* iframe fills this; aspect-ratio defines exact space — no clipping */
+}
+
+.pd-video-card iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =============================================================
+   GROUPED BOXES (commercials with multiple groups, outdoor)
+   Subtle white card on the gray bg
+   ============================================================= */
+.pd-group-list {
+  display: grid;
+  gap: 24px;
+}
+
+.pd-group-box {
+  border-radius: 16px;
+  border: 1px solid #e8e8e8;
+  background: #ffffff;
+  padding: 24px;
+}
+
+.pd-group-title {
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a2a2a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* =============================================================
+   AUDIO
+   ============================================================= */
+.pd-audio-section {
+  display: grid;
+  gap: 20px;
+}
+
+.pd-audio-group {
+  border-radius: 16px;
+  border: 1px solid #e8e8e8;
+  background: #ffffff;
+  padding: 24px;
+}
+
+.pd-audio-list {
+  display: grid;
+  gap: 12px;
+}
+
+.pd-audio-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  border: 1px solid #eeeeee;
+  padding: 14px 16px;
+}
+
+.pd-audio-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ba0c2f;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.pd-audio-player {
+  flex: 1;
+  min-width: 0;
+}
+
+.pd-audio-player p {
+  margin: 0 0 8px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a2a2a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pd-audio-player audio {
+  width: 100%;
+  height: 36px;
+}
+
+/* =============================================================
+   IMAGE GRID (press ads, outdoor images)
+   ============================================================= */
+.pd-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* aspect-ratio sets exact dimensions — Next.js fill never clips */
+.pd-image-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e8e8e8;
+  aspect-ratio: 4 / 3;
+  text-decoration: none;
+}
+
+.pd-image-thumb {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.pd-image-card:hover .pd-image-thumb {
+  transform: scale(1.05);
+}
+
+.pd-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(186, 12, 47, 0.72);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  border-radius: 14px;
+}
+
+.pd-image-card:hover .pd-image-overlay {
+  opacity: 1;
+}
+
+.pd-image-overlay span {
+  font-family: var(--font-futura), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =============================================================
+   PDF DOWNLOAD
+   ============================================================= */
+.pd-pdf-wrap {
+  display: flex;
+}
+
+.pd-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #ba0c2f;
+  padding: 14px 26px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.pd-pdf-btn:hover {
+  background: #990923;
+  transform: translateY(-2px);
+}
+
+/* =============================================================
+   EMPTY STATE
+   ============================================================= */
+.pd-empty {
+  border-radius: 14px;
+  border: 1.5px dashed rgba(186, 12, 47, 0.25);
+  background: rgba(186, 12, 47, 0.03);
+  padding: 40px 32px;
+  font-family: var(--font-futura), sans-serif;
+  font-size: 15px;
+  color: #aaaaaa;
+  text-align: center;
+}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+@media (max-width: 900px) {
+  .pd-inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd-page {
+    padding: 40px 0 72px;
+  }
+
+  .pd-back-btn {
+    margin-bottom: 28px;
+  }
+
+  .pd-title {
+    font-size: 26px;
+  }
+
+  .pd-video-grid,
+  .pd-image-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pd-group-box,
+  .pd-audio-group {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-page {
+    padding: 32px 0 60px;
+  }
+
+  .pd-title {
+    font-size: 22px;
+  }
+
+  .pd-html {
+    font-size: 15.5px;
+  }
+
+  .pd-audio-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
