@@ -298,7 +298,7 @@ export function HeroSection({ onStartLivingClick }: HeroSectionProps) {
             </p> */}
 
               <h1 className="text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
-                INSURANCE THAT DOESN'T ACT LIKE INSURANCE.
+                THE KIND OF INSURANCE YOU HOPE YOU NEVER NEED BUT LOVE HAVING.
               </h1>
 
               <p className="max-w-[500px]  text-[17px] font-normal leading-[1.45] md:text-[22px]">

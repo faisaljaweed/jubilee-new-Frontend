@@ -3,7 +3,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 50vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -12,7 +12,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(186, 12, 47, 0.6); /* 60% opacity */
+  /* background-color: rgba(186, 12, 47, 0.6);  */
+  /* 60% opacity */
 }
 
 /* Text upar lane ke liye */

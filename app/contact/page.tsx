@@ -844,7 +844,7 @@ export default function ContactSection() {
     "Agriculture",
     "Bond",
     "Engineering",
-    "Final Institution",
+    "Financial Institution",
     "Fire",
     "Health",
     "Marine",
@@ -1092,11 +1092,11 @@ export default function ContactSection() {
       <div className="back h-screen">
         <div className="mx-auto flex h-full max-w-7xl items-center px-6 md:px-10">
           <div className="flex flex-col justify-center text-left text-white pt-10">
-            <h1 className="font-futura text-[32px] font-bold uppercase leading-[1.1] tracking-[-1px] md:text-[42px] lg:text-[48px]">
+            <h1 className="font-futura text-[34px] font-bold uppercase leading-[1..08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
               connect with us
             </h1>
 
-            <p className="mt-5 font-futura text-[15px] font-normal leading-[1.5] md:text-[22px]">
+            <p className="mt-5 font-futura text-[17px] font-normal leading-[1.45] md:text-[22px]">
               {/* Connect with our support team instantly */}
               Explore our insurance solutions or connect with <br />
               our support team instantly.
@@ -1181,7 +1181,7 @@ export default function ContactSection() {
                       name="name"
                       value={formData.name}
                       onChange={handleTopLevelChange}
-                      placeholder="Name of Complainant"
+                      placeholder="Full Name"
                       className={inputClass}
                     />
                     <ErrorText message={errors.name} />

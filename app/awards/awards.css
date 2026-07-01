@@ -12,7 +12,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(186, 12, 47, 0.8); /* 60% opacity */
+  /* background-color: rgba(186, 12, 47, 0.8);  */
 }
 
 /* Text upar lane ke liye */

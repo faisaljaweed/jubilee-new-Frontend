@@ -76,13 +76,13 @@ const Section2 = () => {
               Khan Fund for Economic Development (AKFED), Jubilee General is
               Pakistan’s highest rated general insurance company, accredited
               with strong ratings - rated B by AM Best, and AA++ by PACRA and
-              VIS, while also being listed on Pakistan Stock Exchange (PSX)
+              VIS, while also being listed on Pakistan Stock Exchange (PSX).
             </p>
 
             <p className="mb-3 font-futura text-sm font-normal leading-7 text-[#4A4A4A]">
               With a legacy of strength and a focus on future-ready insurance
               solutions, Jubilee General continues to evolve as a reliable
-              partner for risk protection and growth
+              partner for risk protection and growth.
             </p>
           </div>
 

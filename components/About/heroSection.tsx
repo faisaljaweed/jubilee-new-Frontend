@@ -128,8 +128,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </Container> */}
       <Container>
-        <div className="h-[60vh] flex flex-col justify-center">
-          <h1 className="text-white font-futura md:font-bold text-xl md:text-6xl tracking-wide">
+        <div className="h-[100vh] flex flex-col justify-center">
+          <h1 className="text-[#BA0C2F] text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
             {mainText}
           </h1>
           {/* 

@@ -30,7 +30,7 @@ export default function TalkToUsDirectlySection() {
 
           <p className="font-futura mt-3 max-w-[790px] pb-3 text-[14px] font-normal leading-[1.7] text-[#777777] md:text-[15px]">
             It’s fluent in the fine art of getting you answers without the hold
-            music. Think of it as your personal insurance consultant
+            music. Think of it as your personal insurance consultant.
           </p>
 
           <Button

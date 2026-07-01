@@ -466,7 +466,7 @@ export default function MissionVisionScrollSection() {
                     className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
-                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">
+                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[22px]">
                     <AnimatedText
                       text="Vision"
                       progress={progress}
@@ -475,7 +475,7 @@ export default function MissionVisionScrollSection() {
                     />
                   </h2>
 
-                  <h1 className="mt-3 max-w-[850px] font-futura text-3xl font-medium leading-tight text-white md:text-5xl md:leading-[1.2]">
+                  <h1 className="mt-3 max-w-[850px] font-futura text-3xl font-medium leading-tight text-white md:text-7xl md:leading-[1.2]">
                     <AnimatedText
                       text="Enabling people to overcome uncertainty."
                       progress={progress}
@@ -500,7 +500,7 @@ export default function MissionVisionScrollSection() {
                     className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
-                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">
+                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[22px]">
                     <AnimatedText
                       text="Mission"
                       progress={progress}
@@ -509,7 +509,7 @@ export default function MissionVisionScrollSection() {
                     />
                   </h2>
 
-                  <h1 className="mt-3 max-w-[900px] font-futura text-3xl font-medium leading-tight text-white md:text-5xl md:leading-[1.2]">
+                  <h1 className="mt-3 max-w-[900px] font-futura text-3xl font-medium leading-tight text-white md:text-7xl md:leading-[1.2]">
                     <AnimatedText
                       text="To provide solutions that protect the future of our customers"
                       progress={progress}
@@ -534,7 +534,7 @@ export default function MissionVisionScrollSection() {
                     className="mb-4 h-24 w-24 object-cover md:h-32 md:w-32"
                   />
 
-                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[32px]">
+                  <h2 className="font-futura text-[22px] font-semibold uppercase tracking-wide text-white md:text-[22px]">
                     <AnimatedText
                       text="Core Values"
                       progress={progress}
@@ -542,31 +542,31 @@ export default function MissionVisionScrollSection() {
                       end={0.91}
                     />
                   </h2>
-                  <div className="mt-8 grid w-full max-w-[680px] grid-cols-1 gap-4 overflow-visible sm:grid-cols-2 md:gap-5">
+                  <div className="mt-8 grid w-full max-w-[520px] grid-cols-1 justify-items-center gap-4 overflow-visible sm:grid-cols-2 md:gap-5">
                     <div
                       style={getValueMoveStyle(progress, 0.72, 0.8)}
-                      className="min-w-[260px] rounded-2xl bg-white px-8 py-5 text-center font-futura text-2xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:min-w-[340px] md:px-10 md:py-6 md:text-4xl"
+                      className="w-[190px] rounded-2xl bg-white px-5 py-4 text-center font-futura text-xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:w-[230px] md:px-6 md:py-5 md:text-2xl"
                     >
                       Teamwork
                     </div>
 
                     <div
                       style={getValueMoveStyle(progress, 0.76, 0.84)}
-                      className="min-w-[260px] rounded-2xl bg-white px-8 py-5 text-center font-futura text-2xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:min-w-[340px] md:px-10 md:py-6 md:text-4xl"
+                      className="w-[190px] rounded-2xl bg-white px-5 py-4 text-center font-futura text-xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:w-[230px] md:px-6 md:py-5 md:text-2xl"
                     >
                       Integrity
                     </div>
 
                     <div
                       style={getValueMoveStyle(progress, 0.8, 0.88)}
-                      className="min-w-[260px] rounded-2xl bg-white px-8 py-5 text-center font-futura text-2xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:min-w-[340px] md:px-10 md:py-6 md:text-4xl"
+                      className="w-[190px] rounded-2xl bg-white px-5 py-4 text-center font-futura text-xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:w-[230px] md:px-6 md:py-5 md:text-2xl"
                     >
                       Excellence
                     </div>
 
                     <div
                       style={getValueMoveStyle(progress, 0.84, 0.92)}
-                      className="min-w-[260px] rounded-2xl bg-white px-8 py-5 text-center font-futura text-2xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:min-w-[340px] md:px-10 md:py-6 md:text-4xl"
+                      className="w-[190px] rounded-2xl bg-white px-5 py-4 text-center font-futura text-xl font-medium leading-none text-[#BA0C2F] backdrop-blur-sm md:w-[230px] md:px-6 md:py-5 md:text-2xl"
                     >
                       Passion
                     </div>

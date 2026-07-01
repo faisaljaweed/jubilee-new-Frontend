@@ -345,10 +345,10 @@ export default function CtrlStyleScrollableSection({
                       margin: 0,
                       maxWidth: "330px",
                       fontSize: "22px",
-                      lineHeight: "1.18",
+                      // lineHeight: "1.18",
                       letterSpacing: "-0.03em",
                       color: "#1A1A1A",
-                      fontWeight: 500,
+                      // fontWeight: 500,
                     }}
                   >
                     {service.text}

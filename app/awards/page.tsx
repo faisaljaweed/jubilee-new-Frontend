@@ -131,25 +131,30 @@ const achievementAwards = [
     // year: "2023",
     image: "/img/Awards/34thCorporateExcellence.jpg",
   },
-];
-
-const topCompanyAwards = [
   {
     title: "Top Companies Award",
-    year: "1998",
+    year: "1985, 1997, 1998",
     image: "/img/Awards/award-1998.jpg",
   },
-  {
-    title: "Top Companies Award",
-    year: "1997",
-    image: "/img/Awards/award-1997.jpg",
-  },
-  {
-    title: "Top Companies Award",
-    year: "1985",
-    image: "/img/Awards/award-1985.jpg",
-  },
 ];
+
+// const topCompanyAwards = [
+//   {
+//     title: "Top Companies Award",
+//     year: "1998",
+//     image: "/img/Awards/award-1998.jpg",
+//   },
+//   {
+//     title: "Top Companies Award",
+//     year: "1997",
+//     image: "/img/Awards/award-1997.jpg",
+//   },
+//   {
+//     title: "Top Companies Award",
+//     year: "1985",
+//     image: "/img/Awards/award-1985.jpg",
+//   },
+// ];
 
 const AwardsPage = () => {
   const [selectedImage, setSelectedImage] = useState<{
@@ -214,10 +219,10 @@ const AwardsPage = () => {
                 </button>
 
                 <div className="p-6">
-                  {/* <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-600">
-                    <CalendarDays size={15} />
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-600">
+                    {/* <CalendarDays size={15} /> */}
                     {award.year}
-                  </div> */}
+                  </div>
 
                   <h3 className="text-lg font-bold leading-7 text-gray-900">
                     {award.title}
@@ -230,12 +235,10 @@ const AwardsPage = () => {
       </section>
 
       {/* Top Companies Award */}
-      <section className="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
+      {/* <section className="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 text-center">
-            {/* <span className="mb-3 inline-flex rounded-full bg-[#BA0C2F]/10 px-4 py-2 text-sm font-semibold text-[#BA0C2F]">
-              Legacy Recognition
-            </span> */}
+            
 
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
               Top Companies Award
@@ -276,7 +279,7 @@ const AwardsPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Image Preview Modal */}
       {selectedImage && (

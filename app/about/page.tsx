@@ -511,19 +511,19 @@ const About = () => {
       <div className="about_banner min-h-screen bg-cover bg-center bg-no-repeat">
         <div className="mx-auto flex min-h-screen max-w-7xl items-end pb-10 ">
           <div className="max-w-7xl text-black">
-            <p className="mb-4 font-futura text-[18px] font-semibold">
+            {/* <p className="mb-4 font-futura text-[18px] font-semibold">
               About Us
-            </p>
+            </p> */}
 
             <h1 className="font-futura text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
-              INSURANCE THAT’S FAST,
+              INSURANCE THATS BUILT
               <br />
-              FAIR &amp; BUILT AROUND YOU
+              AROUND PEOPLE & BUSINESS
             </h1>
 
             <p className="mt-5 max-w-[500px] font-futura text-[17px] font-normal leading-[1.45] md:text-[22px]">
-              Whether it’s your health, car, or travel we’ve got your back in
-              minutes
+              Protecting people. Strengthening businesses. Built on expertise
+              and trust.
             </p>
 
             <button

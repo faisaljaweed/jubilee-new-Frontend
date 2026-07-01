@@ -40,7 +40,7 @@ interface FormData {
 // ─── Constants ────────────────────────────────────────────────────────────────
 const STEPS = [
   { num: 1, label: "Personal Information" },
-  { num: 2, label: "Health Assessment" },
+  { num: 2, label: "Assessment" },
   { num: 3, label: "Confirmation & Payment" },
 ];
 
@@ -94,20 +94,20 @@ const PRODUCT_OPTIONS_BY_COVERAGE: Record<string, string[]> = {
     "Parents Care Plus",
     "Family HealthCare",
     "Personal HealthCare",
-    "Life Style Care",
+    "Lifestyle Care",
     "Parents Care",
-    "Her Care",
+    "HerCare",
   ],
   Home: ["Home"],
   "Self-Care": ["Self Care"],
   "Motor Insurance": [
-    "Motor Third Party Liability Insurance",
     "Private Car Comprehensive",
     "Old Car Comprehensive",
     "3T Old Car Insurance",
-    "Motor Sycle Comprehensive Insurance",
-    "Privates Cars Third Party Liability Insurance",
-    "Motor Cycles Third Party Liability Insurance",
+    "Motor Cycle Comprehensive ",
+    "Third Party Liability ",
+    // "Privates Cars Third Party Liability Insurance",
+    // "Motor Cycles Third Party Liability Insurance",
   ],
 };
 
@@ -720,7 +720,7 @@ const Step1 = ({
             <option value="Travel">Travel</option>
             <option value="Health">Health</option>
             <option value="Home">Home</option>
-            <option value="Self-Care">Self-Care</option>
+            <option value="Self-Care">SelfCare</option>
             <option value="Motor Insurance">Motor Insurance</option>
           </Select>
         </div>

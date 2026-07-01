@@ -176,13 +176,13 @@ export const ExecutiveCommittee = [
   },
   {
     Direactor_Image: nadeem,
-    Direactot_Name: "M.Nadeem Irshad",
+    Direactot_Name: "M. Nadeem Irshad",
     Direactor_Designation: "Chief Sales Officer",
     Direactor_Description: "",
   },
   {
     Direactor_Image: adeel,
-    Direactot_Name: "M.Adil Saleh",
+    Direactot_Name: "M. Adil Saleh",
     Direactor_Designation: "Chief Human Resources Officer",
     Direactor_Description: "",
   },
@@ -216,13 +216,13 @@ export const BoardDireactories = [
     Direactor_Description:
       "Mr. John Joseph Metcalf is a Chartered Insurer and Fellow of the Chartered Insurance Institute of UK who has extensive international experience within the insurance industry. Mr. Metcalf started his insurance career in the UK, where he held various positions within insurance companies and brokers before embarking on his international career in 1990 in the Sultanate of Oman and then the United Arab Emirates. In 1996 Mr. Metcalf joined the Allianz Group, with whom he was engaged as Regional General Manager for Life in Asia-Pacific prior to taking up the appointment as Executive Chairman of Allianz Life Assurance Company and Allianz Insurance Company of Egypt. He is responsible for the development of strategy for the insurance business of AKFED, including management oversight of all AKFED investments in the insurance sector comprised of 9 insurance operations in 6 countries in Africa, Pakistan and Kyrgyzstan",
   },
-  {
-    Direactor_Image: AminAHashwani,
-    Direactot_Name: "Mr. Amin A. Hashwani",
-    Direactor_Designation: "Director",
-    Direactor_Description:
-      "Mr. Amin A. Hashwani belongs to a well-known business family of Pakistan. He has headed numerous business and non-business organizations, including, Pakistan India CEOs’ Business Forum, Young Presidents’ Organisation, The Network of Organisations Working for People with Disability and AIESEC, Pakistan. He is the recipient of several national and international awards for his work, including an Honorary Doctorate from USA.",
-  },
+  // {
+  //   Direactor_Image: AminAHashwani,
+  //   Direactot_Name: "Mr. Amin A. Hashwani",
+  //   Direactor_Designation: "Director",
+  //   Direactor_Description:
+  //     "Mr. Amin A. Hashwani belongs to a well-known business family of Pakistan. He has headed numerous business and non-business organizations, including, Pakistan India CEOs’ Business Forum, Young Presidents’ Organisation, The Network of Organisations Working for People with Disability and AIESEC, Pakistan. He is the recipient of several national and international awards for his work, including an Honorary Doctorate from USA.",
+  // },
   {
     Direactor_Image: RiyazTChinoy,
     Direactot_Name: "Mr. Riyaz T. Chinoy",
@@ -230,13 +230,13 @@ export const BoardDireactories = [
     Direactor_Description:
       "Mr. Riyaz T. Chinoy is a seasoned Industrial Engineer from Case Western Reserve University, USA, with over three decades of leadership experience in Pakistan’s industrial manufacturing sector. After retiring from his corporate role in 2021, he founded Yaqin Steel Limited, a start-up focused on large-scale steel production in Pakistan. He is widely recognized for his commitment to corporate governance, sustainability, and social impact, particularly in education and community development. He actively contributes to several unlisted and not-for-profit organizations, including The Citizens Foundation, Indus Valley School of Art and Architecture, Orange Tree Foundation (OTF), SINA Health Systems Foundation, The Duke of Edinburgh’s Award Pakistan, Citizens Trust Against Crime, Patrons of Expo 2020, The Water Foundation, and serves on the Advisory Boards of the Packages Group and TCF. He has been a PICG-certified Independent Director since 2007 and is a Fellow of the Institute of Engineers Pakistan.",
   },
-  {
-    Direactor_Image: NausheenAhmad,
-    Direactot_Name: "Ms. Nausheen Ahmad",
-    Direactor_Designation: "Director",
-    Direactor_Description:
-      "Ms. Nausheen Ahmad is a Barrister at Law with over 30 years of experience in law firm practice and in-house counsel roles across sectors including Oil & Gas, FMCG, Banking, and large-scale manufacturing. She has served as Company Secretary and Legal Counsel at ICI Pakistan Limited and HBL, Pakistan’s largest private sector bank. She is currently Lead Counsel at Legal and Governance Advisory, specializing in governance, legal compliance, conflict resolution, strategic thinking, and communication. She is also an accredited mediator and master trainer, providing mediation, negotiation, and conflict resolution training. Recently, she was appointed Chancellor of the Textile Institute of Pakistan.",
-  },
+  // {
+  //   Direactor_Image: NausheenAhmad,
+  //   Direactot_Name: "Ms. Nausheen Ahmad",
+  //   Direactor_Designation: "Director",
+  //   Direactor_Description:
+  //     "Ms. Nausheen Ahmad is a Barrister at Law with over 30 years of experience in law firm practice and in-house counsel roles across sectors including Oil & Gas, FMCG, Banking, and large-scale manufacturing. She has served as Company Secretary and Legal Counsel at ICI Pakistan Limited and HBL, Pakistan’s largest private sector bank. She is currently Lead Counsel at Legal and Governance Advisory, specializing in governance, legal compliance, conflict resolution, strategic thinking, and communication. She is also an accredited mediator and master trainer, providing mediation, negotiation, and conflict resolution training. Recently, she was appointed Chancellor of the Textile Institute of Pakistan.",
+  // },
   {
     Direactor_Image: AbrarAhmedMir,
     Direactot_Name: "Mr. Abrar Ahmed Mir",
@@ -244,13 +244,13 @@ export const BoardDireactories = [
     Direactor_Description:
       "Mr. Abrar Ahmed Mir is an engineer and MBA from Illinois Institute of Technology, Chicago, IL, USA. He has extensive experience in ecommerce, fintech and innovative financial products. He is currently working as Chief Information and Transformation Officer at Habib Bank Limited.",
   },
-  {
-    Direactor_Image: MohammadAkhtarBawany,
-    Direactot_Name: "Mr. Mohammad Akhtar Bawany",
-    Direactor_Designation: "Director",
-    Direactor_Description:
-      "Mr. Mohammad Akhtar Bawany is a business graduate and fellow member of the Institute of Corporate Secretaries of Pakistan and Institute of Chartered Secretaries of Pakistan. He is Advisor to Deputy Chairman and CEO Hashoo Group and also holds position of director on the Boards of different companies of Hashoo Group. He has been associated with Hashoo Group for more than four decades.",
-  },
+  // {
+  //   Direactor_Image: MohammadAkhtarBawany,
+  //   Direactot_Name: "Mr. Mohammad Akhtar Bawany",
+  //   Direactor_Designation: "Director",
+  //   Direactor_Description:
+  //     "Mr. Mohammad Akhtar Bawany is a business graduate and fellow member of the Institute of Corporate Secretaries of Pakistan and Institute of Chartered Secretaries of Pakistan. He is Advisor to Deputy Chairman and CEO Hashoo Group and also holds position of director on the Boards of different companies of Hashoo Group. He has been associated with Hashoo Group for more than four decades.",
+  // },
   {
     Direactor_Image: AwaArdeshirCowasjee,
     Direactot_Name: "Ms. Awa Ardeshir Cowasjee",

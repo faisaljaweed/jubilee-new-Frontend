@@ -409,12 +409,12 @@ export default function Sustainability() {
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="w-full relative">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0">
-            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[44px] lg:text-[50px] max-w-2xl leading-14">
+            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[40px] lg:text-[44px] max-w-2xl leading-14">
               Sustainability at Jubilee General Insurance
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-medium leading-[1.6] text-white md:text-[24px] tracking-wide">
-              RESILIENT TODAY. RESPONSIBLE TOMORROW.
+            <p className="mt-3 max-w-[560px] font-futura text-[17px] font-normal leading-[1.6] text-white md:text-[22px] tracking-wide">
+              Resilient today, responsible tomorrow
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-6">
@@ -717,7 +717,7 @@ export default function Sustainability() {
             </div> */}
 
             {/* Women Leadership */}
-            <div className=" grid grid-cols-1 gap-6 md:grid-cols-[65%_35%] rounded-[36px] border border-[#BA0C2F]/20 bg-[linear-gradient(145deg,#3D0010_0%,#7B0020_40%,#BA0C2F_75%,#D4365A_100%)] p-8 text-white md:p-11">
+            {/* <div className=" grid grid-cols-1 gap-6 md:grid-cols-[65%_35%] rounded-[36px] border border-[#BA0C2F]/20 bg-[linear-gradient(145deg,#3D0010_0%,#7B0020_40%,#BA0C2F_75%,#D4365A_100%)] p-8 text-white md:p-11">
               <div className="font-futura text-[10px] font-bold uppercase tracking-[0.28em] text-white/60 ">
                 Women Leadership Forum
                 <h3 className="mt-5 max-w-xl font-futura text-[32px] font-extrabold uppercase leading-[1.12] text-white md:text-[36px]">
@@ -735,7 +735,7 @@ export default function Sustainability() {
                   className="h-64 w-full object-cover"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

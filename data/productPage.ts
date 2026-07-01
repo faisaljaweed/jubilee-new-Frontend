@@ -279,8 +279,8 @@ export const productPages = [
     heroFallback: {
       title: "Lifestyle Care",
       subtitle:
-        "LifestyleCare is a critical illness plan that dumps a massive lump sum of pure cash straight into your bank account the moment you are diagnosed with any of the 7 covered major illnesses.",
-      tagline: "Because a Critical Illness Diagnosis Shouldn't Stop Your Life",
+        "When life takes an unexpected turn, Lifestyle Care helps ease the financial burden of a covered critical illness, giving you the freedom to focus on recovery.",
+      tagline: "Life Doesn't Pause. Neither Should You.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
@@ -330,9 +330,10 @@ export const productPages = [
     },
     heroFallback: {
       title: "Parents Care",
+
       subtitle:
-        "ParentsCare is a first-of-its-kind health plan built for the anchors of your life because we know your current plan for a family medical emergency is just a mix of pure panic and intense prayer.",
-      tagline: "",
+        "ParentsCare offers health coverage for your parents, so you can focus on being there when they need you.",
+      tagline: "Love takes care of them. We help with the rest.",
       buttonText: "Buy Now",
       brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
@@ -381,10 +382,11 @@ export const productPages = [
     },
     heroFallback: {
       title: "Her Care",
+      tagline: "You've got the plans. We've got the backup.",
       subtitle:
-        "HerCare is a women-focused critical illness plan that provides financial protection against major illnesses such as breast cancer, cervical cancer, burns and paralysis.",
+        "HerCare provides women-focused critical illness protection, giving you one less thing to worry about when the unexpected happens.",
       buttonText: "Buy Now",
-      brochureText: "Product brochure",
+      // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Hercare.jpg.jpeg",
     },
@@ -401,10 +403,10 @@ export const productPages = [
       },
     ],
 
-    trustHeading: "Why Customer Trust Parents Care",
+    trustHeading: "Why Customer Trust HerCare",
     trustCards: herCareTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your Lifestyle Care",
+    plansHeading: "Choose the plan that’s right for your HerCare",
     plans: herCarePackage,
     showPlans: true,
     detailsType: "health",
@@ -433,11 +435,11 @@ export const productPages = [
       btntextColor: "#ffffff",
     },
     heroFallback: {
-      title: "International Travel",
+      title: "Travel Insurance",
       subtitle:
         "It offers a comprehensive coverage for the entire duration of your stay, providing medical emergencies, evacuation, travel inconvenience, accidental death and many other perils.",
       buttonText: "Buy Now",
-      brochureText: "Product brochure",
+      // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Product/Travel.jpeg",
     },
@@ -449,15 +451,15 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "parental covered",
+        label: "Trip covered",
         value: "100,000+",
       },
     ],
 
-    trustHeading: "Why Customer Trust International Travel Insurance",
+    trustHeading: "Why Customer Trust Us for their Travel",
     trustCards: internationalTravelTrustCards,
 
-    plansHeading: "Choose the plan that’s right for your International Travel",
+    plansHeading: "Choose the plan that’s right for your ",
     plans: travelInsurancePackage,
     showPlans: true,
 
@@ -488,12 +490,12 @@ export const productPages = [
       btntextColor: "#ffffff",
     },
     heroFallback: {
-      title: "Home Insurance",
+      title: "HomeCare",
       tagline: "Aap Kay Ghar Ki Mukammal Hifazat.",
       subtitle:
-        "A flexible Home Insurance plan where you control the coverage, protecting your structure, your valuables, and your peace of mind.",
+        "A flexible home insurance plan where you control the coverage, protecting your structure, your valuables, and your peace of mind.",
       buttonText: "Buy Now",
-      brochureText: "Product brochure",
+      // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Vechile/home.jpg",
     },
@@ -505,7 +507,7 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "Lives covered",
+        label: "Home covered",
         value: "600,000+",
       },
     ],
@@ -540,12 +542,12 @@ export const productPages = [
       btntextColor: "#ffffff",
     },
     heroFallback: {
-      title: "Self Travel",
-      tagline: "Because Life Doesn’t Have an Undo Button",
+      title: "SelfCare",
+      tagline: "Because life doesn't come with an undo button.",
       subtitle:
-        "Personal Accident Insurance that keeps you and your family safe from the financial plot twists of life.",
+        "Personal Accident Insurance that gives you and your family added protection when life changes course.",
       buttonText: "Buy Now",
-      brochureText: "Product brochure",
+      // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Vechile/Self.png",
     },
@@ -557,7 +559,7 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "Lives covered",
+        label: "Individual   covered",
         value: "600,000+",
       },
     ],
@@ -598,7 +600,7 @@ export const productPages = [
       subtitle:
         "We can’t stop potholes or sudden brake testing.But we can make sure they don’t touch your finances.",
       buttonText: "Buy Now",
-      brochureText: "Product brochure",
+      // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
       imageUrl: "/img/Vechile/Motor.png",
     },
@@ -621,12 +623,12 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "Cars covered",
+        label: "vehicle covered",
         value: "600,000+",
       },
     ],
 
-    trustHeading: "Why Roads Feel Safer With This Cover",
+    trustHeading: "Why Roads Feel Safer With Our Courage",
     trustCards: privateCarActOnlyTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Vehicle",

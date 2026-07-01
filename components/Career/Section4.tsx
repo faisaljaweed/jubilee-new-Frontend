@@ -240,7 +240,7 @@ const Section4 = () => {
                     value={form.phoneNumber}
                     onChange={handleChange}
                     className={inputClass}
-                    placeholder="123456"
+                    placeholder="Mobile Number"
                     required
                   />
                 </div>

@@ -209,13 +209,13 @@ const InvestorRelation = () => {
       <div className="invest relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center pt-20 px-6 md:px-10">
-            <h1 className="font-futura text-[34px] font-bold uppercase text-[#424145] md:text-[44px] lg:text-[46px] ">
+            <h1 className="font-futura text-[34px] font-bold uppercase text-[#424145] md:text-[40px] lg:text-[44px] ">
               Investor Relations
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[16px] font-normal leading-[1.6] text-[#4A4A4A] md:text-[17px]">
-              Dive into all of Jubilee General’s important financial
-              information, compiled for our shareholders.
+            <p className="mt-3 max-w-[560px] font-futura text-[17px] font-normal leading-[1.6] text-[#4A4A4A] md:text-[22px]">
+              Dive into Jubilee General’s important financial information,
+              compiled for our shareholders.
             </p>
             {/* <div className="mt-4">
               <Button

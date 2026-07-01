@@ -10,13 +10,15 @@ const page = () => {
       <div className="carrers-hero relative flex min-h-screen w-full items-center bg-cover bg-center bg-no-repeat">
         <div className="w-full">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-end pb-10 px-6 md:px-0">
-            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[44px] lg:text-[50px]">
+            <h1 className="font-futura text-[34px] font-bold uppercase text-white md:text-[42px] lg:text-[48px]">
               Inside Jubilee General
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-medium leading-[1.6] text-white  md:text-[24px] tracking-wide">
-              WHERE IDEAS GROW, TEAMS WIN, AND YOUR WORK ACTUALLY MAKES A
-              DIFFERENCE.
+            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-normal leading-[1.6]  text-white  md:text-[22px] tracking-wide">
+              Where ideas grow, teams win, and your work actually makes a
+              difference.
+              {/* WHERE IDEAS GROW, TEAMS WIN, AND YOUR WORK ACTUALLY MAKES A
+              DIFFERENCE. */}
             </p>
             <div className="flex items-center gap-4 mt-6">
               <input

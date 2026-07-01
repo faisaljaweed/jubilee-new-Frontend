@@ -147,7 +147,7 @@ export default function GetConnected() {
       color: "#0A66C2",
     },
     {
-      name: "Watsapp",
+      name: "whatsapp",
       icon: <FaWhatsapp size={22} />,
       href: "tel:021111654111",
       color: "#25D366",

@@ -281,7 +281,7 @@ export const MultipleAddress = [
         lng: 73.2551052672619,
       },
       {
-        name: "RAIMYAR KHAN",
+        name: "RAHIMYAR KHAN",
         email: "info.ryk@jubileegeneral.com.pk",
         phoneNo: "(9268) 5874442",
         faxNo: "(9268) 5872243",

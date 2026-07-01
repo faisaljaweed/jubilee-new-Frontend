@@ -467,21 +467,22 @@ const Corporate_Governance_DocumentsData: ReportItem[] = [
     title: "Board Risk and Compliance Committee",
     year: "2025",
     category: "Terms of Reference of Board Committees",
-    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-BAC.pdf",
+    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-BRCC.pdf",
   },
   {
     id: 10,
     title: "Human Resource Remuneration and Nomination Committee",
     year: "2025",
     category: "Terms of Reference of Board Committees",
-    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-BRCC.pdf",
+    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-HRRNC.pdf",
   },
   {
     id: 11,
     title: "Board Audit Committee",
     year: "2025",
     category: "Terms of Reference of Board Committees",
-    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-HRRNC.pdf",
+
+    fileUrl: "/pdf/Coporate Governance/Terms/TORs-of-BAC.pdf",
   },
 ];
 const Notice_Of_EOGMData: ReportItem[] = [
@@ -1074,7 +1075,7 @@ const tabData = {
     cards: [
       {
         title: "Official Coordinator, Small Disputes Resolution Committee",
-        content: "Direct no: 021-99002021 \nUAN: 021-111-117-327",
+        content: "Direct No: 021-99002021 \nUAN: 021-111-117-327",
       },
       {
         title: "Securities and Exchange Commission of Pakistan",
@@ -1256,7 +1257,7 @@ export const Investor_Relations = () => {
               </h3>
               <p className="text-sm font-normal">
                 KPMG Taseer Hadi & Co. Chartered Accountants.
-                <br /> Request for Hard Copy of the Annual Report <br />
+                {/* <br /> Request for Hard Copy of the Annual Report <br /> */}
               </p>
             </div>
           </div>
@@ -1272,7 +1273,7 @@ export const Investor_Relations = () => {
               "noopener,noreferrer",
             )
           }
-          text="Request for Hard Copy"
+          text="Request for Hard Copy of the Annual Report"
           className="cursor-pointer hover:border-1 hover:border-[#BA0C2F]  rounded-full bg-[#BA0C2F] px-8 py-2 font-futura font-normal text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#BA0C2F] md:px-6 md:py-2"
         />
         <Button
@@ -1376,7 +1377,7 @@ export const Notice_Of_AGM = () => {
         >
           {/* Left Filters */}
           <div className="space-y-5 lg:sticky lg:top-24 lg:self-start h-fit">
-            <FilterSelect
+            {/* <FilterSelect
               value={selectedYear}
               onChange={setSelectedYear}
               options={years}
@@ -1388,7 +1389,7 @@ export const Notice_Of_AGM = () => {
               onChange={setSelectedCategory}
               options={categories}
               placeholder="All Categories"
-            />
+            /> */}
           </div>
 
           {/* Right Reports */}
@@ -1653,7 +1654,7 @@ export const EOGM = () => {
         >
           {/* Left Filters */}
           <div className="space-y-5 lg:sticky lg:top-24 lg:self-start h-fit">
-            <FilterSelect
+            {/* <FilterSelect
               value={selectedYear}
               onChange={setSelectedYear}
               options={years}
@@ -1665,7 +1666,7 @@ export const EOGM = () => {
               onChange={setSelectedCategory}
               options={categories}
               placeholder="All Categories"
-            />
+            /> */}
           </div>
 
           {/* Right Reports */}
@@ -1827,9 +1828,15 @@ const Growth_At_A_Galance_Data: GrowthItem[] = [
 
 const GrowthCard = ({ title, image }: GrowthItem) => {
   return (
-    <div className="overflow-hidden  ">
-      <div className="relative h-[400px] w-full ">
-        <Image src={image} alt={title} fill className="object-cover" />
+    <div className="overflow-hidden">
+      <div className="relative h-[400px] w-full">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-contain"
+        />
       </div>
 
       <h3 className="mt-4 font-futura text-[17px] font-semibold leading-[1.3] text-[#111111] md:text-[18px]">

@@ -7,9 +7,9 @@ export const selfCareDetails = {
       headerRows: [
         [
           { label: "Risk Covered" },
-          { label: "Plan A" },
-          { label: "Plan B" },
-          { label: "Plan C" },
+          { label: "Plan A (PKR)" },
+          { label: "Plan B (PKR)" },
+          { label: "Plan C (PKR)" },
         ],
       ],
       rows: [
@@ -47,7 +47,7 @@ export const selfCareDetails = {
         },
         {
           cells: [
-            { content: "NET Premium" },
+            { content: "Net Premium" },
             { content: "800" },
             { content: "1,200" },
             { content: "1,700" },
