@@ -243,7 +243,7 @@ export const productPages = [
     counters: [
       {
         label: "Starting from",
-        value: "PKR 20,000",
+        value: "PKR 6,350",
         startValue: 80000,
       },
       {

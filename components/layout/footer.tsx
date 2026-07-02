@@ -43,6 +43,7 @@ const footerSections: FooterSection[] = [
       { label: "Awards", href: "/awards" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
+      { label: "Investor Relations", href: "/investorrelation" },
     ],
   },
   {
@@ -67,7 +68,7 @@ const footerSections: FooterSection[] = [
       { label: "E-Verify", href: "/e-verify" },
       { label: "Branch Locator", href: "/branch-network" },
       { label: "Complaint Resolution", href: "/complaints-queries" },
-      { label: "FIO Website", href: "#" },
+      { label: "FIO Website", href: "https://fio.gov.pk/" },
     ],
   },
 ];
@@ -144,6 +145,7 @@ function MobileFooterSection({ section }: { section: FooterSection }) {
 }
 
 export default function Footer() {
+  const isExternalLink = (href: string) => href.startsWith("http");
   return (
     <footer className="w-full bg-linear-to-b from-[#6E071C] to-[#BA0C2F]">
       <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
@@ -301,6 +303,14 @@ export default function Footer() {
                       ) : (
                         <Link
                           href={link.href}
+                          target={
+                            isExternalLink(link.href) ? "_blank" : undefined
+                          }
+                          rel={
+                            isExternalLink(link.href)
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
                           className="text-sm text-red-100 transition hover:text-white"
                         >
                           {link.label}
@@ -332,6 +342,10 @@ export default function Footer() {
             <a href="#" className="transition hover:text-white">
               SiteMap
             </a>
+            <span className="text-white">|</span>
+            <Link href="/disclaimer" className="transition hover:text-white">
+              Disclaimer
+            </Link>
           </div>
 
           <p className="order-1 text-xs text-red-100 md:order-2">

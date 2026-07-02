@@ -800,9 +800,9 @@ export const packagePlans = {
       productKey: "parents-care-plus",
       Card_Name: "ParentsCare Plus",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "20,000",
-      Card_price_period: " \nPer Year",
+      Card_price_period: "PKR \nPer Year",
       Card_features: [
         // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: 500,000",
@@ -818,9 +818,9 @@ export const packagePlans = {
       productKey: "personal-health-care",
       Card_Name: "Personal HealthCare",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "6,350",
-      Card_price_period: "\nPer Year",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: Rs 1,000,000",
@@ -836,9 +836,9 @@ export const packagePlans = {
       productKey: "family-healthcare",
       Card_Name: "Family HealthCare",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "27,440",
-      Card_price_period: " \nPer Year",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         // "Starting from Rs. 20,000/-",
         "Annual Cover Up to: Rs 1,000,000",
@@ -854,9 +854,9 @@ export const packagePlans = {
       productKey: "life-style-care",
       Card_Name: "LifestyleCare",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "2,280",
-      Card_price_period: "\nPer Year",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         "Annual Cover Up to: Rs 1,000,000",
         "No Medical Tests Required",
@@ -871,9 +871,9 @@ export const packagePlans = {
       productKey: "parents-care",
       Card_Name: "ParentsCare",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "22,800",
-      Card_price_period: " \nPer Year",
+      Card_price_period: "PKR \nPer Year",
       Card_features: [
         "Annual Cover Up to: Rs 1,000,000",
         "No Medical Tests Required",
@@ -888,9 +888,9 @@ export const packagePlans = {
       productKey: "her-care",
       Card_Name: "HerCare",
       Card_description: "Lorem Ipsum Sample Text",
-      Card_price_prefix: "\nFrom PKR",
+      Card_price_prefix: "",
       Card_price: "3000",
-      Card_price_period: "\nPer Year",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         "Annual Cover Up to: Rs 1,000,000",
         "No Medical Tests Required",
@@ -907,8 +907,8 @@ export const packagePlans = {
     {
       Card_Name: "Plan A",
       Card_description: "Plan for Individual and Family",
-      Card_price: "PKR800",
-      Card_price_period: "\nPer Year",
+      Card_price: "800",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         "Total Sum Covered: PKR 240,000",
         "Accidental Death & Disability: PKR 200,000",
@@ -923,8 +923,8 @@ export const packagePlans = {
     {
       Card_Name: "Plan B",
       Card_description: "Plan for Individual and Family",
-      Card_price: "PKR1,200",
-      Card_price_period: "\nPer Year",
+      Card_price: "1,200",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         "Total Sum Covered: PKR 420,000",
         "Accidental Death & Disability: PKR 350,000",
@@ -939,8 +939,8 @@ export const packagePlans = {
     {
       Card_Name: "Plan C",
       Card_description: "Plan for Individual and Family",
-      Card_price: "PKR1,700",
-      Card_price_period: "\nPer Year",
+      Card_price: "1,700",
+      Card_price_period: "PKR\nPer Year",
       Card_features: [
         "Total Sum Covered: PKR 600,000",
         "Accidental Death & Disability: PKR 500,000",

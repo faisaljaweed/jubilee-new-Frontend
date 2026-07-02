@@ -521,7 +521,7 @@ const About = () => {
               AROUND PEOPLE & BUSINESS
             </h1>
 
-            <p className="mt-5 max-w-[500px] font-futura text-[17px] font-normal leading-[1.45] md:text-[22px]">
+            <p className="mt-5 max-w-[450px] font-futura text-[17px] font-normal leading-[1.45] md:text-[22px]">
               Protecting people. Strengthening businesses. Built on expertise
               and trust.
             </p>
