@@ -766,7 +766,7 @@
 // }
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   User,
   Menu,
@@ -975,30 +975,37 @@ export default function Header({ menuColor }: menuProps) {
     { label: "Awards", href: "/awards" },
     { label: "Leadership", href: "/about#leadership" },
   ];
-  const handleProductsMouseEnter = () => {
+  const clearProductsHoverTimeout = () => {
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
       hoverTimeout.current = null;
     }
+  };
 
-    if (!isProductsHovered) {
-      setActiveMegaMenu(null);
-    }
-
+  const handleProductsMouseEnter = () => {
+    clearProductsHoverTimeout();
     setIsProductsHovered(true);
   };
 
   const handleProductsMouseLeave = () => {
+    clearProductsHoverTimeout();
+
     hoverTimeout.current = setTimeout(() => {
-      const isStillHoveringProductsArea =
+      const isStillInsideProductsArea =
         productsAreaRef.current?.matches(":hover");
 
-      if (!isStillHoveringProductsArea) {
+      if (!isStillInsideProductsArea) {
         setIsProductsHovered(false);
         setActiveMegaMenu(null);
       }
-    }, 220);
+    }, 350);
   };
+
+  useEffect(() => {
+    return () => {
+      clearProductsHoverTimeout();
+    };
+  }, []);
 
   const healthCategory = megaMenuData.find((item) => item.key === "health");
 
@@ -1127,6 +1134,7 @@ export default function Header({ menuColor }: menuProps) {
 
                         {link.label === "ABOUT US" && (
                           <div
+                            ref={productsAreaRef}
                             className="relative"
                             onMouseEnter={handleProductsMouseEnter}
                             onMouseLeave={handleProductsMouseLeave}
@@ -1164,8 +1172,8 @@ export default function Header({ menuColor }: menuProps) {
                                     ? "w-[500px]"
                                     : "w-[230px]"
                                 }`}
-                                onMouseEnter={handleProductsMouseEnter}
-                                onMouseLeave={handleProductsMouseLeave}
+                                // onMouseEnter={handleProductsMouseEnter}
+                                // onMouseLeave={handleProductsMouseLeave}
                               >
                                 <div className="rounded-b-[22px] bg-white shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300">
                                   <div

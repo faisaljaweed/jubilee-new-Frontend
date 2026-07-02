@@ -323,6 +323,7 @@ export const productPages = [
     showCTA: true,
     showTestimonials: true,
   },
+  // parents care
   {
     category: "health",
     slug: "parents-care",
@@ -342,7 +343,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/parentscare.jpg",
+      imageUrl: "/img/Product/Lifestyle-Care.jpg.jpeg",
     },
 
     counters: [
