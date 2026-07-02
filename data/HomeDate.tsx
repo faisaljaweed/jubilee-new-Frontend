@@ -830,7 +830,7 @@ export const packagePlans = {
       Card_btn_text: "Get This Plan",
       highlighted: true,
       whiteIcon: "/Icons/Home Health Icons/inverse/Self-care.png",
-      redIcon: "/Icons/Home Health Icons/self-care.png",
+      redIcon: "/Icons/Home Health Icons/Self-care.png",
     },
     {
       productKey: "family-healthcare",
