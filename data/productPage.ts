@@ -595,8 +595,8 @@ export const productPages = [
     slug: "motor-insurance",
     bannerSubCategory: "selftravel",
     theme: {
-      headingColor: "#000",
-      textColor: "#000",
+      headingColor: "#ffffff",
+      textColor: "#ffffff",
       btnbgColor: "#BA0C2F",
       btntextColor: "#ffffff",
     },
@@ -608,7 +608,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/motor.jpg",
+      imageUrl: "/img/Vechile/Motor.png",
     },
     // agr kahin ye show ho tw ye line likhe hide hojaye ga
     // appDownload: {
