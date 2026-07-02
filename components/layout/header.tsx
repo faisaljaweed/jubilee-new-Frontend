@@ -1060,7 +1060,11 @@ export default function Header({ menuColor }: menuProps) {
 
             {/* Row 2: WHITE NAV BAR */}
             {/* <div className="w-full"> */}
-            <div className="w-full bg-white shadow-sm">
+            <div
+              className={`w-full ${
+                pathname === "/" ? "bg-transparent" : "bg-white shadow-sm"
+              }`}
+            >
               <div className={`max-w-7xl mx-auto ${LOGO_PL} ${LOGO_PL_XL}`}>
                 <div className="flex items-center justify-between px-5 py-3">
                   <nav className="flex items-center gap-4 xl:gap-7 ">
