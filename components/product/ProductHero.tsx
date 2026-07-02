@@ -157,12 +157,12 @@ export default function ProductHero({
   const btntextColor = theme?.btntextColor ?? "#4A4A4A";
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      className="min-h-screen bg-cover bg-center bg-no-repeat privacy-policy-hero "
       style={{
         backgroundImage,
       }}
     >
-      <div className="mx-auto flex min-h-screen max-w-7xl items-center pt-30">
+      <div className="mx-auto flex min-h-screen max-w-7xl items-center pt-30 ">
         <div className="max-w-xl text-black" style={fromLeft(heroOn, 0)}>
           {/* <h1 className="font-futura text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] text-[#BA0C2F] md:text-[40px] lg:text-[44px]"> */}
           <h1

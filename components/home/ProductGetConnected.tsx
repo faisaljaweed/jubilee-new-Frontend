@@ -10,12 +10,12 @@ export default function ProductGetConnected() {
       href: "tel:021111654111",
       color: "#25D366",
     },
-    {
-      name: "AI Chatbot",
-      icon: <FaRobot size={22} />,
-      href: "#",
-      color: "#FF0000",
-    },
+    // {
+    //   name: "AI Chatbot",
+    //   icon: <FaRobot size={22} />,
+    //   href: "#",
+    //   color: "#FF0000",
+    // },
   ];
 
   return (

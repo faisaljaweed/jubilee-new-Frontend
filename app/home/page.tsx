@@ -47,7 +47,13 @@ const services = [
     title: "highest rated insurer",
     // tag: "Simple",
     tag: "",
-    text: "Highest Rated Insurer AA++ Rating Accredited By PACRA & VIS.",
+    text: (
+      <>
+        AA++ by VIS
+        <br /> AA++ by PACRA
+        <br /> B by AM BEST
+      </>
+    ),
     // text: "Jubilee General holds an insurer financial strength rating of B (Fair) and a long-term Issuer Credit Rating of bb (Fair) assigned by AM Best -USA. VIS and PACRA have awarded Jubilee with insurer financial strength rating of AA++ with stable outlook.",
     icon: Group,
     image: support,
@@ -64,7 +70,12 @@ const services = [
     title: "value driven ecosystem",
     // tag: "Support",
     tag: "",
-    text: "Enjoy upto 55% off with Jubilee General Discount Card. It is our way of thanking and giving you more than just protection.",
+    text: (
+      <>
+        <b> Enjoy upto 55% off </b> with Jubilee General Discount Card. It is
+        our way of thanking and giving you more than just protection."
+      </>
+    ),
     icon: icon_24_7,
     image: home_Section_Card_05,
   },

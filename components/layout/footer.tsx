@@ -41,6 +41,8 @@ const footerSections: FooterSection[] = [
       { label: "Leadership", href: "/about#leadership" },
       { label: "Sustainability", href: "/sustainability" },
       { label: "Awards", href: "/awards" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
@@ -61,7 +63,7 @@ const footerSections: FooterSection[] = [
     title: "Quick Links",
     links: [
       { label: "Panel Hospitals", href: "#" },
-      { label: "News & Events", href: "#" },
+      { label: "News & Events", href: "/resources" },
       { label: "E-Verify", href: "/e-verify" },
       { label: "Branch Locator", href: "/branch-network" },
       { label: "Complaint Resolution", href: "/complaints-queries" },

@@ -292,7 +292,7 @@ export function HeroSection({ onStartLivingClick }: HeroSectionProps) {
       {showDummyHero ? (
         <div className="home-main-banner min-h-screen bg-cover bg-center bg-no-repeat">
           <div className="mx-auto flex min-h-screen max-w-7xl items-end pt-10">
-            <div className=" text-white space-y-5 max-w-145 pb-10">
+            <div className=" text-white space-y-5 max-w-150 pb-10">
               {/* <p className="mb-4 font-futura text-[18px] font-semibold">
               About Us
             </p> */}

@@ -122,12 +122,12 @@ export default function GetConnected() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const socialLinks = [
-    {
-      name: "AI Chatbot",
-      icon: <FaRobot size={22} />,
-      href: "#",
-      color: "#FF0000",
-    },
+    // {
+    //   name: "AI Chatbot",
+    //   icon: <FaRobot size={22} />,
+    //   href: "#",
+    //   color: "#FF0000",
+    // },
     {
       name: "whatsapp",
       icon: <FaWhatsapp size={22} />,

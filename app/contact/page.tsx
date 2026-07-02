@@ -1356,6 +1356,7 @@ export default function ContactSection() {
                   >
                     {submitting ? "Submitting..." : "Submit"}
                   </button> */}
+
                   <button
                     type="submit"
                     disabled={submitting}
@@ -1363,6 +1364,17 @@ export default function ContactSection() {
                   >
                     {submitting ? "Submitting..." : "Submit"}
                   </button>
+                </div>
+                <div>
+                  <h1>
+                    <a
+                      href="https://xs.secp.gov.pk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      SECP Complaint & Queries Portal: https://xs.secp.gov.pk
+                    </a>
+                  </h1>
                 </div>
               </form>
             </div>

@@ -186,7 +186,7 @@ const defaultItems = [
   { title: "Motor", image: "/img/Motor.jpeg", href: "#motor" },
   { title: "Travel", image: "/img/Travel1.jpeg", href: "#travel" },
   { title: "Health", image: "/img/Card-01.png", href: "#health" },
-  { title: "Self", image: "/img/self1.jpeg", href: "#self" },
+  { title: "Self", image: "/img/SelfInsurance.jpeg", href: "#self" },
   { title: "Home", image: "/img/Home1.jpeg", href: "#home" },
 ];
 

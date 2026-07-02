@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const clamp01 = (v: number, a: number, b: number) =>
   Math.min(1, Math.max(0, (v - a) / (b - a)));
@@ -12,7 +12,7 @@ const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 type ServiceItem = {
   title: string;
-  text: string;
+  text: React.ReactNode;
   icon: any;
   image: any;
   tag?: string;

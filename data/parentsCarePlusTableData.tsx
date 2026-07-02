@@ -357,6 +357,14 @@ export const familyHealthCareSections: Section[] = [
           { content: "72,675" },
         ],
       },
+      {
+        label: "Product Packages are as follows:",
+        cells: [
+          { content: "Self, Spouse & up to 02 children" },
+          { content: "Self, Spouse & up to 03 children" },
+          { content: "Self, Spouse & up to 04 children" },
+        ],
+      },
     ],
   },
 
@@ -464,6 +472,14 @@ export const familyHealthCareSections: Section[] = [
           { content: "121,180" },
           { content: "133,100" },
           { content: "144,950" },
+        ],
+      },
+      {
+        label: "Product Packages are as follows:",
+        cells: [
+          { content: "Self, Spouse & up to 02 children" },
+          { content: "Self, Spouse & up to 03 children" },
+          { content: "Self, Spouse & up to 04 children" },
         ],
       },
     ],
@@ -575,6 +591,14 @@ export const familyHealthCareSections: Section[] = [
           { content: "202,860" },
         ],
       },
+      {
+        label: "Product Packages are as follows:",
+        cells: [
+          { content: "Self, Spouse & up to 02 children" },
+          { content: "Self, Spouse & up to 03 children" },
+          { content: "Self, Spouse & up to 04 children" },
+        ],
+      },
     ],
   },
 
@@ -682,6 +706,14 @@ export const familyHealthCareSections: Section[] = [
           { content: "220,450" },
           { content: "242,100" },
           { content: "263,720" },
+        ],
+      },
+      {
+        label: "Product Packages are as follows:",
+        cells: [
+          { content: "Self, Spouse & up to 02 children" },
+          { content: "Self, Spouse & up to 03 children" },
+          { content: "Self, Spouse & up to 04 children" },
         ],
       },
     ],

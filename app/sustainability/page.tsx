@@ -410,7 +410,8 @@ export default function Sustainability() {
         <div className="w-full relative">
           <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 md:px-0 pt-30">
             <h1 className="font-futura text-[34px] font-bold uppercase text-black md:text-[40px] lg:text-[44px] max-w-2xl leading-14">
-              Sustainability at Jubilee General Insurance
+              Sustainability
+              {/* at Jubilee General Insurance */}
             </h1>
 
             <p className="mt-3 max-w-[560px] font-futura text-[17px] font-normal leading-[1.6] text-black md:text-[22px] tracking-wide">
@@ -762,7 +763,7 @@ export default function Sustainability() {
                       →
                     </div>
                   )}
-                  <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#F8F8F8] text-[#4A4A4A] shadow-inner">
+                  <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#F8F8F8] text-[#4A4A4A] shadow-lg">
                     {item.icon}
                   </div>
                   <div className="mx-auto mb-4 h-[3px] w-10 rounded-full bg-[#0E3B2E]" />

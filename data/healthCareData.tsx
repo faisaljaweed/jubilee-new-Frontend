@@ -13,7 +13,7 @@ export const parentCarePackage = [
       <>
         Pakistan’s ONLY
         <br /> PLAN OFFERING
-        <span className="font-semibold text-[#BA0C2F] group-hover:text-white">
+        <span className="font-semibold text-[#BA0C2F] group-hover:text-white pl-1">
           OPD
         </span>
       </>
@@ -84,7 +84,7 @@ export const internationalTravelTrustCards = [
     card_title: (
       <>
         GLobal
-        <br /> courage
+        <br /> Coverage
       </>
     ),
   },
@@ -811,7 +811,7 @@ export const personalHealthCarePackage = [
   {
     Card_Name: "Platinum",
     Card_description: "Lorem Ipsum Sample Text",
-    Card_price: "1,000,000",
+    Card_price: "34,440",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Hospitalization limit up to Rs. 1,000,000",
@@ -826,7 +826,7 @@ export const personalHealthCarePackage = [
   {
     Card_Name: "Diamond",
     Card_description: "Lorem Ipsum Sample Text",
-    Card_price: "750,000",
+    Card_price: "26,765",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Hospitalization limit up to Rs. 750,000",
@@ -841,7 +841,7 @@ export const personalHealthCarePackage = [
   {
     Card_Name: "Gold",
     Card_description: "Lorem Ipsum Sample Text",
-    Card_price: "550,000",
+    Card_price: "	19,440",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Hospitalization limit up to Rs. 550,000",
@@ -856,7 +856,7 @@ export const personalHealthCarePackage = [
   {
     Card_Name: "Silver",
     Card_description: "Lorem Ipsum Sample Text",
-    Card_price: "275,000",
+    Card_price: "	11,015",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Hospitalization limit up to Rs. 275,000",
@@ -869,9 +869,9 @@ export const personalHealthCarePackage = [
     redIcon: "/Icons/personal health care/silver - Copy.png",
   },
   {
-    Card_Name: "Bronze Plan",
+    Card_Name: "Bronze",
     Card_description: "Lorem Ipsum Sample Text",
-    Card_price: "125,000",
+    Card_price: "6,350",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Hospitalization limit up to Rs. 125,000",
@@ -1054,7 +1054,7 @@ export const herCarePackage = [
   {
     Card_Name: "Platinum",
     Card_description: "Maximum OPD and hospitalization benefits for parents.",
-    Card_price: "1,000,000",
+    Card_price: "5,340",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Sum Covered PKR 1,000,000",
@@ -1071,7 +1071,7 @@ export const herCarePackage = [
     Card_Name: "Diamond",
     Card_description:
       "Better OPD coverage with higher hospitalization support.",
-    Card_price: "750,000",
+    Card_price: "	4,680",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Sum Covered PKR 750,000",
@@ -1087,7 +1087,7 @@ export const herCarePackage = [
   {
     Card_Name: "Gold",
     Card_description: "Basic OPD health support for parents.",
-    Card_price: "500,000",
+    Card_price: "3,000",
     Card_price_period: "PKR \nPer Year",
     Card_features: [
       "Sum Covered PKR 500,000",

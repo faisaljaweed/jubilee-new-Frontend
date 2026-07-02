@@ -21,7 +21,7 @@ const page = () => {
               Inside Jubilee General
             </h1>
 
-            <p className="mt-3 max-w-[560px] font-futura text-[20px] font-normal leading-[1.6]  text-black  md:text-[22px] tracking-wide">
+            <p className="mt-3 max-w-[500px] font-futura text-[20px] font-normal leading-[1.6]  text-black  md:text-[22px] tracking-wide">
               Where ideas grow, teams win, and your work actually makes a
               difference.
               {/* WHERE IDEAS GROW, TEAMS WIN, AND YOUR WORK ACTUALLY MAKES A
@@ -30,12 +30,12 @@ const page = () => {
             <div className="flex items-center gap-4 mt-6">
               <input
                 type="text"
-                className="border border-white px-4 py-2 rounded-full bg-white outline-none focus:ring-1 ring-[#ba0c2f] font-futura"
+                className="border border-white px-4 py-2 rounded-full bg-white outline-none shadow-lg focus:ring-1 ring-[#ba0c2f] font-futura"
                 placeholder="Search job/title"
               />
               <input
                 type="text"
-                className="border border-white px-4 py-2 rounded-full bg-white outline-none focus:ring-1 ring-[#ba0c2f] font-futura"
+                className="border border-white px-4 py-2 rounded-full bg-white outline-none shadow-lg focus:ring-1 ring-[#ba0c2f] font-futura"
                 placeholder="City, State or Zip"
               />
               <button
@@ -232,9 +232,9 @@ const page = () => {
         <div className="mx-10 mb-10 grid grid-cols-1 items-center gap-10 overflow-hidden rounded-[50px]  px-15 py-12 bg-[#BA0C2F] lg:grid-cols-2">
           {/* Left Content */}
           <div className="font-futura text-black">
-            <span className="mb-3 inline-block text-sm font-medium uppercase tracking-[0.18em] text-white">
+            {/* <span className="mb-3 inline-block text-sm font-medium uppercase tracking-[0.18em] text-white">
               Introducing
-            </span>
+            </span> */}
 
             <h1 className="text-4xl font-semibold uppercase leading-tight text-white lg:text-5xl">
               NEXTJEN PROGRAM

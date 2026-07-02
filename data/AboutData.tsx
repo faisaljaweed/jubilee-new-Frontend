@@ -161,9 +161,10 @@ import ali from "../public/img/About/Executive & Management/ali.jpg";
 import nadeem from "../public/img/About/Executive & Management/nadeem.jpg";
 import adeel from "../public/img/About/Executive & Management/adil.jpg";
 import humayoon from "../public/img/About/Executive & Management/humayoon.jpg";
+import ceo from "../public/img/About/CEO.jpg.jpeg";
 export const ExecutiveCommittee = [
   {
-    Direactor_Image: AzfarArshad,
+    Direactor_Image: ceo,
     Direactot_Name: "Azfar Arshad",
     Direactor_Designation: "Managing Director & Chief Executive",
     Direactor_Description: "",
@@ -182,7 +183,7 @@ export const ExecutiveCommittee = [
   },
   {
     Direactor_Image: adeel,
-    Direactot_Name: "M. Adil Saleh",
+    Direactot_Name: "M. Aadil Saleh",
     Direactor_Designation: "Chief Human Resources Officer",
     Direactor_Description: "",
   },
@@ -203,7 +204,7 @@ export const BoardDireactories = [
       "Mr. Akbarali Pesnani is an MBA and a Fellow Member of both the Institute of Chartered Accountants of Pakistan and the Institute of Cost and Management Accountants of Pakistan. He served as Chairman of the Gwadar Port and Gwadar Port Implementation Authority from 2004 to 2006 and has previously held board positions at Mirpur Khas Sugar Mills, Clariant Pakistan Limited, and Agha Steel Limited. He has been associated with the Aga Khan Development Network (AKDN) at senior levels for over 49 years. His international assignments include serving as AKDN’s Diplomatic Representative in Tajikistan for seven years and as Envoy of His Highness the Aga Khan in Afghanistan for approximately two years.",
   },
   {
-    Direactor_Image: AzfarArshad,
+    Direactor_Image: ceo,
     Direactot_Name: "Mr. Azfar Arshad",
     Direactor_Designation: "Managing Director & Chief Executive",
     Direactor_Description:

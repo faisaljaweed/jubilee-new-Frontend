@@ -515,7 +515,7 @@ const About = () => {
               About Us
             </p> */}
 
-            <h1 className="font-futura text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] md:text-[40px] lg:text-[44px]">
+            <h1 className="font-futura text-[34px] font-bold uppercase leading-[1.08] tracking-[-1px] md:text-[40px] lg:text-[42px]">
               INSURANCE THATS BUILT
               <br />
               AROUND PEOPLE & BUSINESS

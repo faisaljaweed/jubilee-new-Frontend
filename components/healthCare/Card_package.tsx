@@ -353,7 +353,7 @@ const Card_package: React.FC<cardPackages> = ({
               )}
 
               <span
-                className={`text-4xl sm:text-[44px] font-medium font-futura transition-colors duration-300 ${
+                className={`text-3xl sm:text-[44px] font-medium font-futura transition-colors duration-300 ${
                   isActive
                     ? "text-white"
                     : `text-[#4A4A4A] ${

@@ -179,9 +179,9 @@ export const productPages = [
     heroFallback: {
       title: "Family Health Care",
       subtitle:
-        "Family HealthCare is the medical safety net designed to protect your spouse, your kids, and your savings from out-of-control medical expenses",
-      tagline:
-        "Because Sharing is Caring, Especially When It’s a Medical Bill.",
+        "Family HealthCare is the medical safety net designed to protect your spouse, your kids, and your savings from out-of-control medical expenses.",
+      // tagline:
+      //   "Because Sharing is Caring, Especially When It’s a Medical Bill.",
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
@@ -247,7 +247,7 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "personal covered",
+        label: "individuals covered",
         value: "100,000+",
       },
     ],
@@ -289,7 +289,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/lifestyle.jpg.jpeg",
+      imageUrl: "/img/Product/lifestyle-2.jpg.jpeg",
     },
 
     counters: [
@@ -349,7 +349,7 @@ export const productPages = [
     counters: [
       {
         label: "Starting from",
-        value: "PKR 20,000",
+        value: "PKR 22,800",
         startValue: 80000,
       },
       {
@@ -400,7 +400,7 @@ export const productPages = [
     counters: [
       {
         label: "Starting from",
-        value: "PKR 20,000",
+        value: "PKR 3,000",
         startValue: 80000,
       },
       {
@@ -447,7 +447,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Product/travel1.jpg",
+      imageUrl: "/img/Product/travel-2.jpg.jpeg",
     },
 
     counters: [
@@ -503,7 +503,7 @@ export const productPages = [
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
-      imageUrl: "/img/Vechile/home.jpg",
+      imageUrl: "/img/Product/home-2.jpg.jpeg",
     },
 
     counters: [
@@ -513,7 +513,7 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "Home covered",
+        label: "Homes covered",
         value: "600,000+",
       },
     ],
@@ -565,7 +565,7 @@ export const productPages = [
         startValue: 80000,
       },
       {
-        label: "Individual   covered",
+        label: "Individuals covered",
         value: "600,000+",
       },
     ],
@@ -604,7 +604,7 @@ export const productPages = [
       title: "Motor Insurance",
       tagline: "Drive like everything’s fine. We’ll handle when it isn’t.",
       subtitle:
-        "We can’t stop potholes or sudden brake testing.But we can make sure they don’t touch your finances.",
+        "We can’t stop potholes or sudden brake testing. But we can make sure they don’t touch your finances.",
       buttonText: "Buy Now",
       // brochureText: "Product brochure",
       brochureUrl: "/pdf/health-care.pdf",
@@ -635,7 +635,7 @@ export const productPages = [
       },
     ],
 
-    trustHeading: "Why Roads Feel Safer With Our Courage",
+    trustHeading: "Why Roads Feel Safer With Our Coverage",
     trustCards: privateCarActOnlyTrustCards,
 
     plansHeading: "Choose the plan that’s right for your Vehicle",
