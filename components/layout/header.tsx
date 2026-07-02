@@ -1043,9 +1043,9 @@ export default function Header({ menuColor }: menuProps) {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="font-futura">EN</span>
+                    {/* <span className="font-futura">EN</span>
                     <span className="text-white/40">|</span>
-                    <span className="font-futura">UR</span>
+                    <span className="font-futura">UR</span> */}
                     {/* <button
                       type="button"
                       className="ml-2 bg-white/20 rounded-full p-1 hover:bg-white/30 transition"
